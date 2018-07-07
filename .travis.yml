@@ -3,8 +3,23 @@ node_js:
   - "8"
 before_install:
 # package-lock.json was introduced in npm@5
-- npm install -g npm
+- npm install -g npm@5
 - npm install -g greenkeeper-lockfile
 install: npm install
 before_script: greenkeeper-lockfile-update
 after_script: greenkeeper-lockfile-upload
+
+jobs:
+  include:
+      if: branch = master
+  install: npm install
+  before_script: npm test
+  script: npm run build
+  deploy:
+  provider: pages
+  local-dir: build
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep-history: true
+  on:
+    branch: gh-pages
