@@ -11,15 +11,15 @@ after_script: greenkeeper-lockfile-upload
 
 jobs:
   include:
-      if: branch = master
-  install: npm install
-  before_script: npm test
-  script: npm run build
-  deploy:
-  provider: pages
-  local-dir: build
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
-  keep-history: true
-  on:
-    branch: gh-pages
+    if: branch = master
+      install: npm install
+      before_script: npm test
+      script: npm run build
+      deploy:
+        provider: pages
+        local-dir: build
+        skip-cleanup: true
+        github-token: $GH_TOKEN
+        keep-history: true
+        on:
+          branch: gh-pages
