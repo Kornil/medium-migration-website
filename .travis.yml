@@ -8,10 +8,9 @@ before_install:
 install: npm install
 before_script: greenkeeper-lockfile-update
 after_script: greenkeeper-lockfile-upload
-
 jobs:
   include:
-    if: branch = master
+    - if: branch = master
       install: npm install
       before_script: npm test
       script: npm run build
