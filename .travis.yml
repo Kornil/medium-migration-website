@@ -1,6 +1,9 @@
 language: node_js
 node_js:
   - "8"
+branches:
+  except:
+  - gh-pages
 jobs:
   include:
     - if: branch = master
