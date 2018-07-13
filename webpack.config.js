@@ -32,7 +32,8 @@ module.exports = {
   resolve: {
     extensions: [".js", ".ts", ".tsx"],
     alias: {
-      public: path.resolve(__dirname, "src/public/")
+      public: path.resolve(__dirname, "src/public/"),
+      app: path.resolve(__dirname, "src/app/")
     }
   },
   entry: ["react-hot-loader/patch", path.join(__dirname, "/src/index.tsx")],

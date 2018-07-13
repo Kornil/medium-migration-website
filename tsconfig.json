@@ -11,7 +11,8 @@
     "typeRoots": ["node_modules/@types", "src/custom-types"],
     "baseUrl": ".",
     "paths": {
-      "public/*": ["src/public/*"]
+      "public/*": ["src/public/*"],
+      "app/*": ["src/app/*"]
     },
   },
   "include": ["./src/**/*"],
