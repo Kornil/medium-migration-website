@@ -6,10 +6,15 @@ branches:
   - gh-pages
 jobs:
   include:
-    - if: branch = master
+    - stage: test
       install: npm install
-      before_script: npm test
+      script: npm test
+    - stage: lint
+      script: npm run tslint
+      after_script: npm run prettier
+    - stage: build
       script: npm run build
+    - stage: deploy
       deploy:
         provider: pages
         local-dir: build
@@ -20,8 +25,6 @@ jobs:
           branch: master
     - if: branch = /^greenkeeper\/.*$
       before_install:
-      # package-lock.json was introduced in npm@5
-      - npm install -g npm@5
       - npm install -g greenkeeper-lockfile
       install: npm install
       before_script: greenkeeper-lockfile-update
