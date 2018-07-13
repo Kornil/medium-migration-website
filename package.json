@@ -31,7 +31,7 @@
     ],
     "moduleNameMapper": {
       "\\.(css|styl|less|sass|scss)$": "identity-obj-proxy",
-      "^public/(.*)$": "<rootDir>/src/tests/__mock__/fileTransformer.js"
+      "^public/(.*)$": "<rootDir>/src/tests/fileTransformer.js"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
     "transform": {
