@@ -11,9 +11,9 @@ import * as ReactDOM from "react-dom";
 // hot reload for development
 import { AppContainer } from "react-hot-loader";
 
-import App from "./App";
+import App from "app/App";
 
-import "./style.scss";
+import "app/style.scss";
 
 const root = document.getElementById("root") as HTMLElement;
 
@@ -29,7 +29,7 @@ const render = (Component: React.SFC) => {
 render(App);
 
 if (module.hot) {
-  module.hot.accept("./App", () => {
+  module.hot.accept("./app/App", () => {
     render(App);
   });
 }
