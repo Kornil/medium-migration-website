@@ -5,8 +5,7 @@ import { BrowserRouter, Link } from "react-router-dom";
 
 import Routes from "./Routes";
 
-// tslint:disable-next-line:no-var-requires
-const reactLogo = require("./assets/React-icon.png");
+import reactLogo from "public/images/React-icon.png";
 
 const App = () => (
   <BrowserRouter>

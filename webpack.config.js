@@ -15,7 +15,7 @@ const DefinePluginConfig = new webpack.DefinePlugin({
   'process.env.NODE_ENV': JSON.stringify('production'),
 });
 
-const FaviconsWebpackPluginConfig = new FaviconsWebpackPlugin(path.join(__dirname, '/src/assets/favicon-256.png'));
+const FaviconsWebpackPluginConfig = new FaviconsWebpackPlugin(path.join(__dirname, '/src/public/images/favicon-256.png'));
 
 module.exports = {
   devServer: {
@@ -26,6 +26,12 @@ module.exports = {
       'Access-Control-Allow-Origin': '*',
     },
     historyApiFallback: true,
+  },
+  resolve: {
+    extensions: ['.js', '.ts', '.tsx'],
+    alias: {
+      'public': path.resolve(__dirname, 'src/public/')
+    }
   },
   entry: ['react-hot-loader/patch', path.join(__dirname, '/src/index.tsx')],
   module: {
@@ -51,9 +57,6 @@ module.exports = {
         },
       },
     ],
-  },
-  resolve: {
-    extensions: ['.ts', '.tsx', '.js'],
   },
   output: {
     filename: 'index.js',

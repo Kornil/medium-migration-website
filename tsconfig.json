@@ -8,7 +8,11 @@
     "module": "commonjs",
     "target": "es5",
     "jsx": "react",
-    "typeRoots": ["node_modules/@types", "src/custom-types"]
+    "typeRoots": ["node_modules/@types", "src/custom-types"],
+    "baseUrl": ".",
+    "paths": {
+      "public/*": ["src/public/*"]
+    },
   },
   "include": ["./src/**/*"],
   "exclude": ["node_modules"]
