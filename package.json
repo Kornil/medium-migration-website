@@ -8,6 +8,7 @@
     "build": "cross-env NODE_ENV=production webpack -p",
     "test": "jest",
     "test--watch": "jest --watch",
+    "tslint": "tslint --fix --project ./",
     "prettier": "prettier --parser typescript --write 'src/**/*.ts' 'src/**/*.tsx'"
   },
   "keywords": [],
