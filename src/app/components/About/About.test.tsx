@@ -1,6 +1,6 @@
 import * as React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
-import About from "./About";
+import { About } from "./About";
 
 it("renders without crashing", () => {
   const div = document.createElement("div");

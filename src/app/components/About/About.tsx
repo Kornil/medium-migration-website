@@ -1,9 +1,7 @@
 import * as React from "react";
 
-const About = () => (
+export const About: React.SFC<{}> = () => (
   <div>
     <h2>About Page</h2>
   </div>
 );
-
-export default About;
