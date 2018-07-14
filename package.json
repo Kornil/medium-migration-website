@@ -31,22 +31,29 @@
       "tsx",
       "js",
       "jsx",
-      "json"
+      "json",
+      "node"
     ],
     "moduleDirectories": [
-      "node_modules"
+      "node_modules",
+      "."
     ],
     "setupFiles": [
       "<rootDir>/src/tests/setup.ts"
     ],
     "moduleNameMapper": {
       "\\.(css|styl|less|sass|scss)$": "identity-obj-proxy",
-      "^public/(.*)$": "<rootDir>/src/tests/fileTransformer.js"
+      "^public/(.*)$": "<rootDir>/src/tests/fileTransformer.js",
+      "^app/(.*)$": "<rootDir>/src/app/$1"
     },
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/src/tests/setup.ts",
     "collectCoverage": true,
     "coverageDirectory": "./coverage/",
     "collectCoverageFrom": [
@@ -55,13 +62,21 @@
     "coveragePathIgnorePatterns": [
       "/node_modules/",
       "/custom-types/"
-    ]
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfigFile": "tsconfig.json",
+        "useBabelrc": true,
+        "testResultsProcessor": "<rootDir>/node_modules/ts-jest/coverageprocessor.js",
+        "ignoreCoverageForDecorators": true,
+        "ignoreCoverageForAllDecorators": true
+      }
+    }
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.53",
     "@babel/plugin-proposal-class-properties": "^7.0.0-beta.53",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.53",
-    "@babel/plugin-transform-modules-commonjs": "^7.0.0-beta.53",
     "@babel/preset-env": "^7.0.0-beta.53",
     "@babel/preset-react": "^7.0.0-beta.53",
     "@babel/preset-typescript": "^7.0.0-beta.53",
@@ -76,6 +91,7 @@
     "css-loader": "^1.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
     "favicons-webpack-plugin": "0.0.9",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
