@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Route, RouteProps, Switch } from "react-router-dom";
-import { About, Home} from "./components";
+import { About, Home } from "./components";
 
 const Routes = () => (
   <Switch>
