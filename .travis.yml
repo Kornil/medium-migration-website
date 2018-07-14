@@ -15,8 +15,8 @@ jobs:
     - stage: lint
       script: npm run tslint
     - stage: build
+      script: npm run build
       deploy:
-        script: npm run build
         provider: pages
         local-dir: build
         skip-cleanup: true
