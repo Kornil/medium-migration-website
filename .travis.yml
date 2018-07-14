@@ -14,7 +14,6 @@ jobs:
       script: npm test
     - stage: lint
       script: npm run tslint
-      after_script: npm run prettier
     - stage: build
       deploy:
         script: npm run build
