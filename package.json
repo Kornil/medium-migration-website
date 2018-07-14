@@ -6,7 +6,7 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server -d",
     "build": "cross-env NODE_ENV=production webpack -p",
-    "test": "jest",
+    "test": "jest --no-cache",
     "test--watch": "jest --watch",
     "tslint": "tslint --fix --project ./",
     "prettier": "prettier --parser typescript --write 'src/**/*.ts' 'src/**/*.tsx'"
@@ -26,9 +26,6 @@
   "author": "",
   "license": "ISC",
   "jest": {
-    "roots": [
-      "<rootDir>/src"
-    ],
     "moduleFileExtensions": [
       "ts",
       "tsx",
@@ -51,7 +48,14 @@
       "^.+\\.tsx?$": "ts-jest"
     },
     "collectCoverage": true,
-    "coverageDirectory": "./coverage/"
+    "coverageDirectory": "./coverage/",
+    "collectCoverageFrom": [
+      "**/*.{ts,tsx}"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/custom-types/"
+    ]
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.53",
