@@ -49,7 +49,9 @@
     "testRegex": "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
-    }
+    },
+    "collectCoverage": true,
+    "coverageDirectory": "./coverage/"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.53",
