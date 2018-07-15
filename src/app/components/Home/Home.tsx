@@ -1,7 +1,7 @@
 import React from "react";
 
 interface Homeprops {
-  user: string;
+  user?: string;
 }
 
 const Home: React.SFC<Homeprops> = ({ user }) => (
@@ -10,5 +10,9 @@ const Home: React.SFC<Homeprops> = ({ user }) => (
     <p>Hello {user}</p>
   </div>
 );
+
+Home.defaultProps = {
+  user: "Default User"
+};
 
 export default Home;
