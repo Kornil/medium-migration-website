@@ -1,9 +1,9 @@
 import { mount } from "enzyme";
-import * as React from "react";
+import React from "react";
 import { MemoryRouter } from "react-router-dom";
 
-import { About, Home } from "./components";
-import { Routes } from "./Routes";
+import { About, Home } from "app/components";
+import Routes from "./Routes";
 
 describe("Routes", () => {
   it("default path should redirect to Home component", () => {

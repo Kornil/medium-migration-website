@@ -1,9 +1,9 @@
-import * as React from "react";
+import React from "react";
 import { Route, RouteProps, Switch } from "react-router-dom";
 
 import { About, Home } from "app/components";
 
-export const Routes: React.SFC<{}> = () => (
+const Routes: React.SFC<{}> = () => (
   <Switch>
     <Route
       exact
@@ -16,3 +16,5 @@ export const Routes: React.SFC<{}> = () => (
     <Route path="/about" component={About} />
   </Switch>
 );
+
+export default Routes;
