@@ -1,7 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
-const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 
 const dev = process.env.NODE_ENV !== "production";
 
@@ -14,10 +13,6 @@ const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
 const DefinePluginConfig = new webpack.DefinePlugin({
   "process.env.NODE_ENV": JSON.stringify("production")
 });
-
-const FaviconsWebpackPluginConfig = new FaviconsWebpackPlugin(
-  path.join(__dirname, "/src/public/images/favicon-256.png")
-);
 
 module.exports = {
   context: path.join(__dirname, "src"),
@@ -68,10 +63,6 @@ module.exports = {
   },
   mode: dev ? "development" : "production",
   plugins: dev
-    ? [
-        FaviconsWebpackPluginConfig,
-        HTMLWebpackPluginConfig,
-        new webpack.HotModuleReplacementPlugin()
-      ]
-    : [FaviconsWebpackPluginConfig, HTMLWebpackPluginConfig, DefinePluginConfig]
+    ? [HTMLWebpackPluginConfig, new webpack.HotModuleReplacementPlugin()]
+    : [HTMLWebpackPluginConfig, DefinePluginConfig]
 };
