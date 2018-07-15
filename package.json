@@ -6,7 +6,6 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server -d",
     "build": "cross-env NODE_ENV=production webpack -p",
-    "test--jest": "jest",
     "test--watch": "jest --watch",
     "test": "nyc jest",
     "test--coverage": "nyc report --reporter=text-lcov > coverage/coverage.lcov",
