@@ -10,10 +10,11 @@ cache:
 jobs:
   include:
     - stage: test
-      # before_install: npm i -g codecov
+      before_install: npm i -g codecov
       install: npm install
       script: npm test
-      # after_success: codecov
+      after_script: npm test--coverage
+      after_success: codecov
     - stage: lint
       script: npm run tslint
     - stage: build
