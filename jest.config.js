@@ -13,7 +13,7 @@ module.exports = {
   },
   snapshotSerializers: ["enzyme-to-json/serializer"],
   setupTestFrameworkScriptFile: "<rootDir>/src/tests/setup.ts",
-  collectCoverage: true,
+  // collectCoverage: true,
   coverageDirectory: "./coverage/",
   collectCoverageFrom: ["**/*.{ts,tsx}"],
   coveragePathIgnorePatterns: ["/node_modules/", "/custom-types/"],
