@@ -3,7 +3,6 @@
     "outDir": "build",
     "rootDir": "src",
     "sourceMap": true,
-    "inlineSourceMap": true,
     "noImplicitAny": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
