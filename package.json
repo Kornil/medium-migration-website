@@ -9,7 +9,7 @@
     "test--jest": "jest",
     "test--watch": "jest --watch",
     "test": "nyc jest",
-    "test--coverage": "nyc report --reporter=json > .nyc_output/*.json && mv coverage/coverage-final.json coverage/coverage.json",
+    "test--coverage": "nyc report --reporter=text-lcov > coverage/coverage.lcov",
     "tslint": "tslint --fix --project ./",
     "prettier": "prettier --parser typescript --write 'src/**/*.ts' 'src/**/*.tsx'"
   },
