@@ -15,7 +15,7 @@ jobs:
       before_install: npm i -g codecov
       install: npm install
       script: npm test
-      after_success: npm test--coverage
+      after_success: npm run test--coverage
       after_script: codecov
     - stage: build
       script: npm run build
