@@ -13,8 +13,8 @@ jobs:
       before_install: npm i -g codecov
       install: npm install
       script: npm test
-      after_script: npm test--coverage
-      after_success: codecov
+      after_success: npm test--coverage
+      after_script: codecov
     - stage: lint
       script: npm run tslint
     - stage: build
