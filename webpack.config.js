@@ -20,6 +20,7 @@ const FaviconsWebpackPluginConfig = new FaviconsWebpackPlugin(
 );
 
 module.exports = {
+  context: path.join(__dirname, "src"),
   devServer: {
     host: "localhost",
     port: "3000",
@@ -49,8 +50,8 @@ module.exports = {
         loader: "source-map-loader"
       },
       {
-        test: /\.scss$/,
-        loader: "style-loader!css-loader!sass-loader"
+        test: /\.css$/,
+        loader: "style-loader!css-loader"
       },
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
