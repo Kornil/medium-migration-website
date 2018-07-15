@@ -6,6 +6,7 @@ npm-debug.log*
 # Coverage reports
 coverage
 .nyc_output
+*.lcov
 
 # Dependency directories
 node_modules
