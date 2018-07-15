@@ -1,4 +1,5 @@
 module.exports = {
+  verbose: true,
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   moduleDirectories: ["node_modules", "."],
   setupFiles: ["<rootDir>/src/tests/setup.ts"],
@@ -17,7 +18,7 @@ module.exports = {
   coverageReporters: ["none"],
   coverageDirectory: "./coverage/",
   collectCoverageFrom: ["**/*.{ts,tsx}"],
-  coveragePathIgnorePatterns: ["/node_modules/", "/custom-types/"],
+  coveragePathIgnorePatterns: ["/node_modules/", "/custom-types/", "/tests/"],
   globals: {
     "ts-jest": {
       tsConfigFile: "tsconfig.json",
