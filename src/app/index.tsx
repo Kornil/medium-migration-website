@@ -5,7 +5,7 @@ import { AppContainer } from "react-hot-loader";
 
 import { App } from "./App";
 
-import "app/style.scss";
+import "app/style.css";
 
 const root = document.getElementById("root") as HTMLElement;
 

@@ -2,11 +2,11 @@
   margin: auto;
   text-align: center;
   max-width: 600px;
+}
 
-  &__image {
-    width: 100px;
-    height: auto;
-  }
+.container__image {
+  width: 100px;
+  height: auto;
 }
 
 .left {
