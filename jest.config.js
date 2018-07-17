@@ -10,14 +10,11 @@ module.exports = {
   },
   testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
   transform: {
-    "^.+\\.tsx?$": "ts-jest"
+    "^.+\\.tsx?$": "babel-jest"
   },
   snapshotSerializers: ["enzyme-to-json/serializer"],
   setupTestFrameworkScriptFile: "<rootDir>/src/tests/setup.ts",
   collectCoverage: true,
-  // Coverage doesn't work with exports for some reason so it's nyc
-  // https://github.com/facebook/jest/issues/3190#issuecomment-354758036
-  coverageReporters: ["none"],
   coverageDirectory: "./coverage/",
   collectCoverageFrom: ["**/*.{ts,tsx}"],
   coveragePathIgnorePatterns: ["/node_modules/", "/custom-types/", "/tests/"],
