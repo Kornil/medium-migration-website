@@ -17,11 +17,5 @@ module.exports = {
   collectCoverage: true,
   coverageDirectory: "./coverage/",
   collectCoverageFrom: ["src/app/**/*.{ts,tsx}"],
-  coveragePathIgnorePatterns: ["/node_modules/", "/custom-types/", "/tests/"],
-  globals: {
-    "ts-jest": {
-      tsConfigFile: "tsconfig.json",
-      useBabelrc: true
-    }
-  }
+  coveragePathIgnorePatterns: ["/node_modules/", "/custom-types/", "/tests/"]
 };
