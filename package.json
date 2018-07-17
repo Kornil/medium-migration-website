@@ -7,7 +7,7 @@
     "start": "cross-env NODE_ENV=development webpack-dev-server -d",
     "build": "cross-env NODE_ENV=production webpack -p",
     "test--watch": "jest --watch",
-    "test": "cross-env NODE_ENV=test nyc jest",
+    "test": "jest",
     "test--coverage": "nyc report --reporter=text-lcov > coverage.lcov",
     "tslint": "tslint --fix --project ./",
     "prettier": "prettier --parser typescript --write 'src/**/*.ts' 'src/**/*.tsx'"
