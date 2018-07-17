@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 
 import { AppContainer } from "react-hot-loader";
 
-import { App } from "./App";
+import { App } from "app/App";
 
 import "app/style.css";
 
@@ -21,7 +21,7 @@ const render = (Component: React.SFC) => {
 render(App);
 
 if (module.hot) {
-  module.hot.accept("./App", () => {
+  module.hot.accept("app/App", () => {
     render(App);
   });
 }

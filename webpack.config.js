@@ -32,7 +32,7 @@ module.exports = {
       app: path.resolve(__dirname, "src/app/")
     }
   },
-  entry: ["react-hot-loader/patch", path.join(__dirname, "/src/app/index.tsx")],
+  entry: ["react-hot-loader/patch", path.join(__dirname, "/src/index.tsx")],
   module: {
     rules: [
       {
