@@ -17,5 +17,10 @@ module.exports = {
   collectCoverage: true,
   coverageDirectory: "./coverage/",
   collectCoverageFrom: ["src/app/**/*.{ts,tsx}"],
-  coveragePathIgnorePatterns: ["/node_modules/", "/custom-types/", "/tests/"]
+  coveragePathIgnorePatterns: [
+    "/node_modules/",
+    "/custom-types/",
+    "/tests/",
+    "/theme.ts"
+  ]
 };
