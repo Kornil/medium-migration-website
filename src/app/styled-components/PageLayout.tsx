@@ -1,4 +1,4 @@
-import styled from "./styled-components";
+import styled from "app/styled-components";
 
 const PageLayout = styled.div`
   height: inherit;

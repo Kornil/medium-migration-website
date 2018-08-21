@@ -1,15 +1,15 @@
-import * as styledComponents from "styled-components";
+import * as styled from "styled-components";
 import { ThemedStyledComponentsModule } from "styled-components";
 
 import ThemeInterface from "./theme";
 
 const {
-  default: styled,
+  // default: styled,
   css,
   injectGlobal,
   keyframes,
   ThemeProvider
-} = styledComponents as ThemedStyledComponentsModule<ThemeInterface>;
+} = styled as ThemedStyledComponentsModule<ThemeInterface>;
 
 const theme = {
   primaryColor: "#111"
