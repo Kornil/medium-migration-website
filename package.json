@@ -62,7 +62,7 @@
     "url-loader": "^1.0.1",
     "webpack": "^4.16.0",
     "webpack-cli": "^3.0.8",
-    "webpack-dev-server": "^3.1.4"
+    "webpack-dev-server": "^3.1.5"
   },
   "dependencies": {
     "@types/react": "^16.4.6",
@@ -70,6 +70,7 @@
     "@types/react-router-dom": "^4.2.7",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-router-dom": "^4.3.1"
+    "react-router-dom": "^4.3.1",
+    "styled-jss": "^2.2.3"
   }
 }
