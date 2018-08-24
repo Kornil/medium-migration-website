@@ -5,8 +5,7 @@ import { BrowserRouter, Link } from "react-router-dom";
 
 import Routes from "./Routes";
 
-import Header from "app/styled-components/Header";
-import PageLayout from "app/styled-components/PageLayout";
+import { Header, PageLayout } from "app/styled-components";
 
 import reactLogo from "public/images/React-icon.png";
 
