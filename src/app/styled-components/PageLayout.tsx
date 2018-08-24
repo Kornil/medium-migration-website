@@ -1,10 +1,9 @@
-import styled from "app/styled-components";
+import styled from "react-emotion";
 
 const PageLayout = styled.div`
   height: inherit;
   background-color: #fff;
   color: #111;
-  padding: 0 18px;
   grid-template-areas:
     "nav nav"
     "main  main";
