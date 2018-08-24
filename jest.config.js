@@ -2,7 +2,6 @@ module.exports = {
   verbose: true,
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   moduleDirectories: ["node_modules", "."],
-  setupFiles: ["<rootDir>/src/tests/setup.ts"],
   moduleNameMapper: {
     "\\.(css|styl|less|sass|scss)$": "identity-obj-proxy",
     "^public/(.*)$": "<rootDir>/src/tests/fileTransformer.js",
