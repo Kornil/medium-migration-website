@@ -41,8 +41,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.4.2",
     "babel-loader": "^8.0.0-beta.4",
-    "babel-plugin-dynamic-import-node": "^2.0.0",
-    "babel-plugin-styled-components": "^1.5.1",
+    "babel-plugin-emotion": "^9.2.6",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
     "enzyme": "^3.3.0",
@@ -54,7 +53,7 @@
     "husky": "^1.0.0-rc.13",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.5.0",
-    "jest-styled-components": "^6.1.1",
+    "jest-emotion": "^9.2.7",
     "lint-staged": "^7.2.0",
     "prettier": "^1.13.7",
     "react-hot-loader": "^4.3.3",
@@ -77,10 +76,11 @@
     "@types/react": "^16.4.6",
     "@types/react-dom": "^16.0.6",
     "@types/react-router-dom": "^4.2.7",
+    "emotion": "^9.2.6",
     "normalize.css": "^8.0.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-router-dom": "^4.3.1",
-    "styled-components": "^3.4.4"
+    "react-emotion": "^9.2.6",
+    "react-router-dom": "^4.3.1"
   }
 }
