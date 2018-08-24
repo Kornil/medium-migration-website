@@ -5,17 +5,22 @@
     ["@babel/env", { "modules": false }]
   ],
   "plugins": [
+    ["emotion", { "hoist": true }],
     "react-hot-loader/babel",
     "@babel/plugin-proposal-object-rest-spread",
     "@babel/plugin-proposal-class-properties"
   ],
   "env": {
+    "development": {
+      "plugins": [["emotion", { "sourceMap": true, "autoLabel": true }]]
+    },
     "test": {
       "presets": [
         "@babel/react",
         "@babel/typescript",
         ["@babel/env", { "modules": "commonjs" }]
-      ]
+      ],
+      "plugins": [["emotion", { "sourceMap": true, "autoLabel": true }]]
     }
   }
 }
