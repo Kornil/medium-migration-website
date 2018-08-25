@@ -42,7 +42,7 @@
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
     "enzyme": "^3.4.4",
-    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-adapter-react-16": "^1.2.0",
     "enzyme-to-json": "^3.3.4",
     "favicons-webpack-plugin": "0.0.9",
     "file-loader": "^1.1.11",
