@@ -3,20 +3,35 @@ node_js:
   - "8"
 branches:
   except:
-  - gh-pages
+    - gh-pages
 cache:
   directories:
     - "node_modules"
 jobs:
   include:
+    - stage: update-lockfile
+      if: branch = /^greenkeeper\/.*$
+      before_install:
+        - npm install -g greenkeeper-lockfile
+      install: npm install
+      before_script: greenkeeper-lockfile-update
+      script: greenkeeper-lockfile-upload
     - stage: lint
+      install:
+        - if [[ `npm -v` != 5.10* ]]; then npm i -g npm@5.10; fi
+        - npm ci
       script: npm run tslint
     - stage: test
       before_install: npm i -g codecov
-      install: npm install
+      install:
+        - if [[ `npm -v` != 5.10* ]]; then npm i -g npm@5.10; fi
+        - npm ci
       script: npm test
       after_script: codecov
     - stage: build
+      install:
+        - if [[ `npm -v` != 5.10* ]]; then npm i -g npm@5.10; fi
+        - npm ci
       script: npm run build
       deploy:
         provider: pages
@@ -27,9 +42,3 @@ jobs:
         fqdn: francesco-agnoletto.com
         on:
           branch: master
-    - if: branch = /^greenkeeper\/.*$
-      before_install:
-      - npm install -g greenkeeper-lockfile
-      install: npm install
-      before_script: greenkeeper-lockfile-update
-      after_script: greenkeeper-lockfile-upload
