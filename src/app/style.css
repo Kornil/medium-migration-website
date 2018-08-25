@@ -1,8 +1,4 @@
-.container {
-  margin: auto;
-  text-align: center;
-  max-width: 600px;
-}
+@import "~normalize.css";
 
 .container__image {
   width: 100px;
