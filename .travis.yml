@@ -3,12 +3,19 @@ node_js:
   - "8"
 branches:
   except:
-  - gh-pages
+    - gh-pages
 cache:
   directories:
     - "node_modules"
 jobs:
   include:
+    - stage: update-lockfile
+      if: branch = /^greenkeeper\/.*$
+      before_install:
+        - npm install -g greenkeeper-lockfile
+      install: npm install
+      before_script: greenkeeper-lockfile-update
+      script: greenkeeper-lockfile-upload
     - stage: lint
       install: npm ci
       script: npm run tslint
@@ -29,9 +36,3 @@ jobs:
         fqdn: francesco-agnoletto.com
         on:
           branch: master
-    - if: branch = /^greenkeeper\/.*$
-      before_install:
-      - npm install -g greenkeeper-lockfile
-      install: npm install
-      before_script: greenkeeper-lockfile-update
-      after_script: greenkeeper-lockfile-upload
