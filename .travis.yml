@@ -4,15 +4,12 @@ node_js:
 branches:
   except:
     - gh-pages
-before_install: |
-  [[ ! -x ~/npm/node_modules/.bin/npm ]] && { cd ~/npm && npm install && npm cd - } || true
+before_install: if [[ `npm -v` != 5.10* ]]; then npm i -g npm@5.10; fi
 env: PATH=~/npm/node_modules/.bin:$PATH
 cache:
   directories:
     - "node_modules"
-    - ~/.npm 
-    - ~/npm
-before_script: npm install -g npm@5.10.0
+    - ~/.npm
 jobs:
   include:
     - stage: update-lockfile
