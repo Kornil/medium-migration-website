@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it works 1`] = `
+.emotion-0 {
+  height: inherit;
+  background-color: #fff;
+  color: #111;
+  grid-template-areas: "nav nav" "main  main";
+  grid-template-rows: 50px 1fr;
+}
+
+<div
+  className="emotion-0 emotion-1"
+/>
+`;
