@@ -10,13 +10,15 @@ cache:
 jobs:
   include:
     - stage: lint
+      install: npm ci
       script: npm run tslint
     - stage: test
       before_install: npm i -g codecov
-      install: npm install
+      install: npm ci
       script: npm test
       after_script: codecov
     - stage: build
+      install: npm ci
       script: npm run build
       deploy:
         provider: pages
