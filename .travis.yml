@@ -7,7 +7,6 @@ branches:
 cache:
   directories:
     - "node_modules"
-    - ~/.npm
 jobs:
   include:
     - stage: update-lockfile
