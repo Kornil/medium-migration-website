@@ -5,10 +5,7 @@ branches:
   except:
     - gh-pages
 before_install: |
-  [[ ! -x ~/npm/node_modules/.bin/npm ]] && {
-    cd ~/npm && npm install npm
-    cd -
-  } || true
+  [[ ! -x ~/npm/node_modules/.bin/npm ]] && { cd ~/npm && npm install && npm cd - } || true
 env: PATH=~/npm/node_modules/.bin:$PATH
 cache:
   directories:
