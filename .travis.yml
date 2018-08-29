@@ -8,6 +8,13 @@ cache:
   directories:
     - "node_modules"
     - "~/.npm"
+stages:
+  - name: "update-lockfile"
+    if: branch = /^greenkeeper.*$/
+  - lint
+  - test
+  - build
+
 jobs:
   include:
     - stage: update-lockfile
