@@ -7,39 +7,32 @@ branches:
 cache:
   directories:
     - "node_modules"
-    - "~/.npm"
-jobs:
-  include:
-    - stage: update-lockfile
-      if: branch = /^greenkeeper\/.*$
-      before_install:
-        - npm install -g greenkeeper-lockfile
-      install: npm install
-      before_script: greenkeeper-lockfile-update
-      script: greenkeeper-lockfile-upload
-    - stage: lint
-      install:
-        - if [[ `npm -v` != 5.10* ]]; then npm i -g npm@5.10; fi
-        - npm ci
-      script: npm run tslint
-    - stage: test
-      before_install: npm i -g codecov
-      install:
-        - if [[ `npm -v` != 5.10* ]]; then npm i -g npm@5.10; fi
-        - npm ci
-      script: npm test
-      after_script: codecov
-    - stage: build
-      install:
-        - if [[ `npm -v` != 5.10* ]]; then npm i -g npm@5.10; fi
-        - npm ci
-      script: npm run build
-      deploy:
-        provider: pages
-        local-dir: build
-        skip-cleanup: true
-        github-token: $GH_TOKEN
-        keep-history: true
-        fqdn: francesco-agnoletto.com
-        on:
-          branch: master
+
+before_install:
+  - if [[ `npm -v` != 5.10* ]]; then npm i -g npm@5.10; fi
+  - npm i -g greenkeeper-lockfile codecov
+
+install:
+  - npm install
+
+before_script:
+  - greenkeeper-lockfile-update
+
+script:
+  - npm run tslint
+  - npm test
+  - npm run build
+
+after_script:
+  - codecov
+  - greenkeeper-lockfile-upload
+
+deploy:
+  provider: pages
+  local-dir: build
+  skip-cleanup: true
+  github-token: $GH_TOKEN
+  keep-history: true
+  fqdn: francesco-agnoletto.com
+  on:
+    branch: master
