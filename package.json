@@ -44,7 +44,7 @@
     "babel-plugin-emotion": "^9.2.6",
     "cross-env": "^5.2.0",
     "css-loader": "^1.0.0",
-    "enzyme": "^3.4.4",
+    "enzyme": "^3.5.0",
     "enzyme-adapter-react-16": "^1.2.0",
     "enzyme-to-json": "^3.3.4",
     "favicons-webpack-plugin": "0.0.9",
