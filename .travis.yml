@@ -19,6 +19,7 @@ before_script:
   - greenkeeper-lockfile-update
 
 script:
+  - npm run type-check
   - npm run tslint
   - npm test
   - npm run build

@@ -9,6 +9,7 @@
     "test": "jest --coverage",
     "test--watch": "jest --watch",
     "test--snapshots": "jest --updateSnapshot",
+    "type-check": "tsc --noEmit",
     "tslint": "tslint --fix --project ./",
     "lint:css": "stylelint 'src/**/*.ts' 'src/**/*.tsx'",
     "prettier": "prettier --parser typescript --write 'src/**/*.ts' 'src/**/*.tsx'"
