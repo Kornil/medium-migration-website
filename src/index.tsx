@@ -1,11 +1,11 @@
+import "normalize.css";
+
 import React from "react";
 import ReactDOM from "react-dom";
 
 import { AppContainer } from "react-hot-loader";
 
 import { App } from "app/App";
-
-import "app/style.css";
 
 const root = document.getElementById("root") as HTMLElement;
 
