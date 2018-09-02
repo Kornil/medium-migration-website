@@ -1,11 +1,11 @@
 // <reference path='./index.d.ts'/>
 
 import React from "react";
-import { BrowserRouter, Link } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 import Routes from "./Routes";
 
-import { Header, PageLayout } from "app/styled-components";
+import { Header, NavLink, PageLayout } from "app/styled-components";
 
 import reactLogo from "public/images/React-icon.png";
 
@@ -13,19 +13,24 @@ export const App: React.SFC<{}> = () => (
   <BrowserRouter>
     <PageLayout>
       <Header>
-        <h1>hello world!</h1>
+        <NavLink activeClassName="active" exact to="/">
+          home
+        </NavLink>
+        <NavLink activeClassName="active" to="/about">
+          about
+        </NavLink>
+        <NavLink activeClassName="active" to="/contact">
+          contact
+        </NavLink>
       </Header>
       <h2>asd</h2>
-      <img className="container__image" alt="react logo" src={reactLogo} />
+      <img
+        style={{ width: "100px" }}
+        className="container__image"
+        alt="react logo"
+        src={reactLogo}
+      />
       <p>If you see this everything is working!</p>
-      <ul className="left">
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">About</Link>
-        </li>
-      </ul>
       <Routes />
     </PageLayout>
   </BrowserRouter>
