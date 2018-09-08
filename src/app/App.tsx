@@ -5,24 +5,15 @@ import { BrowserRouter } from "react-router-dom";
 
 import Routes from "./Routes";
 
-import { Header, NavLink, PageLayout } from "app/styled-components";
+import { Header } from "app/components/shared";
+import { PageLayout } from "app/styled-components";
 
 import reactLogo from "public/images/React-icon.png";
 
 export const App: React.SFC<{}> = () => (
   <BrowserRouter>
     <PageLayout>
-      <Header>
-        <NavLink activeClassName="active" exact to="/">
-          home
-        </NavLink>
-        <NavLink activeClassName="active" to="/about">
-          about
-        </NavLink>
-        <NavLink activeClassName="active" to="/contact">
-          contact
-        </NavLink>
-      </Header>
+      <Header />
       <h2>asd</h2>
       <img
         style={{ width: "100px" }}
