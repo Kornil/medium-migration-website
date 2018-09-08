@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it renders correctly 1`] = `
+<StyledHeader>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    exact={true}
+    to="/"
+  >
+    home
+  </NavLink>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    to="/about"
+  >
+    about
+  </NavLink>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    to="/contact"
+  >
+    contact
+  </NavLink>
+</StyledHeader>
+`;
