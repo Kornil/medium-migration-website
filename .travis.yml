@@ -10,7 +10,7 @@ cache:
 
 before_install:
   - if [[ `npm -v` != 5.10* ]]; then npm i -g npm@5.10; fi
-  - npm i -g greenkeeper-lockfile codecov
+  - npm i -g greenkeeper-lockfile@2 codecov
 
 install:
   - npm install
@@ -19,6 +19,7 @@ before_script:
   - greenkeeper-lockfile-update
 
 script:
+  - npm run type-check
   - npm run tslint
   - npm test
   - npm run build
