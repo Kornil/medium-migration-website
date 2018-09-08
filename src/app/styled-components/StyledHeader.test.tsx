@@ -1,9 +1,9 @@
 import { shallow } from "enzyme";
 import React from "react";
 
-import Header from "./Header";
+import StyledHeader from "app/styled-components/StyledHeader";
 
 test("it works", () => {
-  const wrapper = shallow(<Header />);
+  const wrapper = shallow(<StyledHeader />);
   expect(wrapper).toMatchSnapshot();
 });
