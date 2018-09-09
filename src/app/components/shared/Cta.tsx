@@ -1,5 +1,7 @@
 import React from "react";
 
-const Cta = () => <h1>Francesco Agnoletto</h1>;
+import OwnerContext from "app/shared/OwnerContext";
 
-export default Cta;
+const Cta = (props: any) => <h1>{props.OwnerContext.name}</h1>;
+
+export default OwnerContext.withContext(Cta);
