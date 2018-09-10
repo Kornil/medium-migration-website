@@ -8,9 +8,7 @@ const PageLayout = styled.div`
   font-family: Arial, Helvetica, sans-serif;
   color: #333;
   text-align: center;
-  grid-template-areas:
-    "nav nav"
-    "main  main";
+  display: grid;
   grid-template-rows: 50px 1fr;
 `;
 
