@@ -10,7 +10,7 @@ type createContextFactoryInterface = (
   onContextUpdateParam?: () => any
 ) => {
   Provider: React.ComponentType<React.ProviderProps<ContextInterface>>;
-  withContext: (
+  connect: (
     Component: React.StatelessComponent<any> | typeof React.Component
   ) => React.StatelessComponent<any>;
 };
@@ -25,7 +25,7 @@ const createContextFactory: createContextFactoryInterface = (
     [`on${name}ContextUpdate`]: onContextUpdateParam
   });
 
-  const withContext = (Component: React.SFC<any> | typeof React.Component) => {
+  const connect = (Component: React.SFC<any> | typeof React.Component) => {
     const WithContext: React.SFC<{}> = (props: any) => (
       <Consumer>
         {(contextPayload: ContextInterface) => {
@@ -35,11 +35,11 @@ const createContextFactory: createContextFactoryInterface = (
       </Consumer>
     );
 
-    WithContext.displayName = `withContext(${Component.name})`;
+    WithContext.displayName = `connect(${Component.name})`;
     return WithContext;
   };
 
-  return { Provider, withContext };
+  return { Provider, connect };
 };
 
 export default createContextFactory;
