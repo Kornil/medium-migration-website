@@ -17,8 +17,8 @@ export const App: React.SFC<{}> = () => (
       <PageLayout>
         <Header />
         <Cta />
-        <Routes />
       </PageLayout>
+      <Routes />
     </OwnerContext.Provider>
   </BrowserRouter>
 );
