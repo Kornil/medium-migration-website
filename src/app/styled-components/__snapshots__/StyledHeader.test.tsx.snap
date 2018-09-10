@@ -2,7 +2,6 @@
 
 exports[`it works 1`] = `
 .emotion-0 {
-  grid-area: nav;
   padding: 8px 0;
   height: 40px;
   display: -webkit-box;
