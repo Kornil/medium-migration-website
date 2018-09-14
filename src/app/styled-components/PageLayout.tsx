@@ -2,12 +2,14 @@ import styled from "react-emotion";
 
 const PageLayout = styled.div`
   height: inherit;
-  background-color: #fff;
-  color: #111;
-  grid-template-areas:
-    "nav nav"
-    "main  main";
-  grid-template-rows: 50px 1fr;
+  padding: 0;
+  margin: 0;
+  background-color: #dfdfdf;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
+  text-align: center;
+  display: grid;
+  grid-template-rows: 50px 2fr 1fr;
 `;
 
 export default PageLayout;

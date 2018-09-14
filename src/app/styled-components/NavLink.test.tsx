@@ -1,9 +1,9 @@
 import { shallow } from "enzyme";
 import React from "react";
 
-import Header from "./Header";
+import NavLink from "./NavLink";
 
 test("it works", () => {
-  const wrapper = shallow(<Header />);
+  const wrapper = shallow(<NavLink to="/random" />);
   expect(wrapper).toMatchSnapshot();
 });
