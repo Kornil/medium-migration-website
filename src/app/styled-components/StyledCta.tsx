@@ -5,8 +5,13 @@ interface StyledCtaInterface {
 }
 
 const StyledCta: StyledCtaInterface = {
-  Container: styled.section``,
-  Header: styled.h1``
+  Container: styled.section`
+    align-self: center;
+    justify-self: center;
+  `,
+  Header: styled.h1`
+    margin-top: 0;
+  `
 };
 
 export default StyledCta;

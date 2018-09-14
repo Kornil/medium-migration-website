@@ -1,12 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`it works 1`] = `
+.emotion-0 {
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  justify-self: center;
+}
+
 <section
   className="emotion-0 emotion-1"
 />
 `;
 
 exports[`it works 2`] = `
+.emotion-0 {
+  margin-top: 0;
+}
+
 <h1
   className="emotion-0 emotion-1"
 />

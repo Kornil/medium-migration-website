@@ -10,7 +10,7 @@ exports[`it works 1`] = `
   color: #333;
   text-align: center;
   display: grid;
-  grid-template-rows: 50px 1fr;
+  grid-template-rows: 50px 2fr 1fr;
 }
 
 <div
