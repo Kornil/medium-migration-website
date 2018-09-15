@@ -1,9 +1,5 @@
 import React from "react";
 
-const About: React.SFC<{}> = () => (
-  <div>
-    <h2>About Page</h2>
-  </div>
-);
+const About: React.SFC<{}> = () => <div />;
 
 export default About;
