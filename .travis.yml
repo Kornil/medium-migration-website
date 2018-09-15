@@ -21,7 +21,7 @@ before_script:
 script:
   - npm run type-check
   - npm run tslint
-  - npm test
+  - npm run test--ci
   - npm run build
 
 after_script:
