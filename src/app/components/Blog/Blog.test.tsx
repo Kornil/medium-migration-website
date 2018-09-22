@@ -1,10 +1,10 @@
 import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
 
-import About from "./About";
+import Blog from "app/components/Blog/Blog";
 
 it("renders without crashing", () => {
   const div = document.createElement("div");
-  render(<About />, div);
+  render(<Blog />, div);
   unmountComponentAtNode(div);
 });

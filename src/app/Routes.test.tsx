@@ -2,7 +2,7 @@ import { mount } from "enzyme";
 import React from "react";
 import { MemoryRouter } from "react-router-dom";
 
-import { About, Home } from "app/components";
+import { Blog, Home } from "app/components";
 import Routes from "./Routes";
 
 describe("Routes", () => {
@@ -15,12 +15,12 @@ describe("Routes", () => {
     expect(wrapper.find(Home)).toHaveLength(1);
   });
 
-  it("/about path should redirect to About component", () => {
+  it("/blog path should redirect to Blog component", () => {
     const wrapper = mount(
-      <MemoryRouter initialEntries={["/about"]} initialIndex={0}>
+      <MemoryRouter initialEntries={["/blog"]} initialIndex={0}>
         <Routes />
       </MemoryRouter>
     );
-    expect(wrapper.find(About)).toHaveLength(1);
+    expect(wrapper.find(Blog)).toHaveLength(1);
   });
 });

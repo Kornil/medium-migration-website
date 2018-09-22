@@ -13,9 +13,9 @@ exports[`it renders correctly 1`] = `
   <NavLink
     activeClassName="active"
     aria-current="page"
-    to="/about"
+    to="/blog"
   >
-    about
+    blog
   </NavLink>
   <NavLink
     activeClassName="active"

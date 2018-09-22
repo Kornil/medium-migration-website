@@ -7,8 +7,8 @@ const Header: React.SFC<{}> = () => (
     <NavLink activeClassName="active" exact to="/">
       home
     </NavLink>
-    <NavLink activeClassName="active" to="/about">
-      about
+    <NavLink activeClassName="active" to="/blog">
+      blog
     </NavLink>
     <NavLink activeClassName="active" to="/contact">
       contact
