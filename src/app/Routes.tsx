@@ -3,11 +3,28 @@ import { Route, Switch } from "react-router-dom";
 
 import { Blog, Home } from "app/components";
 
-const Routes: React.SFC<{}> = () => (
-  <Switch>
-    <Route exact path="/" component={Home} />
-    <Route path="/blog" component={Blog} />
-  </Switch>
-);
+interface RoutesInterface {
+  Component: React.SFC<any> | typeof React.Component;
+  path: string;
+}
+
+// set all routes here
+export const routes: RoutesInterface[] = [
+  {
+    Component: Home,
+    path: "/"
+  },
+  {
+    Component: Blog,
+    path: "/blog"
+  }
+];
+
+const Routes: React.SFC<{}> = () => {
+  const routeComponents = routes.map(({ path, Component }, key) => (
+    <Route exact path={path} component={Component} key={key} />
+  ));
+  return <Switch>{routeComponents}</Switch>;
+};
 
 export default Routes;
