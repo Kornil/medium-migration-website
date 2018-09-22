@@ -5,14 +5,7 @@ import { About, Home } from "app/components";
 
 const Routes: React.SFC<{}> = () => (
   <Switch>
-    <Route
-      exact
-      path="/"
-      // tslint:disable-next-line:jsx-no-lambda
-      render={(routeProps: RouteProps) => (
-        <Home {...routeProps} user="Default User" />
-      )}
-    />
+    <Route exact path="/" component={Home} />
     <Route path="/about" component={About} />
   </Switch>
 );

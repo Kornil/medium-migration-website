@@ -1,13 +1,7 @@
 import React from "react";
 
-interface Homeprops {
-  user?: string;
-}
+import { Cta } from "app/components/shared";
 
-const Home: React.SFC<Homeprops> = ({ user }) => <div className={user} />;
-
-Home.defaultProps = {
-  user: "Default User"
-};
+const Home: React.SFC<{}> = () => <Cta />;
 
 export default Home;
