@@ -21,15 +21,17 @@ const FaviconsWebpackPluginConfig = new FaviconsWebpackPlugin(
 
 module.exports = {
   context: path.join(__dirname, "src"),
-  devServer: {
-    host: "localhost",
-    port: "3000",
-    hot: true,
-    headers: {
-      "Access-Control-Allow-Origin": "*"
-    },
-    historyApiFallback: true
-  },
+  devServer: dev
+    ? {
+        host: "localhost",
+        port: "3000",
+        hot: true,
+        headers: {
+          "Access-Control-Allow-Origin": "*"
+        },
+        historyApiFallback: true
+      }
+    : {},
   resolve: {
     extensions: [".js", ".ts", ".tsx"],
     alias: {
@@ -38,6 +40,7 @@ module.exports = {
     }
   },
   entry: [
+    "@babel/polyfill",
     "react-hot-loader/patch",
     "whatwg-fetch",
     path.join(__dirname, "/src/index.tsx")
