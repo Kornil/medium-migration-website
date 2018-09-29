@@ -39,8 +39,8 @@ module.exports = {
   },
   entry: [
     "@babel/polyfill",
-    "react-hot-loader/patch",
     "whatwg-fetch",
+    "react-hot-loader/patch",
     path.join(__dirname, "/src/index.tsx")
   ],
   module: {
