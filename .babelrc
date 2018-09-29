@@ -21,7 +21,10 @@
         "@babel/typescript",
         ["@babel/env", { "modules": "commonjs" }]
       ],
-      "plugins": [["emotion", { "sourceMap": true, "autoLabel": true }]]
+      "plugins": [
+        "@babel/plugin-transform-runtime",
+        ["emotion", { "sourceMap": true, "autoLabel": true }]
+      ]
     }
   }
 }
