@@ -1,5 +1,32 @@
-import React from "react";
+import React, { Component } from "react";
 
-const Blog: React.SFC<{}> = () => <div />;
+class Blog extends Component {
+  componentDidMount() {
+    this.fetchMediumStories();
+  }
+
+  fetchMediumStories = async () => {
+    try {
+      const response: any = await fetch(
+        "https://medium-fake-api-vgwjykskau.now.sh"
+      );
+
+      const data = await response.json();
+      this.setState({
+        status: "success",
+        stories: data
+      });
+    } catch (error) {
+      this.setState({
+        errorMessage: error,
+        status: "error"
+      });
+    }
+  };
+
+  render() {
+    return <div />;
+  }
+}
 
 export default Blog;
