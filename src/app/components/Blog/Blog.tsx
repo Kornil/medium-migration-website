@@ -1,6 +1,12 @@
 import React, { Component } from "react";
 
 class Blog extends Component {
+  state = {
+    errorMessage: "",
+    status: null,
+    stories: []
+  };
+
   componentDidMount() {
     this.fetchMediumStories();
   }
