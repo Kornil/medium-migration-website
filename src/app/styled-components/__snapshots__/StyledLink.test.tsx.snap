@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it works 1`] = `
+.emotion-0 {
+  color: #3d3d3d;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.emotion-0:hover {
+  color: #1f1f1f;
+}
+
+<a
+  className="emotion-0 emotion-1"
+/>
+`;
