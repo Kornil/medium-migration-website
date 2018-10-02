@@ -6,9 +6,9 @@
   "scripts": {
     "start": "cross-env NODE_ENV=development webpack-dev-server -d",
     "build": "cross-env NODE_ENV=production webpack -p",
-    "test": "jest --coverage",
+    "test": "jest --coverage --verbose",
     "test--ci": "jest --coverage --runInBand",
-    "test--watch": "jest --watch",
+    "test--watch": "jest --watch --verbose",
     "test--snapshots": "jest --updateSnapshot",
     "type-check": "tsc --noEmit",
     "tslint": "tslint --fix --project ./",

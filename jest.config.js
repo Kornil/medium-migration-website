@@ -1,5 +1,4 @@
 module.exports = {
-  verbose: true,
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   moduleDirectories: ["node_modules", "."],
   moduleNameMapper: {
