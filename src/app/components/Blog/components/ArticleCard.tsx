@@ -1,22 +1,13 @@
 import React from "react";
 import styled from "react-emotion";
 
-import { StyledEm } from "app/styled-components";
+import { StyledEm, StyledLink } from "app/styled-components";
 import { getDateFromUnix } from "app/utils";
 
 import StoryInterface from "../interfaces/StoryInterface";
 
 const StyledArticleCard = styled.section`
   margin-bottom: 48px;
-
-  a {
-    color: #3d3d3d;
-    text-decoration: none;
-
-    :hover {
-      color: #1f1f1f;
-    }
-  }
 
   h3 {
     font-weight: normal;
@@ -31,12 +22,12 @@ const StyledArticleCard = styled.section`
 
 const ArticleCard: React.SFC<{ story: StoryInterface }> = ({ story }) => (
   <StyledArticleCard>
-    <a href={story.link}>
+    <StyledLink href={story.link}>
       <h3>{story.title}</h3>
       <p>
         <StyledEm>{getDateFromUnix(story.publishedAt)}</StyledEm>
       </p>
-    </a>
+    </StyledLink>
   </StyledArticleCard>
 );
 
