@@ -1,9 +1,11 @@
 import React from "react";
 
-import OwnerContext from "app/context/OwnerContext";
+import OwnerContext, {
+  OwnerContextValueInterface
+} from "app/context/OwnerContext";
 import StyledCta from "./StyledCta";
 
-const Cta: React.SFC<any> = props => (
+const Cta: React.SFC<{ OwnerContext: OwnerContextValueInterface }> = props => (
   <StyledCta.Container>
     <StyledCta.Header>{props.OwnerContext.name}</StyledCta.Header>
     <p>
