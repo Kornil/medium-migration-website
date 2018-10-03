@@ -5,7 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import Routes from "./Routes";
 
-import { Header } from "app/components/shared";
+import { Footer, Header } from "app/components/shared";
 import OwnerContext, { ownerContextValue } from "app/context/OwnerContext";
 import { PageLayout } from "app/styled-components";
 
@@ -17,6 +17,7 @@ export const App: React.SFC<{}> = () => (
       <PageLayout>
         <Header />
         <Routes />
+        <Footer />
       </PageLayout>
     </OwnerContext.Provider>
   </BrowserRouter>

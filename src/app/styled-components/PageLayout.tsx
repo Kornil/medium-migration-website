@@ -9,7 +9,7 @@ const PageLayout = styled.div`
   color: #333;
   text-align: center;
   display: grid;
-  grid-template-rows: 50px 1fr;
+  grid-template-rows: 50px 1fr 50px;
 `;
 
 export default PageLayout;
