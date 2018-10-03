@@ -1,6 +1,10 @@
 import React from "react";
 import styled from "react-emotion";
 
+import OwnerContext, {
+  OwnerContextValueInterface
+} from "app/context/OwnerContext";
+
 import { StyledLink } from "app/styled-components";
 import GithubLogo from "public/github-brands.svg";
 import LinkedinLogo from "public/linkedin-in-brands.svg";
@@ -16,18 +20,20 @@ const StyledFooter = styled.footer`
   }
 `;
 
-const Footer = () => (
+const Footer: React.SFC<{
+  OwnerContext: OwnerContextValueInterface;
+}> = props => (
   <StyledFooter>
-    <StyledLink href="">
+    <StyledLink href={props.OwnerContext.socials.github}>
       <GithubLogo width="25px" height="25px" />
     </StyledLink>
-    <StyledLink href="">
+    <StyledLink href={props.OwnerContext.socials.linkedin}>
       <LinkedinLogo width="25px" height="25px" />
     </StyledLink>
-    <StyledLink href="">
+    <StyledLink href={props.OwnerContext.socials.twitter}>
       <TwitterLogo width="25px" height="25px" />
     </StyledLink>
   </StyledFooter>
 );
 
-export default Footer;
+export default OwnerContext.connect(Footer);
