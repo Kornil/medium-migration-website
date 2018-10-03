@@ -1,7 +1,7 @@
 import path from "path";
 
 module.exports = {
-  process(src: any, filename: string, config: any, options: any) {
+  process(src, filename, config, options) {
     return "module.exports = " + JSON.stringify(path.basename(filename)) + ";";
   }
 };

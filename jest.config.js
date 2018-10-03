@@ -3,7 +3,7 @@ module.exports = {
   moduleDirectories: ["node_modules", "."],
   moduleNameMapper: {
     "\\.(css|styl|less|sass|scss)$": "identity-obj-proxy",
-    "^public/(.*)$": "<rootDir>/src/tests/fileTransformer.ts",
+    "^public/(.*)$": "<rootDir>/src/tests/fileTransformer.js",
     "^app/(.*)$": "<rootDir>/src/app/$1"
   },
   testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
