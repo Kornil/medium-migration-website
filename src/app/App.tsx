@@ -6,7 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import Routes from "./Routes";
 
 import { Header } from "app/components/shared";
-import OwnerContext, { ownerContextValue } from "app/shared/OwnerContext";
+import OwnerContext, { ownerContextValue } from "app/context/OwnerContext";
 import { PageLayout } from "app/styled-components";
 
 // import reactLogo from "public/images/React-icon.png";

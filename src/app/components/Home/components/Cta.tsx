@@ -1,6 +1,6 @@
 import React from "react";
 
-import OwnerContext from "app/shared/OwnerContext";
+import OwnerContext from "app/context/OwnerContext";
 import StyledCta from "./StyledCta";
 
 const Cta: React.SFC<any> = props => (
