@@ -1,6 +1,15 @@
 import React from "react";
+import styled from "react-emotion";
 
-import { NavLink, StyledHeader } from "app/styled-components";
+import { NavLink } from "app/styled-components";
+
+const StyledHeader = styled.header`
+  padding: 8px 0;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
 
 const Header: React.SFC<{}> = () => (
   <StyledHeader>
