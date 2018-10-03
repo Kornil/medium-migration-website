@@ -5,6 +5,7 @@ const NavLink = styled(Link)`
   color: inherit;
   text-decoration: none;
   padding: 0 28px;
+  letter-spacing: 4px;
 
   :hover {
     text-decoration: underline;
