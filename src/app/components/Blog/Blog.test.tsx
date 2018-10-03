@@ -1,9 +1,8 @@
 import { shallow } from "enzyme";
 import fetchMock from "fetch-mock";
 import React from "react";
-import { render, unmountComponentAtNode } from "react-dom";
 
-import Blog from "app/components/Blog/Blog";
+import Blog from "./Blog";
 
 const initialData = {
   errorMessage: "",
@@ -14,7 +13,7 @@ const initialData = {
 const successData = {
   errorMessage: "",
   status: "success",
-  stories: { hello: "world!" }
+  stories: [{ hello: "world!" }]
 };
 
 const errorData = {
@@ -23,15 +22,9 @@ const errorData = {
   stories: []
 };
 
-fetchMock.get(`*`, JSON.stringify({ hello: `world!` }));
+fetchMock.get(`*`, JSON.stringify({ payload: [{ hello: `world!` }] }));
 
 describe("<Blog />", () => {
-  it("renders without crashing", () => {
-    const div = document.createElement("div");
-    render(<Blog />, div);
-    unmountComponentAtNode(div);
-  });
-
   it("mount with default state", () => {
     const wrapper = shallow(<Blog />);
 
