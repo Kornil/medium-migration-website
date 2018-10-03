@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 
+import { StyledBody, StyledEm, StyledTitle } from "app/styled-components";
+
+import { ArticleCard } from "./components";
+import StoryInterface from "./interfaces/StoryInterface";
+
 class Blog extends Component {
   state = {
     errorMessage: "",
@@ -13,14 +18,12 @@ class Blog extends Component {
 
   fetchMediumStories = async () => {
     try {
-      const response: any = await fetch(
-        "https://medium-fake-api-vgwjykskau.now.sh"
-      );
+      const response: Response = await fetch("https://medium-api.now.sh/");
 
-      const data = await response.json();
+      const { payload }: { payload: StoryInterface[] } = await response.json();
       this.setState({
         status: "success",
-        stories: data
+        stories: payload
       });
     } catch (error) {
       this.setState({
@@ -31,7 +34,22 @@ class Blog extends Component {
   };
 
   render() {
-    return <div />;
+    const { stories } = this.state;
+    return (
+      <StyledBody>
+        <section>
+          <StyledTitle>
+            <h1>My Articles</h1>
+            <StyledEm>
+              Toughts on Web Development, my projects and my career.
+            </StyledEm>
+          </StyledTitle>
+          {stories.map((story: StoryInterface) => (
+            <ArticleCard key={story.title} story={story} />
+          ))}
+        </section>
+      </StyledBody>
+    );
   }
 }
 
