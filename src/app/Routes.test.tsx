@@ -2,25 +2,17 @@ import { mount } from "enzyme";
 import React from "react";
 import { MemoryRouter } from "react-router-dom";
 
-import { About, Home } from "app/components";
-import Routes from "./Routes";
+import Routes, { routes } from "./Routes";
 
 describe("Routes", () => {
-  it("default path should redirect to Home component", () => {
-    const wrapper = mount(
-      <MemoryRouter initialEntries={["/"]} initialIndex={0}>
-        <Routes />
-      </MemoryRouter>
-    );
-    expect(wrapper.find(Home)).toHaveLength(1);
-  });
-
-  it("/about path should redirect to About component", () => {
-    const wrapper = mount(
-      <MemoryRouter initialEntries={["/about"]} initialIndex={0}>
-        <Routes />
-      </MemoryRouter>
-    );
-    expect(wrapper.find(About)).toHaveLength(1);
-  });
+  for (const { Component, path } of routes) {
+    it(`${path} path should redirect to ${Component.name} component`, () => {
+      const wrapper = mount(
+        <MemoryRouter initialEntries={[path]} initialIndex={0}>
+          <Routes />
+        </MemoryRouter>
+      );
+      expect(wrapper.find(Component)).toHaveLength(1);
+    });
+  }
 });

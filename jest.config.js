@@ -1,14 +1,14 @@
 module.exports = {
-  verbose: true,
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   moduleDirectories: ["node_modules", "."],
   moduleNameMapper: {
     "\\.(css|styl|less|sass|scss)$": "identity-obj-proxy",
-    "^public/(.*)$": "<rootDir>/src/tests/fileTransformer.js",
+    "^public/(?:(?!.*.svg).)*$": "<rootDir>/src/tests/fileTransformer.js",
     "^app/(.*)$": "<rootDir>/src/app/$1"
   },
   testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
   transform: {
+    "^.+\\.svg$": "jest-svg-transformer",
     "^.+\\.tsx?$": "babel-jest"
   },
   snapshotSerializers: ["enzyme-to-json/serializer"],

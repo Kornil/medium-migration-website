@@ -2,13 +2,20 @@
   "presets": [
     "@babel/react",
     "@babel/typescript",
-    ["@babel/env", { "modules": false }]
+    [
+      "@babel/env",
+      {
+        "modules": false,
+        "useBuiltIns": "usage"
+      }
+    ]
   ],
   "plugins": [
     ["emotion", { "hoist": true }],
     "react-hot-loader/babel",
     "@babel/plugin-proposal-object-rest-spread",
-    "@babel/plugin-proposal-class-properties"
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-transform-async-to-generator"
   ],
   "env": {
     "development": {
@@ -20,7 +27,10 @@
         "@babel/typescript",
         ["@babel/env", { "modules": "commonjs" }]
       ],
-      "plugins": [["emotion", { "sourceMap": true, "autoLabel": true }]]
+      "plugins": [
+        "@babel/plugin-transform-runtime",
+        ["emotion", { "sourceMap": true, "autoLabel": true }]
+      ]
     }
   }
 }

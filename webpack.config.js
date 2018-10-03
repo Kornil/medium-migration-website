@@ -37,7 +37,11 @@ module.exports = {
       app: path.resolve(__dirname, "src/app/")
     }
   },
-  entry: ["react-hot-loader/patch", path.join(__dirname, "/src/index.tsx")],
+  entry: [
+    "whatwg-fetch",
+    "react-hot-loader/patch",
+    path.join(__dirname, "/src/index.tsx")
+  ],
   module: {
     rules: [
       {
@@ -54,11 +58,25 @@ module.exports = {
         loader: "style-loader!css-loader"
       },
       {
-        test: /\.(jpe?g|png|gif|svg)$/i,
+        test: /\.(jpe?g|png|gif)$/i,
         loader: "url-loader",
         options: {
           limit: 10000
         }
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: "babel-loader"
+          },
+          {
+            loader: "react-svg-loader",
+            options: {
+              jsx: true // true outputs JSX tags
+            }
+          }
+        ]
       }
     ]
   },
