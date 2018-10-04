@@ -11,7 +11,9 @@
   <meta name="application-name" content="personal-website">
   <meta name="Description" content="Front end web engineer, click and check my work.">
   <style>
-    html, body, #root {
+    html,
+    body,
+    #root {
       margin: 0;
       height: 100%;
     }
@@ -21,5 +23,13 @@
 <body>
   <div id="root"></div>
 </body>
+
+<script>
+  (function () {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js');
+    }
+  })();
+</script>
 
 </html>

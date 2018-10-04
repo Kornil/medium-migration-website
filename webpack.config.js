@@ -3,8 +3,11 @@ const webpack = require("webpack");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
+const SWPrecacheWebpackPlugin = require("sw-precache-webpack-plugin");
 
 const dev = process.env.NODE_ENV !== "production";
+
+const PUBLIC_PATH = "https://francesco-agnoletto.com/";
 
 const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
   template: "index.html",
@@ -28,6 +31,15 @@ const PWAManifestConfig = new WebpackPwaManifest({
   background_color: "#dfdfdf",
   display: "fullscreen",
   start_url: "francesco-agnoletto.com"
+});
+
+const SWPrecacheWebpackPluginConfig = new SWPrecacheWebpackPlugin({
+  cacheId: "my-project-name",
+  dontCacheBustUrlsMatching: /\.\w{8}\./,
+  filename: "service-worker.js",
+  minify: true,
+  navigateFallback: PUBLIC_PATH + "index.html",
+  staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/]
 });
 
 module.exports = {
@@ -102,5 +114,11 @@ module.exports = {
         FaviconsWebpackPluginConfig,
         new webpack.HotModuleReplacementPlugin()
       ]
-    : [HTMLWebpackPluginConfig, FaviconsWebpackPluginConfig, DefinePluginConfig]
+    : [
+        HTMLWebpackPluginConfig,
+        FaviconsWebpackPluginConfig,
+        DefinePluginConfig,
+        PWAManifestConfig,
+        SWPrecacheWebpackPluginConfig
+      ]
 };
