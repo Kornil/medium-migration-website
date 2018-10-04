@@ -34,7 +34,7 @@ const PWAManifestConfig = new WebpackPwaManifest({
 });
 
 const SWPrecacheWebpackPluginConfig = new SWPrecacheWebpackPlugin({
-  cacheId: "my-project-name",
+  cacheId: "Francesco Agnoletto website",
   dontCacheBustUrlsMatching: /\.\w{8}\./,
   filename: "service-worker.js",
   minify: true,
