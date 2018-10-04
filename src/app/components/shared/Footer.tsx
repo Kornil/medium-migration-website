@@ -25,13 +25,28 @@ const Footer: React.SFC<{
 }> = props => (
   <StyledFooter>
     <StyledLink href={props.OwnerContext.socials.github}>
-      <GithubLogo width="25px" height="25px" />
+      <GithubLogo
+        role="img"
+        aria-label="GitHub profile"
+        width="25px"
+        height="25px"
+      />
     </StyledLink>
     <StyledLink href={props.OwnerContext.socials.linkedin}>
-      <LinkedinLogo width="25px" height="25px" />
+      <LinkedinLogo
+        role="img"
+        aria-label="Linkedin profile"
+        width="25px"
+        height="25px"
+      />
     </StyledLink>
     <StyledLink href={props.OwnerContext.socials.twitter}>
-      <TwitterLogo width="25px" height="25px" />
+      <TwitterLogo
+        role="img"
+        aria-label="Twitter profile"
+        width="25px"
+        height="25px"
+      />
     </StyledLink>
   </StyledFooter>
 );
