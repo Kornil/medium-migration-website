@@ -2,8 +2,12 @@ const path = require("path");
 const webpack = require("webpack");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
+const WebpackPwaManifest = require("webpack-pwa-manifest");
+const SWPrecacheWebpackPlugin = require("sw-precache-webpack-plugin");
 
 const dev = process.env.NODE_ENV !== "production";
+
+const PUBLIC_PATH = "https://francesco-agnoletto.com/";
 
 const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
   template: "index.html",
@@ -18,6 +22,25 @@ const DefinePluginConfig = new webpack.DefinePlugin({
 const FaviconsWebpackPluginConfig = new FaviconsWebpackPlugin(
   "public/images/favicon-256.png"
 );
+
+const PWAManifestConfig = new WebpackPwaManifest({
+  name: "Francesco Agnoletto Website",
+  short_name: "FA Blog",
+  description: "Front end web engineer, click and check my work.",
+  theme_color: "#dfdfdf",
+  background_color: "#dfdfdf",
+  display: "fullscreen",
+  start_url: "francesco-agnoletto.com"
+});
+
+const SWPrecacheWebpackPluginConfig = new SWPrecacheWebpackPlugin({
+  cacheId: "Francesco Agnoletto website",
+  dontCacheBustUrlsMatching: /\.\w{8}\./,
+  filename: "service-worker.js",
+  minify: true,
+  navigateFallback: PUBLIC_PATH + "index.html",
+  staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/]
+});
 
 module.exports = {
   context: path.join(__dirname, "src"),
@@ -91,5 +114,11 @@ module.exports = {
         FaviconsWebpackPluginConfig,
         new webpack.HotModuleReplacementPlugin()
       ]
-    : [HTMLWebpackPluginConfig, FaviconsWebpackPluginConfig, DefinePluginConfig]
+    : [
+        HTMLWebpackPluginConfig,
+        FaviconsWebpackPluginConfig,
+        DefinePluginConfig,
+        PWAManifestConfig,
+        SWPrecacheWebpackPluginConfig
+      ]
 };
