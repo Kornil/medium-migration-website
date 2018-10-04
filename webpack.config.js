@@ -35,11 +35,7 @@ const PWAManifestConfig = new WebpackPwaManifest({
 
 const SWPrecacheWebpackPluginConfig = new SWPrecacheWebpackPlugin({
   cacheId: "Francesco Agnoletto website",
-  dontCacheBustUrlsMatching: /\.\w{8}\./,
-  filename: "service-worker.js",
-  minify: true,
-  navigateFallback: PUBLIC_PATH + "index.html",
-  staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/]
+  minify: true
 });
 
 module.exports = {
