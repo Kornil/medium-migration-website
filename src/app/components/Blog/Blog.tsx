@@ -37,17 +37,15 @@ class Blog extends Component {
     const { stories } = this.state;
     return (
       <StyledBody>
-        <section>
-          <StyledTitle>
-            <h1>My Articles</h1>
-            <StyledEm>
-              Toughts on Web Development, my projects and my career.
-            </StyledEm>
-          </StyledTitle>
-          {stories.map((story: StoryInterface) => (
-            <ArticleCard key={story.title} story={story} />
-          ))}
-        </section>
+        <StyledTitle>
+          <h1>My Articles</h1>
+          <StyledEm>
+            Toughts on Web Development, my projects and my career.
+          </StyledEm>
+        </StyledTitle>
+        {stories.map((story: StoryInterface) => (
+          <ArticleCard key={story.title} story={story} />
+        ))}
       </StyledBody>
     );
   }

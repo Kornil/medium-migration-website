@@ -10,6 +10,11 @@ const PageLayout = styled.div`
   text-align: center;
   display: grid;
   grid-template-rows: 50px 1fr 50px;
+
+   {
+    /* fix scrollbar issue */
+  }
+  padding-left: calc(100vw - 100%);
 `;
 
 export default PageLayout;
