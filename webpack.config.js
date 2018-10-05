@@ -3,7 +3,6 @@ const webpack = require("webpack");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
-const SWPrecacheWebpackPlugin = require("sw-precache-webpack-plugin");
 
 const dev = process.env.NODE_ENV !== "production";
 
@@ -29,11 +28,6 @@ const PWAManifestConfig = new WebpackPwaManifest({
   background_color: "#dfdfdf",
   display: "fullscreen",
   start_url: "francesco-agnoletto.com"
-});
-
-const SWPrecacheWebpackPluginConfig = new SWPrecacheWebpackPlugin({
-  cacheId: "Francesco Agnoletto website",
-  minify: true
 });
 
 module.exports = {
@@ -112,7 +106,6 @@ module.exports = {
         HTMLWebpackPluginConfig,
         FaviconsWebpackPluginConfig,
         DefinePluginConfig,
-        PWAManifestConfig,
-        SWPrecacheWebpackPluginConfig
+        PWAManifestConfig
       ]
 };
