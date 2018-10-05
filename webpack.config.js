@@ -7,8 +7,6 @@ const SWPrecacheWebpackPlugin = require("sw-precache-webpack-plugin");
 
 const dev = process.env.NODE_ENV !== "production";
 
-const PUBLIC_PATH = "https://francesco-agnoletto.com/";
-
 const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
   template: "index.html",
   filename: "index.html",
