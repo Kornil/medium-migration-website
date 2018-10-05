@@ -7,7 +7,7 @@ const WebpackPwaManifest = require("webpack-pwa-manifest");
 const dev = process.env.NODE_ENV !== "production";
 
 const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
-  template: "index.html",
+  template: "client/index.html",
   filename: "index.html",
   inject: true
 });
@@ -44,14 +44,14 @@ module.exports = {
   resolve: {
     extensions: [".js", ".ts", ".tsx"],
     alias: {
-      public: path.resolve(__dirname, "src/public/"),
-      app: path.resolve(__dirname, "src/app/")
+      public: path.resolve(__dirname, "src/client/public/"),
+      app: path.resolve(__dirname, "src/client/app/")
     }
   },
   entry: [
     "whatwg-fetch",
     "react-hot-loader/patch",
-    path.join(__dirname, "/src/index.tsx")
+    path.join(__dirname, "/src/client/index.tsx")
   ],
   module: {
     rules: [

@@ -3,8 +3,9 @@ module.exports = {
   moduleDirectories: ["node_modules", "."],
   moduleNameMapper: {
     "\\.(css|styl|less|sass|scss)$": "identity-obj-proxy",
-    "^public/(?:(?!.*.svg).)*$": "<rootDir>/src/tests/fileTransformer.js",
-    "^app/(.*)$": "<rootDir>/src/app/$1"
+    "^public/(?:(?!.*.svg).)*$":
+      "<rootDir>/src/client/tests/fileTransformer.js",
+    "^app/(.*)$": "<rootDir>/src/client/app/$1"
   },
   testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
   transform: {
@@ -12,9 +13,9 @@ module.exports = {
     "^.+\\.tsx?$": "babel-jest"
   },
   snapshotSerializers: ["enzyme-to-json/serializer"],
-  setupTestFrameworkScriptFile: "<rootDir>/src/tests/setup.ts",
+  setupTestFrameworkScriptFile: "<rootDir>/src/client/tests/setup.ts",
   collectCoverage: true,
   coverageDirectory: "./coverage/",
-  collectCoverageFrom: ["src/app/**/*.{ts,tsx}"],
+  collectCoverageFrom: ["src/client/app/**/*.{ts,tsx}"],
   coveragePathIgnorePatterns: ["/node_modules/", "/custom-types/", "/tests/"]
 };
