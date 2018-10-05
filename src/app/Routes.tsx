@@ -35,7 +35,9 @@ const Routes: React.SFC<{}> = () => {
       <Route
         exact
         path={path}
-        component={module.hot ? Component : LoadableComponent}
+        component={
+          process.env.NODE_ENV !== "production" ? Component : LoadableComponent
+        }
         key={key}
       />
     );
