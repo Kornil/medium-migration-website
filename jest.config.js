@@ -3,7 +3,7 @@ module.exports = {
   moduleDirectories: ["node_modules", "."],
   moduleNameMapper: {
     "\\.(css|styl|less|sass|scss)$": "identity-obj-proxy",
-    "^public/(?:(?!.*.svg).)*$":
+    "^assets/(?:(?!.*.svg).)*$":
       "<rootDir>/src/client/tests/fileTransformer.js",
     "^app/(.*)$": "<rootDir>/src/client/app/$1"
   },

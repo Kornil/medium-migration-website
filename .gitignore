@@ -15,4 +15,4 @@ node_modules
 .npm
 
 # Prod Bundle
-build
+public

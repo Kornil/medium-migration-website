@@ -13,7 +13,7 @@
     "typeRoots": ["node_modules/@types", "src/client/custom-types"],
     "baseUrl": ".",
     "paths": {
-      "public/*": ["src/client/public/*"],
+      "assets/*": ["src/client/assets/*"],
       "app/*": ["src/client/app/*"]
     },
     "moduleResolution": "node",
