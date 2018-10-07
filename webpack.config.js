@@ -3,7 +3,6 @@ const webpack = require("webpack");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
 const nodeExternals = require("webpack-node-externals");
-const createFileWebpack = require("create-file-webpack");
 
 const dev = process.env.NODE_ENV !== "production";
 
@@ -28,23 +27,14 @@ const PWAManifestConfig = new WebpackPwaManifest({
   start_url: "francesco-agnoletto.com",
   icons: [
     {
-      src: "assets/images/pwa-192x192.png",
+      src: path.resolve(__dirname, "src/client/assets/images/pwa-192x192.png"),
       size: "192x192"
     },
     {
-      src: "assets/images/pwa-512x512.png",
+      src: path.resolve(__dirname, "src/client/assets/images/pwa-512x512.png"),
       size: "512x512"
     }
   ]
-});
-
-const createRobot = new createFileWebpack({
-  path: "./public",
-  fileName: "robots.txt",
-  content: `
-    User-agent: * 
-    Disallow: 
-  `
 });
 
 const clientConfig = {
@@ -116,7 +106,7 @@ const clientConfig = {
   mode: dev ? "development" : "production",
   plugins: dev
     ? [new webpack.HotModuleReplacementPlugin(), HTMLWebpackPluginConfig]
-    : [DefinePluginConfig, PWAManifestConfig, createFileWebpack, createRobot]
+    : [DefinePluginConfig, PWAManifestConfig]
 };
 
 const serverConfig = {
