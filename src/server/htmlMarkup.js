@@ -7,11 +7,15 @@ const htmlMarkup = markup => `
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Francesco Agnoletto</title>
+
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="theme-color" content="#dfdfdf">
   <meta name="application-name" content="personal-website">
   <meta name="Description" content="Front end web engineer, click and check my work.">
   <link rel="manifest" href="/manifest.json">
+
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
   <style>
     html,
     body,
@@ -20,6 +24,7 @@ const htmlMarkup = markup => `
       height: 100%;
     }
   </style>
+
 </head>
 
 <body>
