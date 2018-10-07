@@ -1,7 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
-const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
 const nodeExternals = require("webpack-node-externals");
 const createFileWebpack = require("create-file-webpack");
@@ -18,10 +17,6 @@ const DefinePluginConfig = new webpack.DefinePlugin({
   "process.env.NODE_ENV": JSON.stringify("production")
 });
 
-const FaviconsWebpackPluginConfig = new FaviconsWebpackPlugin(
-  "assets/images/favicon-256.png"
-);
-
 const PWAManifestConfig = new WebpackPwaManifest({
   filename: "manifest.json",
   name: "Francesco Agnoletto Website",
@@ -30,7 +25,17 @@ const PWAManifestConfig = new WebpackPwaManifest({
   theme_color: "#dfdfdf",
   background_color: "#dfdfdf",
   display: "fullscreen",
-  start_url: "francesco-agnoletto.com"
+  start_url: "francesco-agnoletto.com",
+  icons: [
+    {
+      src: "assets/images/pwa-192x192.png",
+      size: "192x192"
+    },
+    {
+      src: "assets/images/pwa-512x512.png",
+      size: "512x512"
+    }
+  ]
 });
 
 const createRobot = new createFileWebpack({
@@ -111,13 +116,7 @@ const clientConfig = {
   mode: dev ? "development" : "production",
   plugins: dev
     ? [new webpack.HotModuleReplacementPlugin(), HTMLWebpackPluginConfig]
-    : [
-        DefinePluginConfig /* 
-        FaviconsWebpackPluginConfig, */,
-        PWAManifestConfig,
-        createFileWebpack,
-        createRobot
-      ]
+    : [DefinePluginConfig, PWAManifestConfig, createFileWebpack, createRobot]
 };
 
 const serverConfig = {
