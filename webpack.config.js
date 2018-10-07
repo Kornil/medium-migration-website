@@ -1,7 +1,6 @@
 const path = require("path");
 const webpack = require("webpack");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
-const WebpackPwaManifest = require("webpack-pwa-manifest");
 const nodeExternals = require("webpack-node-externals");
 
 const dev = process.env.NODE_ENV !== "production";
@@ -14,27 +13,6 @@ const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
 
 const DefinePluginConfig = new webpack.DefinePlugin({
   "process.env.NODE_ENV": JSON.stringify("production")
-});
-
-const PWAManifestConfig = new WebpackPwaManifest({
-  filename: "manifest.json",
-  name: "Francesco Agnoletto Website",
-  short_name: "FA Blog",
-  description: "Front end web engineer, click and check my work.",
-  theme_color: "#dfdfdf",
-  background_color: "#dfdfdf",
-  display: "fullscreen",
-  start_url: "francesco-agnoletto.com",
-  icons: [
-    {
-      src: path.resolve(__dirname, "src/client/assets/images/pwa-192x192.png"),
-      size: "192x192"
-    },
-    {
-      src: path.resolve(__dirname, "src/client/assets/images/pwa-512x512.png"),
-      size: "512x512"
-    }
-  ]
 });
 
 const clientConfig = {
@@ -106,7 +84,7 @@ const clientConfig = {
   mode: dev ? "development" : "production",
   plugins: dev
     ? [new webpack.HotModuleReplacementPlugin(), HTMLWebpackPluginConfig]
-    : [DefinePluginConfig, PWAManifestConfig]
+    : [DefinePluginConfig]
 };
 
 const serverConfig = {
