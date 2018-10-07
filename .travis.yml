@@ -9,7 +9,7 @@ cache:
     - "node_modules"
 
 before_install:
-  - npm i -g greenkeeper-lockfile@2 codecov
+  - npm i -g greenkeeper-lockfile@2 codecov now
 
 install:
   - npm install
@@ -28,11 +28,8 @@ after_script:
   - greenkeeper-lockfile-upload
 
 deploy:
-  provider: pages
-  local-dir: build
-  skip-cleanup: true
-  github-token: $GH_TOKEN
-  keep-history: true
-  fqdn: francesco-agnoletto.com
+  provider: script
+  script: now -p -t $NOW_TOKEN && now alias -t $NOW_TOKEN && now rm personal-website --safe -f -t $NOW_TOKEN
+  skip_cleanup: true
   on:
-    branch: master
+    master: true

@@ -6,9 +6,9 @@ import OwnerContext, {
 } from "app/context/OwnerContext";
 
 import { StyledLink } from "app/styled-components";
-import GithubLogo from "public/github-brands.svg";
-import LinkedinLogo from "public/linkedin-in-brands.svg";
-import TwitterLogo from "public/twitter-brands.svg";
+import GithubLogo from "assets/github-brands.svg";
+import LinkedinLogo from "assets/linkedin-in-brands.svg";
+import TwitterLogo from "assets/twitter-brands.svg";
 
 const StyledFooter = styled.footer`
   display: flex;

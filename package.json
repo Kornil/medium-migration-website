@@ -2,9 +2,13 @@
   "name": "personal-website",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
+  "now": {
+    "alias": "francesco-agnoletto.com"
+  },
   "scripts": {
-    "start": "cross-env NODE_ENV=development webpack-dev-server -d",
+    "start": "node public/server.js",
+    "start--dev": "cross-env NODE_ENV=development webpack-dev-server -d",
     "build": "cross-env NODE_ENV=production webpack -p",
     "test": "jest --coverage --verbose",
     "test--ci": "jest --coverage --runInBand",
@@ -12,8 +16,8 @@
     "test--snapshots": "jest --updateSnapshot",
     "type-check": "tsc --noEmit",
     "tslint": "tslint --fix --project ./",
-    "lint:css": "stylelint 'src/**/*.ts' 'src/**/*.tsx'",
-    "prettier": "prettier --parser typescript --write 'src/**/*.ts' 'src/**/*.tsx'"
+    "lint:css": "stylelint 'src/client/**/*.ts' 'src/client/**/*.tsx'",
+    "prettier": "prettier --parser typescript --write 'src/client/**/*.ts' 'src/client/**/*.tsx'"
   },
   "husky": {
     "hooks": {
@@ -56,7 +60,6 @@
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.5.0",
     "enzyme-to-json": "^3.3.4",
-    "favicons-webpack-plugin": "0.0.9",
     "fetch-mock": "^7.0.6",
     "file-loader": "^2.0.0",
     "html-webpack-plugin": "^3.2.0",
@@ -83,11 +86,15 @@
     "webpack": "^4.19.0",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5",
-    "webpack-pwa-manifest": "^3.7.1"
+    "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
     "emotion": "^9.2.6",
+    "emotion-server": "^9.2.12",
+    "es6-promise": "^4.2.5",
+    "express": "^4.16.3",
+    "isomorphic-fetch": "^2.2.1",
     "normalize.css": "^8.0.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",

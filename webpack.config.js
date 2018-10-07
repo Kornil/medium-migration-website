@@ -1,13 +1,12 @@
 const path = require("path");
 const webpack = require("webpack");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
-const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
-const WebpackPwaManifest = require("webpack-pwa-manifest");
+const nodeExternals = require("webpack-node-externals");
 
 const dev = process.env.NODE_ENV !== "production";
 
 const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
-  template: "index.html",
+  template: "client/index.html",
   filename: "index.html",
   inject: true
 });
@@ -16,21 +15,7 @@ const DefinePluginConfig = new webpack.DefinePlugin({
   "process.env.NODE_ENV": JSON.stringify("production")
 });
 
-const FaviconsWebpackPluginConfig = new FaviconsWebpackPlugin(
-  "public/images/favicon-256.png"
-);
-
-const PWAManifestConfig = new WebpackPwaManifest({
-  name: "Francesco Agnoletto Website",
-  short_name: "FA Blog",
-  description: "Front end web engineer, click and check my work.",
-  theme_color: "#dfdfdf",
-  background_color: "#dfdfdf",
-  display: "fullscreen",
-  start_url: "francesco-agnoletto.com"
-});
-
-module.exports = {
+const clientConfig = {
   context: path.join(__dirname, "src"),
   devServer: {
     host: "localhost",
@@ -44,14 +29,14 @@ module.exports = {
   resolve: {
     extensions: [".js", ".ts", ".tsx"],
     alias: {
-      public: path.resolve(__dirname, "src/public/"),
-      app: path.resolve(__dirname, "src/app/")
+      assets: path.resolve(__dirname, "src/client/assets/"),
+      app: path.resolve(__dirname, "src/client/app/")
     }
   },
   entry: [
     "whatwg-fetch",
     "react-hot-loader/patch",
-    path.join(__dirname, "/src/index.tsx")
+    path.join(__dirname, "/src/client/index.tsx")
   ],
   module: {
     rules: [
@@ -92,20 +77,56 @@ module.exports = {
     ]
   },
   output: {
-    filename: "index.js",
-    path: path.join(__dirname, "/build")
+    filename: "bundle.js",
+    path: path.join(__dirname, "/public"),
+    publicPath: "/"
   },
   mode: dev ? "development" : "production",
   plugins: dev
-    ? [
-        HTMLWebpackPluginConfig,
-        FaviconsWebpackPluginConfig,
-        new webpack.HotModuleReplacementPlugin()
-      ]
-    : [
-        HTMLWebpackPluginConfig,
-        FaviconsWebpackPluginConfig,
-        DefinePluginConfig,
-        PWAManifestConfig
-      ]
+    ? [new webpack.HotModuleReplacementPlugin(), HTMLWebpackPluginConfig]
+    : [DefinePluginConfig]
 };
+
+const serverConfig = {
+  entry: "./src/server/index.js",
+  target: "node",
+  externals: [nodeExternals()],
+  resolve: {
+    extensions: [".js", ".ts", ".tsx"],
+    alias: {
+      assets: path.resolve(__dirname, "src/client/assets/"),
+      app: path.resolve(__dirname, "src/client/app/")
+    }
+  },
+  output: {
+    path: path.join(__dirname, "/public"),
+    filename: "server.js",
+    publicPath: "/"
+  },
+  mode: "production",
+  module: {
+    rules: [
+      {
+        test: /\.(tsx?)|(jsx?)$/,
+        exclude: /node_modules/,
+        loader: "babel-loader"
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: "babel-loader"
+          },
+          {
+            loader: "react-svg-loader",
+            options: {
+              jsx: true // true outputs JSX tags
+            }
+          }
+        ]
+      }
+    ]
+  }
+};
+
+module.exports = [clientConfig, serverConfig];
