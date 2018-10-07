@@ -15,4 +15,6 @@ node_modules
 .npm
 
 # Prod Bundle
-public
+public/*.*
+!public/assets/**
+!public/favicon.ico
