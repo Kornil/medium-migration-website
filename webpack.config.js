@@ -22,6 +22,7 @@ const FaviconsWebpackPluginConfig = new FaviconsWebpackPlugin(
 );
 
 const PWAManifestConfig = new WebpackPwaManifest({
+  filename: "manifest.json",
   name: "Francesco Agnoletto Website",
   short_name: "FA Blog",
   description: "Front end web engineer, click and check my work.",

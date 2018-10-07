@@ -11,6 +11,7 @@ const htmlMarkup = markup => `
   <meta name="theme-color" content="#dfdfdf">
   <meta name="application-name" content="personal-website">
   <meta name="Description" content="Front end web engineer, click and check my work.">
+  <link rel="manifest" href="/manifest.json">
   <style>
     html,
     body,
