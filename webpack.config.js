@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
+const nodeExternals = require("webpack-node-externals");
 
 const dev = process.env.NODE_ENV !== "production";
 
@@ -17,7 +18,7 @@ const DefinePluginConfig = new webpack.DefinePlugin({
 });
 
 const FaviconsWebpackPluginConfig = new FaviconsWebpackPlugin(
-  "public/images/favicon-256.png"
+  "assets/images/favicon-256.png"
 );
 
 const PWAManifestConfig = new WebpackPwaManifest({
@@ -30,7 +31,7 @@ const PWAManifestConfig = new WebpackPwaManifest({
   start_url: "francesco-agnoletto.com"
 });
 
-module.exports = {
+const clientConfig = {
   context: path.join(__dirname, "src"),
   devServer: {
     host: "localhost",
@@ -44,7 +45,7 @@ module.exports = {
   resolve: {
     extensions: [".js", ".ts", ".tsx"],
     alias: {
-      public: path.resolve(__dirname, "src/client/public/"),
+      assets: path.resolve(__dirname, "src/client/assets/"),
       app: path.resolve(__dirname, "src/client/app/")
     }
   },
@@ -92,20 +93,60 @@ module.exports = {
     ]
   },
   output: {
-    filename: "index.js",
-    path: path.join(__dirname, "/build")
+    filename: "bundle.js",
+    path: path.join(__dirname, "/public"),
+    publicPath: "/"
   },
   mode: dev ? "development" : "production",
   plugins: dev
-    ? [
-        HTMLWebpackPluginConfig,
-        FaviconsWebpackPluginConfig,
-        new webpack.HotModuleReplacementPlugin()
-      ]
+    ? [new webpack.HotModuleReplacementPlugin(), HTMLWebpackPluginConfig]
     : [
-        HTMLWebpackPluginConfig,
-        FaviconsWebpackPluginConfig,
-        DefinePluginConfig,
+        DefinePluginConfig /* 
+        FaviconsWebpackPluginConfig, */,
         PWAManifestConfig
       ]
 };
+
+const serverConfig = {
+  entry: "./src/server/index.js",
+  target: "node",
+  externals: [nodeExternals()],
+  resolve: {
+    extensions: [".js", ".ts", ".tsx"],
+    alias: {
+      assets: path.resolve(__dirname, "src/client/assets/"),
+      app: path.resolve(__dirname, "src/client/app/")
+    }
+  },
+  output: {
+    path: path.join(__dirname, "/public"),
+    filename: "server.js",
+    publicPath: "/"
+  },
+  mode: "production",
+  module: {
+    rules: [
+      {
+        test: /\.(tsx?)|(jsx?)$/,
+        exclude: /node_modules/,
+        loader: "babel-loader"
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: "babel-loader"
+          },
+          {
+            loader: "react-svg-loader",
+            options: {
+              jsx: true // true outputs JSX tags
+            }
+          }
+        ]
+      }
+    ]
+  }
+};
+
+module.exports = [clientConfig, serverConfig];
