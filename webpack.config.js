@@ -4,6 +4,7 @@ const HTMLWebpackPlugin = require("html-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const WebpackPwaManifest = require("webpack-pwa-manifest");
 const nodeExternals = require("webpack-node-externals");
+const createFileWebpack = require("create-file-webpack");
 
 const dev = process.env.NODE_ENV !== "production";
 
@@ -30,6 +31,15 @@ const PWAManifestConfig = new WebpackPwaManifest({
   background_color: "#dfdfdf",
   display: "fullscreen",
   start_url: "francesco-agnoletto.com"
+});
+
+const createRobot = new createFileWebpack({
+  path: "./public",
+  fileName: "robots.txt",
+  content: `
+    User-agent: * 
+    Disallow: 
+  `
 });
 
 const clientConfig = {
@@ -104,7 +114,9 @@ const clientConfig = {
     : [
         DefinePluginConfig /* 
         FaviconsWebpackPluginConfig, */,
-        PWAManifestConfig
+        PWAManifestConfig,
+        createFileWebpack,
+        createRobot
       ]
 };
 
