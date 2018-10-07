@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "now": {
+    "alias": "francesco-agnoletto.com"
+  },
   "scripts": {
     "start": "node public/server.js",
     "start-all": "cross-env NODE_ENV=development webpack-dev-server -d",
