@@ -29,7 +29,7 @@ after_script:
 
 deploy:
   provider: script
-  script: now -p -t $NOW_TOKEN && now alias -t $NOW_TOKEN && now rm personal-website --safe -f -t $NOW_TOKEN
+  script: now -p -t $NOW_TOKEN && now alias -t $NOW_TOKEN && now rm personal-website --safe --yes -t $NOW_TOKEN
   skip_cleanup: true
   on:
     master: true
