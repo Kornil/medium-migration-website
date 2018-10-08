@@ -15,7 +15,7 @@
   "short_name": "FA Blog",
   "orientation": "portrait",
   "display": "fullscreen",
-  "start_url": "francesco-agnoletto.com",
+  "start_url": "/",
   "description": "Front end web engineer, click and check my work.",
   "theme_color": "#dfdfdf",
   "background_color": "#dfdfdf"

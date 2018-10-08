@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 const nodeExternals = require("webpack-node-externals");
+const offlinePlugin = require("offline-plugin");
 
 const dev = process.env.NODE_ENV !== "production";
 
@@ -13,6 +14,26 @@ const HTMLWebpackPluginConfig = new HTMLWebpackPlugin({
 
 const DefinePluginConfig = new webpack.DefinePlugin({
   "process.env.NODE_ENV": JSON.stringify("production")
+});
+
+const offlinePluginConfig = new offlinePlugin({
+  safeToUseOptionalCaches: true,
+  externals: ["assets/**", "favicon.ico", "/"],
+  publicPath: "/",
+  caches: {
+    main: ["/", "bundle.js"],
+    additional: [":externals:"],
+    optional: [":rest:"]
+  },
+
+  ServiceWorker: {
+    publicPath: "/sw.js",
+    events: true,
+    navigateFallbackURL: "/"
+  },
+  AppCache: {
+    events: true
+  }
 });
 
 const clientConfig = {
@@ -84,7 +105,7 @@ const clientConfig = {
   mode: dev ? "development" : "production",
   plugins: dev
     ? [new webpack.HotModuleReplacementPlugin(), HTMLWebpackPluginConfig]
-    : [DefinePluginConfig]
+    : [DefinePluginConfig, offlinePluginConfig]
 };
 
 const serverConfig = {
@@ -99,7 +120,7 @@ const serverConfig = {
     }
   },
   output: {
-    path: path.join(__dirname, "/public"),
+    path: __dirname,
     filename: "server.js",
     publicPath: "/"
   },
