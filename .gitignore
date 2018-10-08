@@ -16,6 +16,7 @@ node_modules
 
 # Prod Bundle
 public/*.*
+public/appcache
 !public/assets/**
 !public/favicon.ico
 !public/robots.txt
