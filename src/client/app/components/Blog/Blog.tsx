@@ -17,6 +17,14 @@ class Blog extends Component {
   }
 
   fetchMediumStories = async () => {
+    const mediumKey = "medium_data";
+
+    const mediumData = localStorage.getItem(mediumKey);
+    if (mediumData) {
+      this.setState({
+        stories: JSON.parse(mediumData)
+      });
+    }
     try {
       const response: Response = await fetch("https://medium-api.now.sh/");
 
@@ -25,6 +33,7 @@ class Blog extends Component {
         status: "success",
         stories: payload
       });
+      localStorage.setItem(mediumKey, JSON.stringify(payload));
     } catch (error) {
       this.setState({
         errorMessage: error,
