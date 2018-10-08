@@ -40,7 +40,7 @@ class Blog extends Component {
         <StyledTitle>
           <h1>My Articles</h1>
           <StyledEm>
-            Toughts on Web Development, my projects and my career.
+            Thoughts on Web Development, my projects and my career.
           </StyledEm>
         </StyledTitle>
         {stories.map((story: StoryInterface) => (
