@@ -120,7 +120,7 @@ const serverConfig = {
     }
   },
   output: {
-    path: path.join(__dirname, "/public"),
+    path: __dirname,
     filename: "server.js",
     publicPath: "/"
   },

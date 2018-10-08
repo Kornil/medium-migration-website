@@ -20,3 +20,6 @@ public/appcache
 !public/assets/**
 !public/favicon.ico
 !public/robots.txt
+
+# server
+server.js

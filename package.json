@@ -7,7 +7,7 @@
     "alias": "francesco-agnoletto.com"
   },
   "scripts": {
-    "start": "node public/server.js",
+    "start": "node server.js",
     "start--dev": "cross-env NODE_ENV=development webpack-dev-server -d",
     "build": "cross-env NODE_ENV=production webpack -p",
     "test": "jest --coverage --verbose",
