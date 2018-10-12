@@ -33,8 +33,8 @@ const clientConfig = {
   resolve: {
     extensions: [".js", ".ts", ".tsx"],
     alias: {
-      assets: path.resolve(__dirname, "src/client/assets/"),
-      app: path.resolve(__dirname, "src/client/app/")
+      app: path.resolve(__dirname, "src/client/app/"),
+      assets: path.resolve(__dirname, "src/client/assets/")
     }
   },
   entry: [
@@ -88,19 +88,22 @@ const clientConfig = {
   },
   mode: dev ? "development" : "production",
   plugins: dev
-    ? [new webpack.HotModuleReplacementPlugin()]
+    ? [
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NamedModulesPlugin()
+      ]
     : [DefinePluginConfig, offlinePluginConfig]
 };
 
 const serverConfig = {
-  entry: "./src/server/index.js",
+  entry: path.join(__dirname, "src/server/index.js"),
   target: "node",
   externals: [nodeExternals()],
   resolve: {
     extensions: [".js", ".ts", ".tsx"],
     alias: {
-      assets: path.resolve(__dirname, "src/client/assets/"),
-      app: path.resolve(__dirname, "src/client/app/")
+      app: path.resolve(__dirname, "src/client/app/"),
+      assets: path.resolve(__dirname, "src/client/assets/")
     }
   },
   output: {

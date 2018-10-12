@@ -13,8 +13,8 @@
     "typeRoots": ["node_modules/@types", "src/client/custom-types"],
     "baseUrl": ".",
     "paths": {
-      "assets/*": ["src/client/assets/*"],
-      "app/*": ["src/client/app/*"]
+      "app/*": ["src/client/app/*"],
+      "assets/*": ["src/client/assets/*"]
     },
     "moduleResolution": "node",
     "esModuleInterop": true
