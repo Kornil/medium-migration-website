@@ -80,7 +80,7 @@ const clientConfig = {
   output: {
     filename: "bundle.js",
     path: path.join(__dirname, "/public"),
-    publicPath: "/"
+    publicPath: "http://localhost:3000/public/"
   },
   mode: dev ? "development" : "production",
   plugins: dev
