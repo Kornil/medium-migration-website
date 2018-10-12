@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "start--dev": "cross-env NODE_ENV=development webpack-dev-server -d",
+    "start--dev": "cross-env NODE_ENV=development webpack -w & node server.js",
     "build": "cross-env NODE_ENV=production webpack -p",
     "test": "jest --coverage --verbose",
     "test--ci": "jest --coverage --runInBand",
