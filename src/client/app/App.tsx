@@ -10,7 +10,7 @@ import { PageLayout } from "app/styled-components";
 
 // import reactLogo from "assets/images/React-icon.png";
 
-export const App: React.SFC<{}> = () => (
+const App: React.SFC<{}> = () => (
   <OwnerContext.Provider value={ownerContextValue}>
     <PageLayout>
       <Header />
@@ -19,3 +19,5 @@ export const App: React.SFC<{}> = () => (
     </PageLayout>
   </OwnerContext.Provider>
 );
+
+export default App;

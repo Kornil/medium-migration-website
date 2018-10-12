@@ -3,18 +3,32 @@ import { StaticRouter } from "react-router-dom";
 import express from "express";
 import { renderToString } from "react-dom/server";
 import { renderStylesToString } from "emotion-server";
+import "isomorphic-fetch";
 
-import { App } from "../client/app/App";
+import App from "../client/app/App.tsx";
 import htmlMarkup from "./htmlMarkup";
 
+// webpack stuff for hot-reload
+import webpack from "webpack";
+import webpackDevMiddleware from "webpack-dev-middleware";
+import webpackHotMiddleware from "webpack-hot-middleware";
+import webpackConfig from "../../webpack.config";
+
 require("es6-promise").polyfill();
-import "isomorphic-fetch";
 
 const app = express();
 
-// We're going to serve up the public
-// folder since that's where our
-// client bundle.js file will end up.
+const compiler = webpack(webpackConfig[0]);
+
+app.use(
+  webpackDevMiddleware(compiler, {
+    noInfo: true,
+    publicPath: webpackConfig[0].output.publicPath
+  })
+);
+
+app.use(webpackHotMiddleware(compiler));
+
 app.use(express.static("public"));
 
 app.get("*", (req, res, next) => {
@@ -37,7 +51,7 @@ app.get("*", (req, res, next) => {
   }
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port: 3000`);
