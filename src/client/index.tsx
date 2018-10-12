@@ -13,8 +13,9 @@ offlinePluginRuntime.install();
 
 const root = document.getElementById("root") as HTMLElement;
 
-const hydrate = (Component: React.SFC) => {
-  ReactDOM.hydrate(
+const render = (Component: React.SFC) => {
+  const renderMethod = module.hot ? ReactDOM.render : ReactDOM.hydrate;
+  renderMethod(
     <BrowserRouter>
       <AppContainer>
         <Component />
@@ -24,4 +25,10 @@ const hydrate = (Component: React.SFC) => {
   );
 };
 
-hydrate(App);
+render(App);
+
+if (module.hot) {
+  module.hot.accept("./App", () => {
+    ReactDOM.render(<App />, root);
+  });
+}
