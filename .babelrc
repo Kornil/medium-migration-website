@@ -11,6 +11,12 @@
     ]
   ],
   "plugins": [
+    ["module-resolver", {
+      "alias": {
+        "app": "./src/client/app",
+        "assets": "./src/client/assets"
+      }
+    }],
     ["emotion", { "hoist": true }],
     "react-hot-loader/babel",
     "@babel/plugin-proposal-object-rest-spread",
