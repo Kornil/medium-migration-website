@@ -38,7 +38,12 @@ const clientConfig = {
       app: path.resolve(__dirname, "src/client/app/")
     }
   },
-  entry: ["whatwg-fetch", "react-hot-loader/patch", "./src/client/index.tsx"],
+  entry: [
+    "whatwg-fetch",
+    "webpack-hot-middleware/client",
+    "react-hot-loader/patch",
+    "./src/client/index.tsx"
+  ],
   module: {
     rules: [
       {
