@@ -5,7 +5,7 @@ import { renderToString } from "react-dom/server";
 import { renderStylesToString } from "emotion-server";
 import "isomorphic-fetch";
 
-import { App } from "../client/app/App";
+import App from "../client/app/App.tsx";
 import htmlMarkup from "./htmlMarkup";
 
 // webpack stuff for hot-reload
@@ -51,7 +51,7 @@ app.get("*", (req, res, next) => {
   }
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = 3000;
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port: 3000`);

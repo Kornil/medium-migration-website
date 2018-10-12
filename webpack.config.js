@@ -30,7 +30,6 @@ const offlinePluginConfig = new offlinePlugin({
 });
 
 const clientConfig = {
-  context: path.join(__dirname, "src"),
   resolve: {
     extensions: [".js", ".ts", ".tsx"],
     alias: {
@@ -40,8 +39,8 @@ const clientConfig = {
   },
   entry: [
     "whatwg-fetch",
-    "webpack-hot-middleware/client",
     "react-hot-loader/patch",
+    "webpack-hot-middleware/client",
     "./src/client/index.tsx"
   ],
   module: {

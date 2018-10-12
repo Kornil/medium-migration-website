@@ -7,7 +7,7 @@ import { BrowserRouter } from "react-router-dom";
 
 import { AppContainer } from "react-hot-loader";
 
-import { App } from "app/App";
+import App from "app/App";
 
 offlinePluginRuntime.install();
 
@@ -28,7 +28,7 @@ const render = (Component: React.SFC) => {
 render(App);
 
 if (module.hot) {
-  module.hot.accept("./App", () => {
+  module.hot.accept("./app/App", () => {
     ReactDOM.render(<App />, root);
   });
 }
