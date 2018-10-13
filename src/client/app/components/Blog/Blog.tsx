@@ -26,7 +26,7 @@ class Blog extends Component {
       });
     }
     try {
-      const response: Response = await fetch("https://medium-api.now.sh/");
+      const response: Response = await fetch("/medium-api");
 
       const { payload }: { payload: StoryInterface[] } = await response.json();
       this.setState({
