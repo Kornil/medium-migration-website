@@ -16,7 +16,7 @@
     "test--snapshots": "jest --updateSnapshot",
     "type-check": "tsc --noEmit",
     "tslint": "tslint --fix --project ./",
-    "lint:css": "stylelint 'src/client/**/*.ts' 'src/client/**/*.tsx'",
+    "lint": "stylelint 'src/client/**/*.ts' 'src/client/**/*.tsx'",
     "prettier": "prettier --parser typescript --write 'src/client/**/*.ts' 'src/client/**/*.tsx'"
   },
   "husky": {
@@ -25,7 +25,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,json,css,md,ts,tsx}": [
+    "*.{js,json,md,ts,tsx}": [
       "prettier --write",
       "git add"
     ]
@@ -57,14 +57,12 @@
     "babel-plugin-emotion": "^9.2.6",
     "babel-plugin-module-resolver": "^3.1.1",
     "cross-env": "^5.2.0",
-    "css-loader": "^1.0.0",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.5.0",
     "enzyme-to-json": "^3.3.4",
     "fetch-mock": "^7.0.6",
     "file-loader": "^2.0.0",
     "husky": "^1.0.0-rc.13",
-    "identity-obj-proxy": "^3.0.0",
     "jest": "^23.5.0",
     "jest-emotion": "^9.2.7",
     "jest-svg-transformer": "^1.0.0",
@@ -74,7 +72,6 @@
     "react-hot-loader": "^4.3.3",
     "react-svg-loader": "^2.1.0",
     "source-map-loader": "^0.2.3",
-    "style-loader": "^0.23.0",
     "stylelint": "^9.4.0",
     "stylelint-config-recommended": "^2.1.0",
     "stylelint-config-styled-components": "^0.1.1",
@@ -94,11 +91,11 @@
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
     "emotion": "^9.2.6",
+    "emotion-normalize": "^8.0.0",
     "emotion-server": "^9.2.12",
     "es6-promise": "^4.2.5",
     "express": "^4.16.3",
     "isomorphic-fetch": "^2.2.1",
-    "normalize.css": "^8.0.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-emotion": "^9.2.10",

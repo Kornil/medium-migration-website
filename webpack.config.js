@@ -57,10 +57,6 @@ const clientConfig = {
         loader: "source-map-loader"
       },
       {
-        test: /\.css$/,
-        loader: "style-loader!css-loader"
-      },
-      {
         test: /\.(jpe?g|png|gif)$/i,
         loader: "url-loader",
         options: {
@@ -86,7 +82,7 @@ const clientConfig = {
   output: {
     filename: "bundle.js",
     path: path.join(__dirname, "/public"),
-    publicPath: dev ? "http://localhost:3000/public/" : ""
+    publicPath: dev ? "http://localhost:3000/public/" : "/"
   },
   mode: dev ? "development" : "production",
   plugins: dev
