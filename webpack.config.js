@@ -29,6 +29,11 @@ const offlinePluginConfig = new offlinePlugin({
   }
 });
 
+const hotReloadMiddlewares = [
+  "react-hot-loader/patch",
+  "webpack-hot-middleware/client"
+];
+
 const clientConfig = {
   resolve: {
     extensions: [".js", ".ts", ".tsx"],
@@ -37,12 +42,9 @@ const clientConfig = {
       assets: path.resolve(__dirname, "src/client/assets/")
     }
   },
-  entry: [
-    "isomorphic-fetch",
-    "react-hot-loader/patch",
-    "webpack-hot-middleware/client",
-    "./src/client/index.tsx"
-  ],
+  entry: dev
+    ? ["isomorphic-fetch", ...hotReloadMiddlewares, "./src/client/index.tsx"]
+    : ["isomorphic-fetch", "./src/client/index.tsx"],
   module: {
     rules: [
       {
@@ -84,7 +86,7 @@ const clientConfig = {
   output: {
     filename: "bundle.js",
     path: path.join(__dirname, "/public"),
-    publicPath: "http://localhost:3000/public/"
+    publicPath: dev ? "http://localhost:3000/public/" : ""
   },
   mode: dev ? "development" : "production",
   plugins: dev

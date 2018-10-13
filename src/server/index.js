@@ -20,16 +20,18 @@ require("es6-promise").polyfill();
 
 const app = express();
 
-const compiler = webpack(webpackConfig[0]);
+if (process.env.NODE_ENV === "development") {
+  const compiler = webpack(webpackConfig[0]);
 
-app.use(
-  webpackDevMiddleware(compiler, {
-    noInfo: true,
-    publicPath: webpackConfig[0].output.publicPath
-  })
-);
+  app.use(
+    webpackDevMiddleware(compiler, {
+      noInfo: true,
+      publicPath: webpackConfig[0].output.publicPath
+    })
+  );
 
-app.use(webpackHotMiddleware(compiler));
+  app.use(webpackHotMiddleware(compiler));
+}
 
 app.use(express.static("public"));
 
