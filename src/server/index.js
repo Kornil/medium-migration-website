@@ -3,10 +3,12 @@ import { StaticRouter } from "react-router-dom";
 import express from "express";
 import { renderToString } from "react-dom/server";
 import { renderStylesToString } from "emotion-server";
+import https from "https";
 import "isomorphic-fetch";
 
 import App from "../client/app/App.tsx";
 import htmlMarkup from "./htmlMarkup";
+import storiesUrls from "./storiesUrls.json";
 
 // webpack stuff for hot-reload
 import webpack from "webpack";
@@ -30,6 +32,27 @@ app.use(
 app.use(webpackHotMiddleware(compiler));
 
 app.use(express.static("public"));
+
+app.get("/medium-api", async (req, res) => {
+  const url = req.query.url;
+  if (url) {
+    https
+      .get(`${url}?format=json`, resp => {
+        let data = "";
+        resp.on("data", chunk => {
+          data += chunk;
+        });
+        resp.on("end", () => {
+          res.send(JSON.parse(data.replace("])}while(1);</x>", "")));
+        });
+      })
+      .on("error", err => {
+        res.send("Error: " + err.message);
+      });
+  } else {
+    res.json(storiesUrls);
+  }
+});
 
 app.get("*", (req, res, next) => {
   const context = {};

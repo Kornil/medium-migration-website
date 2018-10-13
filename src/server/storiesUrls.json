@@ -1,0 +1,77 @@
+{
+  "payload": [
+    {
+      "title": "How to set up Typescript with Babel and Webpack",
+      "link":
+        "https://medium.com/@francesco.agnoletto/how-to-set-up-typescript-with-babel-and-webpack-6fba1b6e72d5",
+      "publishedAt": 1530736049131
+    },
+    {
+      "title":
+        "How to not f- up your first interviews as a self taught developer",
+      "link":
+        "https://medium.com/@francesco.agnoletto/how-to-not-f-up-your-first-interviews-as-a-self-taught-developer-9cf6716edd64",
+      "publishedAt": 1529091302770
+    },
+    {
+      "title": "One year as a remote developer",
+      "link":
+        "https://medium.com/@francesco.agnoletto/one-year-as-a-remote-developer-28e9dfca2e24",
+      "publishedAt": 1521577349438
+    },
+    {
+      "title": "Why you should start the new year with #100DaysOfCode",
+      "link":
+        "https://medium.com/@francesco.agnoletto/why-you-should-start-the-new-year-with-100daysofcode-a5d4517fb8e6",
+      "publishedAt": 1514404088403
+    },
+    {
+      "title": "I didn’t like create-react-app so I created my own boilerplate",
+      "link":
+        "https://medium.com/@francesco.agnoletto/i-didnt-like-create-react-app-so-i-created-my-own-boilerplate-190a7dd5d74",
+      "publishedAt": 1512500445502
+    },
+    {
+      "title": "On becoming a professional web developer in one year",
+      "link":
+        "https://medium.com/@francesco.agnoletto/on-becoming-a-professional-web-developer-in-one-year-b602fcedeb7c",
+      "publishedAt": 1509491556965
+    },
+    {
+      "title": "How to create secure passwords with JavaScript",
+      "link":
+        "https://medium.com/@francesco.agnoletto/how-to-create-secure-passwords-with-javascript-3a0fa3c9c739",
+      "publishedAt": 1507163213474
+    },
+    {
+      "title": "Letter to aspiring web developers",
+      "link":
+        "https://medium.com/@francesco.agnoletto/letter-to-aspiring-web-developers-c5a3c2395a1",
+      "publishedAt": 1505521085857
+    },
+    {
+      "title": "How to not f- up your local files with Git part 3",
+      "link":
+        "https://medium.com/chingu/how-to-not-f-up-your-local-files-with-git-part-3-bf03b27b6e64",
+      "publishedAt": 1503862706136
+    },
+    {
+      "title": "Yet another article on the first dev job",
+      "link":
+        "https://medium.com/chingu/yet-another-article-on-the-first-dev-job-c5f14a6ab0",
+      "publishedAt": 1502394114346
+    },
+    {
+      "title": "How to not f- up your local files with Git part 2",
+      "link":
+        "https://medium.com/@francesco.agnoletto/how-to-not-f-up-your-local-files-with-git-part-2-fc4e243be02a",
+      "publishedAt": 1497190916109
+    },
+    {
+      "title": "How to not f- up your local files with Git part 1",
+      "link":
+        "https://medium.com/@francesco.agnoletto/how-to-not-f-up-your-local-files-with-git-part-1-e0756c88fd3c",
+      "publishedAt": 1496010670125
+    }
+  ]
+}
