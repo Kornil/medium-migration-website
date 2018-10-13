@@ -16,7 +16,7 @@
     "test--snapshots": "jest --updateSnapshot",
     "type-check": "tsc --noEmit",
     "tslint": "tslint --fix --project ./",
-    "lint:css": "stylelint 'src/client/**/*.ts' 'src/client/**/*.tsx'",
+    "lint": "stylelint 'src/client/**/*.ts' 'src/client/**/*.tsx'",
     "prettier": "prettier --parser typescript --write 'src/client/**/*.ts' 'src/client/**/*.tsx'"
   },
   "husky": {
@@ -25,7 +25,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,json,css,md,ts,tsx}": [
+    "*.{js,json,md,ts,tsx}": [
       "prettier --write",
       "git add"
     ]
