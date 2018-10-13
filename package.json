@@ -94,6 +94,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
     "emotion": "^9.2.6",
+    "emotion-normalize": "^8.0.0",
     "emotion-server": "^9.2.12",
     "es6-promise": "^4.2.5",
     "express": "^4.16.3",
