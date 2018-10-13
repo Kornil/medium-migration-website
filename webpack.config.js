@@ -38,7 +38,7 @@ const clientConfig = {
     }
   },
   entry: [
-    "whatwg-fetch",
+    "isomorphic-fetch",
     "react-hot-loader/patch",
     "webpack-hot-middleware/client",
     "./src/client/index.tsx"
