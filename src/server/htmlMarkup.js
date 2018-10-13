@@ -16,6 +16,8 @@ const htmlMarkup = markup => `
 
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
+  <script src="/bundle.js" defer></script>
+
   <style>
     html,
     body,
@@ -30,7 +32,6 @@ const htmlMarkup = markup => `
 <body>
 <div id="root">${markup}</div>
 </body>
-<script src="/bundle.js" defer></script>
 
 </html>
 `;
