@@ -63,7 +63,6 @@
     "fetch-mock": "^7.0.6",
     "file-loader": "^2.0.0",
     "husky": "^1.0.0-rc.13",
-    "identity-obj-proxy": "^3.0.0",
     "jest": "^23.5.0",
     "jest-emotion": "^9.2.7",
     "jest-svg-transformer": "^1.0.0",

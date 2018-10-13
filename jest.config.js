@@ -2,7 +2,6 @@ module.exports = {
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   moduleDirectories: ["node_modules", "."],
   moduleNameMapper: {
-    "\\.(css|styl|less|sass|scss)$": "identity-obj-proxy",
     "^assets/(?:(?!.*.svg).)*$":
       "<rootDir>/src/client/tests/fileTransformer.js",
     "^app/(.*)$": "<rootDir>/src/client/app/$1"
