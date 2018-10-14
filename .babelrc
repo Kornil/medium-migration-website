@@ -27,6 +27,9 @@
     "development": {
       "plugins": [["emotion", { "sourceMap": true, "autoLabel": true }]]
     },
+    "production": {
+      "plugins": [["emotion", { "hoist": true }]]
+    },
     "test": {
       "presets": [
         "@babel/react",
