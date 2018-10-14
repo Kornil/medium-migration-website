@@ -15,10 +15,8 @@ const htmlMarkup = markup => `
   <link rel="manifest" href="assets/manifest.json">
 
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <link rel="preload" href="/vendor.bundle.js" as="script">
 
-  <script src="/main.js" defer></script>
-
+  <script src="/bundle.js" defer></script>
 
   <style>
     html,
