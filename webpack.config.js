@@ -39,7 +39,7 @@ const clientConfig = {
     }
   },
   cache: true,
-  stats: dev ? "verbose" : "errors-only",
+  stats: dev ? "normal" : "errors-only",
   entry: dev
     ? ["isomorphic-fetch", ...hotReloadMiddlewares, "./src/client/index.tsx"]
     : ["isomorphic-fetch", "./src/client/index.tsx"],
@@ -77,8 +77,20 @@ const clientConfig = {
       }
     ]
   },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendor",
+          chunks: "all"
+        }
+      }
+    }
+  },
   output: {
-    filename: "bundle.js",
+    filename: "[name].js",
+    chunkFilename: "[name].bundle.js",
     path: path.join(__dirname, "/public"),
     publicPath: dev ? "http://localhost:3000/public/" : "/"
   },
@@ -102,7 +114,7 @@ const serverConfig = {
       assets: path.resolve(__dirname, "src/client/assets/")
     }
   },
-  stats: dev ? "verbose" : "errors-only",
+  stats: dev ? "normal" : "errors-only",
   output: {
     path: __dirname,
     filename: "server.js",
