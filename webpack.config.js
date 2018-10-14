@@ -42,6 +42,7 @@ const clientConfig = {
       assets: path.resolve(__dirname, "src/client/assets/")
     }
   },
+  cache: true,
   stats: dev ? "verbose" : "errors-only",
   entry: dev
     ? ["isomorphic-fetch", ...hotReloadMiddlewares, "./src/client/index.tsx"]
@@ -91,7 +92,15 @@ const clientConfig = {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin()
       ]
-    : [DefinePluginConfig, offlinePluginConfig]
+    : [
+        DefinePluginConfig,
+        new webpack.optimize.AggressiveSplittingPlugin({
+          minSize: 30000,
+          maxSize: 50000
+        }),
+        offlinePluginConfig
+      ],
+  recordsOutputPath: path.join(__dirname, "/public", "records.json")
 };
 
 const serverConfig = {
