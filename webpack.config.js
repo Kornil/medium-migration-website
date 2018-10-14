@@ -13,11 +13,7 @@ const offlinePluginConfig = new offlinePlugin({
   safeToUseOptionalCaches: true,
   externals: ["assets/**", "favicon.ico", "/"],
   publicPath: "/",
-  caches: {
-    main: ["/", "bundle.js"],
-    additional: [":externals:"],
-    optional: [":rest:"]
-  },
+  caches: "all",
 
   ServiceWorker: {
     publicPath: "/sw.js",
