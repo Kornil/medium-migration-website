@@ -92,15 +92,7 @@ const clientConfig = {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin()
       ]
-    : [
-        DefinePluginConfig,
-        new webpack.optimize.AggressiveSplittingPlugin({
-          minSize: 30000,
-          maxSize: 50000
-        }),
-        offlinePluginConfig
-      ],
-  recordsOutputPath: path.join(__dirname, "/public", "records.json")
+    : [DefinePluginConfig, offlinePluginConfig]
 };
 
 const serverConfig = {
