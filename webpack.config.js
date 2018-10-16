@@ -39,7 +39,7 @@ const clientConfig = {
     }
   },
   cache: true,
-  stats: dev ? "verbose" : "errors-only",
+  stats: dev ? "normal" : "errors-only",
   entry: dev
     ? ["isomorphic-fetch", ...hotReloadMiddlewares, "./src/client/index.tsx"]
     : ["isomorphic-fetch", "./src/client/index.tsx"],
@@ -102,7 +102,7 @@ const serverConfig = {
       assets: path.resolve(__dirname, "src/client/assets/")
     }
   },
-  stats: dev ? "verbose" : "errors-only",
+  stats: dev ? "normal" : "errors-only",
   output: {
     path: __dirname,
     filename: "server.js",
