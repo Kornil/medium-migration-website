@@ -2,7 +2,7 @@ import { shallow } from "enzyme";
 import fetchMock from "fetch-mock";
 import React from "react";
 
-import Blog from "./Blog";
+import Blog from "./";
 
 const initialData = {
   errorMessage: "",
