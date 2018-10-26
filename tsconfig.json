@@ -10,7 +10,7 @@
     "target": "es6",
     "jsx": "react",
     "strict": true,
-    "typeRoots": ["node_modules/@types", "src/client/custom-types"],
+    "typeRoots": ["node_modules/@types", "src/custom-types"],
     "baseUrl": ".",
     "paths": {
       "app/*": ["src/client/app/*"],
@@ -19,6 +19,6 @@
     "moduleResolution": "node",
     "esModuleInterop": true
   },
-  "include": ["./src/client/**/*"],
+  "include": ["./src/**/*"],
   "exclude": ["node_modules"]
 }

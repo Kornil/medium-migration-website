@@ -1,4 +1,6 @@
-const htmlMarkup = markup => `
+type HtmlMarkup = (markup: string) => string;
+
+const htmlMarkup: HtmlMarkup = markup => `
 <!DOCTYPE html>
 <html lang="en">
 

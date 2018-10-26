@@ -15,6 +15,12 @@ module.exports = {
   setupTestFrameworkScriptFile: "<rootDir>/src/client/tests/setup.ts",
   collectCoverage: true,
   coverageDirectory: "./coverage/",
-  collectCoverageFrom: ["src/client/app/**/*.{ts,tsx}"],
-  coveragePathIgnorePatterns: ["/node_modules/", "/custom-types/", "/tests/"]
+  collectCoverageFrom: ["src/**/*.{ts,tsx}"],
+  coveragePathIgnorePatterns: [
+    "/node_modules/",
+    "/custom-types/",
+    "/tests/",
+    "/src/client/index.tsx",
+    "/src/server/index.ts"
+  ]
 };
