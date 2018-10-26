@@ -20,6 +20,7 @@ module.exports = {
     "/node_modules/",
     "/custom-types/",
     "/tests/",
-    "/src/client/index.tsx"
+    "/src/client/index.tsx",
+    "/src/server/index.ts"
   ]
 };
