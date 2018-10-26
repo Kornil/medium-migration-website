@@ -22,6 +22,7 @@ import webpackConfig from "../../webpack.config";
 
 const app = express();
 
+/* istanbul ignore next */
 if (process.env.NODE_ENV === "development") {
   const compiler = webpack(webpackConfig[0]);
 
@@ -40,19 +41,15 @@ app.use(express.static("public"));
 app.get("/medium-api", async (req, res) => {
   const url = req.query.url;
   if (url) {
-    https
-      .get(`${url}?format=json`, resp => {
-        let data = "";
-        resp.on("data", chunk => {
-          data += chunk;
-        });
-        resp.on("end", () => {
-          res.send(JSON.parse(data.replace("])}while(1);</x>", "")));
-        });
-      })
-      .on("error", err => {
-        res.send("Error: " + err.message);
+    https.get(`${url}?format=json`, resp => {
+      let data = "";
+      resp.on("data", chunk => {
+        data += chunk;
       });
+      resp.on("end", () => {
+        res.send(JSON.parse(data.replace("])}while(1);</x>", "")));
+      });
+    });
   } else {
     res.json(storiesUrls);
   }
@@ -72,14 +69,14 @@ app.get("*", (req, res) => {
     )
   );
 
+  /* istanbul ignore next */
   if (context.url) {
     res.writeHead(301, {
       Location: context.url
     });
     res.end();
-  } else {
-    res.send(htmlMarkup(markup));
   }
+  res.send(htmlMarkup(markup));
 });
 
 export default app;
