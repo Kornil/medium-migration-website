@@ -1,12 +1,15 @@
-import React from "react";
-import { StaticRouter } from "react-router-dom";
 import express from "express";
-import { renderToString } from "react-dom/server";
-import { renderStylesToString } from "emotion-server";
 import https from "https";
+
+import "es6-promise/auto";
 import "isomorphic-fetch";
 
-import App from "../client/app/App.tsx";
+import { renderStylesToString } from "emotion-server";
+import React from "react";
+import { renderToString } from "react-dom/server";
+import { StaticRouter } from "react-router-dom";
+
+import App from "../client/app/App";
 import htmlMarkup from "./htmlMarkup";
 import storiesUrls from "./storiesUrls.json";
 
@@ -14,9 +17,8 @@ import storiesUrls from "./storiesUrls.json";
 import webpack from "webpack";
 import webpackDevMiddleware from "webpack-dev-middleware";
 import webpackHotMiddleware from "webpack-hot-middleware";
+// @ts-ignore
 import webpackConfig from "../../webpack.config";
-
-require("es6-promise").polyfill();
 
 const app = express();
 
@@ -25,7 +27,7 @@ if (process.env.NODE_ENV === "development") {
 
   app.use(
     webpackDevMiddleware(compiler, {
-      noInfo: true,
+      // noInfo: true,
       publicPath: webpackConfig[0].output.publicPath
     })
   );
@@ -56,8 +58,12 @@ app.get("/medium-api", async (req, res) => {
   }
 });
 
-app.get("*", (req, res, next) => {
-  const context = {};
+interface ContextInterface {
+  url?: string;
+}
+
+app.get("*", (req, res) => {
+  const context: ContextInterface = {};
   const markup = renderStylesToString(
     renderToString(
       <StaticRouter location={req.url} context={context}>
@@ -76,8 +82,4 @@ app.get("*", (req, res, next) => {
   }
 });
 
-const PORT = 3000;
-
-app.listen(PORT, () => {
-  console.log(`Server is listening on port: 3000`);
-});
+export default app;
