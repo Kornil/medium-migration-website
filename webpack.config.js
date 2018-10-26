@@ -112,7 +112,7 @@ const serverConfig = {
   module: {
     rules: [
       {
-        test: /\.(tsx?)|(jsx?)$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
         loader: "babel-loader"
       },
