@@ -92,7 +92,7 @@ const clientConfig = {
 };
 
 const serverConfig = {
-  entry: path.join(__dirname, "src/server/index.js"),
+  entry: path.join(__dirname, "src/server/index.ts"),
   target: "node",
   externals: [nodeExternals()],
   resolve: {
