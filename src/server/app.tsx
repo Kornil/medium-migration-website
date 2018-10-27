@@ -77,7 +77,7 @@ app.get("*", (req, res) => {
     });
     res.end();
   }
-  res.status(context.statusCode || 200).send(htmlMarkup(markup));
+  res.send(htmlMarkup(markup));
 });
 
 export default app;
