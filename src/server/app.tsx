@@ -57,6 +57,7 @@ app.get("/medium-api", async (req, res) => {
 
 interface ContextInterface {
   url?: string;
+  statusCode?: number;
 }
 
 app.get("*", (req, res) => {
@@ -76,7 +77,7 @@ app.get("*", (req, res) => {
     });
     res.end();
   }
-  res.send(htmlMarkup(markup));
+  res.status(context.statusCode || 200).send(htmlMarkup(markup));
 });
 
 export default app;
