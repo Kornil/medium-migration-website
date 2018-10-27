@@ -1,12 +1,12 @@
 {
   "icons": [
     {
-      "src": "icon_512x512.ed11aa357fc385307e29c7b5e3f4aba1.png",
+      "src": "icon_512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     },
     {
-      "src": "icon_192x192.23b46c0341c434538f4830a5f13a436d.png",
+      "src": "icon_192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     }
@@ -15,7 +15,7 @@
   "short_name": "FA Blog",
   "orientation": "portrait",
   "display": "fullscreen",
-  "start_url": "/",
+  "start_url": ".",
   "description": "Front end web engineer, click and check my work.",
   "theme_color": "#dfdfdf",
   "background_color": "#dfdfdf"
