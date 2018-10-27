@@ -15,13 +15,13 @@ const StyledCta: StyledCtaInterface = {
   `
 };
 
-const Cta: React.SFC<{ title: string; body: React.ReactNode }> = ({
+const Cta: React.SFC<{ title: string; children: React.ReactNode }> = ({
   title,
-  body
+  children
 }) => (
   <StyledCta.Container>
     <StyledCta.Header>{title}</StyledCta.Header>
-    {body}
+    {children}
   </StyledCta.Container>
 );
 

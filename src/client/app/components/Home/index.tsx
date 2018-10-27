@@ -7,14 +7,11 @@ import OwnerContext, {
 import { Cta } from "app/components/shared";
 
 const Home: React.SFC<{ OwnerContext: OwnerContextValueInterface }> = props => (
-  <Cta
-    title={props.OwnerContext.name}
-    body={
-      <p>
-        <em>I breathe JavaScript</em>
-      </p>
-    }
-  />
+  <Cta title={props.OwnerContext.name}>
+    <p>
+      <em>I breathe JavaScript</em>
+    </p>
+  </Cta>
 );
 
 export default OwnerContext.connect(Home);
