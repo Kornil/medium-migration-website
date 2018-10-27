@@ -16,7 +16,10 @@ import { AppContainer } from "react-hot-loader";
 
 import App from "./app/App";
 
-offlinePluginRuntime.install();
+offlinePluginRuntime.install({
+  onUpdateReady: () => offlinePluginRuntime.applyUpdate(),
+  onUpdated: () => location.reload()
+});
 
 const root = document.getElementById("root") as HTMLElement;
 
