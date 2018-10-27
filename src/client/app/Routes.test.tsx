@@ -5,7 +5,7 @@ import { MemoryRouter } from "react-router-dom";
 import Routes, { routes } from "./Routes";
 
 describe("Routes", () => {
-  for (const { Component, path } of routes) {
+  for (const { Component, path = "/404" } of routes) {
     it(`${path} path should redirect to ${Component.name} component`, () => {
       const wrapper = mount(
         <MemoryRouter initialEntries={[path]} initialIndex={0}>
