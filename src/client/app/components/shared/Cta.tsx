@@ -1,3 +1,4 @@
+import React from "react";
 import styled, { StyledComponent } from "react-emotion";
 
 interface StyledCtaInterface {
@@ -14,4 +15,14 @@ const StyledCta: StyledCtaInterface = {
   `
 };
 
-export default StyledCta;
+const Cta: React.SFC<{ title: string; body: React.ReactNode }> = ({
+  title,
+  body
+}) => (
+  <StyledCta.Container>
+    <StyledCta.Header>{title}</StyledCta.Header>
+    {body}
+  </StyledCta.Container>
+);
+
+export default Cta;
