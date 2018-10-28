@@ -15,9 +15,7 @@ node_modules
 .npm
 
 # Prod Bundle
-public/*.*
-public/appcache
-!public/favicon.ico
+public
 
 # server
 server.js
