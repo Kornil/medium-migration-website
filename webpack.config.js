@@ -3,6 +3,7 @@ const webpack = require("webpack");
 const nodeExternals = require("webpack-node-externals");
 const offlinePlugin = require("offline-plugin");
 var WebpackPwaManifest = require("webpack-pwa-manifest");
+const createFileWebpack = require("create-file-webpack");
 
 const dev = process.env.NODE_ENV !== "production";
 
@@ -42,6 +43,15 @@ const webpackPwaManifestConfig = new WebpackPwaManifest({
       sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
     }
   ]
+});
+
+const createRobot = new createFileWebpack({
+  path: "./public",
+  fileName: "robots.txt",
+  content: `
+    User-agent: * 
+    Disallow: 
+  `
 });
 
 const hotReloadMiddlewares = [
@@ -107,7 +117,12 @@ const clientConfig = {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin()
       ]
-    : [DefinePluginConfig, webpackPwaManifestConfig, offlinePluginConfig]
+    : [
+        DefinePluginConfig,
+        createRobot,
+        webpackPwaManifestConfig,
+        offlinePluginConfig
+      ]
 };
 
 const serverConfig = {
