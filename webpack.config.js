@@ -4,6 +4,7 @@ const nodeExternals = require("webpack-node-externals");
 const offlinePlugin = require("offline-plugin");
 var WebpackPwaManifest = require("webpack-pwa-manifest");
 const createFileWebpack = require("create-file-webpack");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const dev = process.env.NODE_ENV !== "production";
 
@@ -53,6 +54,13 @@ const createRobot = new createFileWebpack({
     Disallow: 
   `
 });
+
+const createFavicon = new CopyWebpackPlugin([
+  {
+    from: "src/client/assets/images/favicon.ico",
+    to: "."
+  }
+]);
 
 const hotReloadMiddlewares = [
   "react-hot-loader/patch",
@@ -120,6 +128,7 @@ const clientConfig = {
     : [
         DefinePluginConfig,
         createRobot,
+        createFavicon,
         webpackPwaManifestConfig,
         offlinePluginConfig
       ]
