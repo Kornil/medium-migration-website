@@ -123,7 +123,8 @@ const clientConfig = {
   plugins: dev
     ? [
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NamedModulesPlugin()
+        new webpack.NamedModulesPlugin(),
+        webpackPwaManifestConfig
       ]
     : [
         DefinePluginConfig,
