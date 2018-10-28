@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const nodeExternals = require("webpack-node-externals");
 const offlinePlugin = require("offline-plugin");
+var WebpackPwaManifest = require("webpack-pwa-manifest");
 
 const dev = process.env.NODE_ENV !== "production";
 
@@ -23,6 +24,24 @@ const offlinePluginConfig = new offlinePlugin({
   AppCache: {
     events: true
   }
+});
+
+const webpackPwaManifestConfig = new WebpackPwaManifest({
+  filename: "manifest.json",
+  name: "Francesco Agnoletto Website",
+  short_name: "FA Blog",
+  orientation: "portrait",
+  display: "fullscreen",
+  start_url: ".",
+  description: "Front end web engineer, click and check my work.",
+  theme_color: "#dfdfdf",
+  background_color: "#dfdfdf",
+  icons: [
+    {
+      src: path.resolve("src/client/assets/images/icon_512x512.png"),
+      sizes: [96, 128, 192, 256, 384, 512] // multiple sizes
+    }
+  ]
 });
 
 const hotReloadMiddlewares = [
@@ -88,7 +107,7 @@ const clientConfig = {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NamedModulesPlugin()
       ]
-    : [DefinePluginConfig, offlinePluginConfig]
+    : [DefinePluginConfig, webpackPwaManifestConfig, offlinePluginConfig]
 };
 
 const serverConfig = {

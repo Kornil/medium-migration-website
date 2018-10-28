@@ -14,7 +14,7 @@ const htmlMarkup: HtmlMarkup = markup => `
   <meta name="theme-color" content="#dfdfdf">
   <meta name="application-name" content="personal-website">
   <meta name="Description" content="Front end web engineer, click and check my work.">
-  <link rel="manifest" href="assets/manifest.json">
+  <link rel="manifest" href="manifest.json">
 
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
