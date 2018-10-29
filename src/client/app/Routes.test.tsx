@@ -1,7 +1,8 @@
 import { mount } from "enzyme";
 import React from "react";
-import { MemoryRouter } from "react-router-dom";
+import { MemoryRouter, StaticRouter } from "react-router-dom";
 
+import { RouteWithStatus } from "./components/shared";
 import Routes, { routes } from "./Routes";
 
 describe("Routes", () => {
@@ -15,4 +16,15 @@ describe("Routes", () => {
       expect(wrapper.find(Component)).toHaveLength(1);
     });
   }
+
+  it("adds status when available", () => {
+    const wrapper = mount(
+      <StaticRouter location="/404" context={{}}>
+        <RouteWithStatus code={404}>
+          <p>hello</p>
+        </RouteWithStatus>
+      </StaticRouter>
+    );
+    expect(wrapper.prop("context")).toEqual({ statusCode: 404 });
+  });
 });
