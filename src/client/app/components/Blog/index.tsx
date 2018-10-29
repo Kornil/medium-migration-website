@@ -2,10 +2,9 @@ import React from "react";
 
 import { StyledBody, StyledEm, StyledTitle } from "app/styled-components";
 
-import StoriesContext from "app/context/StoriesContext";
+import StoriesContext, { StoryInterface } from "app/context/StoriesContext";
 
 import { ArticleCard } from "./components";
-import StoryInterface from "./interfaces/StoryInterface";
 
 export const Blog: React.SFC<{
   StoriesContext: { stories: StoryInterface[] };

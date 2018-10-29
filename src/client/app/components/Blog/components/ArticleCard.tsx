@@ -4,7 +4,7 @@ import styled from "react-emotion";
 import { StyledEm, StyledLink } from "app/styled-components";
 import { getDateFromUnix } from "app/utils";
 
-import StoryInterface from "../interfaces/StoryInterface";
+import { StoryInterface } from "app/context/StoriesContext";
 
 const StyledArticleCard = styled.section`
   margin-bottom: 48px;

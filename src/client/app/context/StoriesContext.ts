@@ -1,6 +1,10 @@
 import createContextFactory from "./createContext";
 
-import StoryInterface from "../components/Blog/interfaces/StoryInterface";
+export interface StoryInterface {
+  link: string;
+  title: string;
+  publishedAt: number;
+}
 
 export const storiesContext = async () => {
   const mediumKey = "medium_data";
