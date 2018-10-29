@@ -3,7 +3,7 @@
 exports[`it renders 1`] = `
 <StyledArticleCard>
   <StyledLink
-    href="www.google.com"
+    href="/blog/hello"
   >
     <h3>
       hello
