@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import { match } from "react-router-dom";
 
 import { LoadingPage, NotFound } from "app/components";
@@ -17,7 +17,7 @@ interface StoryPageMatcherState {
   isContextReady: boolean;
 }
 
-export class StoryPageMatcher extends Component<
+export class StoryPageMatcher extends PureComponent<
   StoryPageMatcherProps,
   StoryPageMatcherState
 > {
