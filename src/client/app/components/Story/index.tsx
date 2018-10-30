@@ -1,7 +1,7 @@
 import React from "react";
 import { match } from "react-router-dom";
 
-import { NotFound } from "app/components";
+import { LoadingPage, NotFound } from "app/components";
 import StoriesContext, { StoryInterface } from "app/context/StoriesContext";
 
 interface StoryPageProps {
@@ -16,7 +16,7 @@ export const StoryPageMatcher: React.SFC<StoryPageProps> = props => {
     );
     return filteredStory ? <p>{props.match.params.id}</p> : <NotFound />;
   } else {
-    return null;
+    return <LoadingPage />;
   }
 };
 
