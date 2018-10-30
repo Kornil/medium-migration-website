@@ -25,7 +25,7 @@ describe("<StoryPageMatcher />", () => {
     unmountComponentAtNode(div);
   });
 
-  it("renders 404 if invalid :id", () => {
+  it("renders 404 if invalid :id on /blog/:id", () => {
     const wrapper = shallow(
       <StoryPageMatcher
         StoriesContext={{ stories: [fakeStory] }}
