@@ -1,6 +1,7 @@
 import { shallow } from "enzyme";
 import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
+import { MemoryRouter } from "react-router-dom";
 
 import { NotFound } from "app/components";
 
@@ -16,10 +17,12 @@ describe("<StoryPageMatcher />", () => {
   it("renders without crashing", () => {
     const div = document.createElement("div");
     render(
-      <StoryPageMatcher
-        StoriesContext={{ stories: [fakeStory] }}
-        match={{ params: { id: "hello" }, isExact: true, path: "", url: "" }}
-      />,
+      <MemoryRouter>
+        <StoryPageMatcher
+          StoriesContext={{ stories: [fakeStory] }}
+          match={{ params: { id: "hello" }, isExact: true, path: "", url: "" }}
+        />
+      </MemoryRouter>,
       div
     );
     unmountComponentAtNode(div);
