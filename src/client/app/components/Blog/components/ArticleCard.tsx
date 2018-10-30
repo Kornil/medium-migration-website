@@ -22,7 +22,12 @@ const StyledArticleCard = styled.section`
 
 const ArticleCard: React.SFC<{ story: StoryInterface }> = ({ story }) => (
   <StyledArticleCard>
-    <StyledLink to={`/blog/${story.title}`}>
+    <StyledLink
+      to={`/blog/${story.link.replace(
+        "https://medium.com/@francesco.agnoletto/",
+        ""
+      )}`}
+    >
       <h3>{story.title}</h3>
       <p>
         <StyledEm>{getDateFromUnix(story.publishedAt)}</StyledEm>
