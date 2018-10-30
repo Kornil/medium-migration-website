@@ -1,5 +1,6 @@
 import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
+import { MemoryRouter } from "react-router-dom";
 
 import { Blog } from "./";
 
@@ -12,7 +13,12 @@ const fakeStory = {
 describe("<Blog />", () => {
   it("it renders correctly", () => {
     const div = document.createElement("div");
-    render(<Blog StoriesContext={{ stories: [fakeStory] }} />, div);
+    render(
+      <MemoryRouter>
+        <Blog StoriesContext={{ stories: [fakeStory] }} />
+      </MemoryRouter>,
+      div
+    );
     unmountComponentAtNode(div);
   });
 });
