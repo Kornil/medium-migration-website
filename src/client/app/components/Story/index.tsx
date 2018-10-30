@@ -1,23 +1,92 @@
-import React from "react";
+import React, { Component } from "react";
 import { match } from "react-router-dom";
 
 import { LoadingPage, NotFound } from "app/components";
 import StoriesContext, { StoryInterface } from "app/context/StoriesContext";
 
-interface StoryPageProps {
+import Story from "./Story";
+
+interface StoryPageMatcherProps {
   match: match<{ id: string }>;
   StoriesContext: { stories: StoryInterface[] };
 }
 
-export const StoryPageMatcher: React.SFC<StoryPageProps> = props => {
-  if (props.StoriesContext.stories && props.StoriesContext.stories.length) {
-    const filteredStory = props.StoriesContext.stories.find(
-      story => story.title === props.match.params.id
+interface StoryPageMatcherState {
+  status: "loading" | "notFound" | "success" | "error";
+  story: object | null;
+  isContextReady: boolean;
+}
+
+export class StoryPageMatcher extends Component<
+  StoryPageMatcherProps,
+  StoryPageMatcherState
+> {
+  state: StoryPageMatcherState = {
+    isContextReady: false,
+    status: "loading",
+    story: null
+  };
+
+  fetchStory = async () => {
+    const { stories } = this.props.StoriesContext;
+
+    const filteredStory = stories.find(story =>
+      story.link.includes(this.props.match.params.id)
     );
-    return filteredStory ? <p>{props.match.params.id}</p> : <NotFound />;
-  } else {
-    return <LoadingPage />;
+
+    if (filteredStory) {
+      try {
+        const response = await fetch(`/medium-api?url=${filteredStory.link}`);
+        const { payload } = await response.json();
+
+        this.setState({
+          status: "success",
+          story: payload
+        });
+      } catch (error) {
+        this.setState({
+          status: "error"
+        });
+      }
+    } else {
+      this.setState({
+        status: "notFound"
+      });
+    }
+  };
+
+  componentDidMount() {
+    if (
+      this.props.StoriesContext.stories &&
+      this.props.StoriesContext.stories.length > 0
+    ) {
+      this.fetchStory();
+    }
   }
-};
+
+  componentDidUpdate(prevProps: StoryPageMatcherProps) {
+    if (
+      !this.state.isContextReady &&
+      prevProps.StoriesContext.stories.length === 0 &&
+      this.props.StoriesContext.stories.length > 0
+    ) {
+      this.fetchStory();
+    }
+  }
+
+  render() {
+    const { status, story } = this.state;
+    switch (status) {
+      case "loading":
+        return <LoadingPage />;
+      case "success":
+        return <Story story={story} />;
+      case "notFound":
+        return <NotFound />;
+      case "error":
+        return <p>something went wrong, try refreshing the page.</p>;
+    }
+  }
+}
 
 export default StoriesContext.connect(StoryPageMatcher);
