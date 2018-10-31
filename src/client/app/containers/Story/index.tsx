@@ -43,7 +43,7 @@ export class StoryPageMatcher extends PureComponent<
 
         this.setState({
           status: "success",
-          story: payload
+          story: payload.value
         });
       } catch (error) {
         this.setState({
