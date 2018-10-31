@@ -11,7 +11,7 @@ type createContextFactoryInterface = (
 ) => {
   Provider: React.ComponentType<React.ProviderProps<ContextInterface>>;
   connect: (
-    Component: React.StatelessComponent<any> | typeof React.Component
+    Component: React.SFC<any> | typeof React.Component
   ) => React.StatelessComponent<any>;
 };
 

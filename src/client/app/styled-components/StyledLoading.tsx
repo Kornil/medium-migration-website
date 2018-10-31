@@ -1,4 +1,3 @@
-import React from "react";
 import styled, { keyframes } from "react-emotion";
 
 import Spinner from "assets/spinner-third-light.svg";

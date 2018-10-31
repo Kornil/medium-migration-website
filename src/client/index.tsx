@@ -23,7 +23,7 @@ offlinePluginRuntime.install({
 
 const root = document.getElementById("root") as HTMLElement;
 
-const render = (Component: React.SFC) => {
+const render = (Component: React.SFC | typeof React.Component) => {
   const renderMethod = module.hot ? ReactDOM.render : ReactDOM.hydrate;
   renderMethod(
     <BrowserRouter>
