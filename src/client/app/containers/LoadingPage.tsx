@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Cta } from "app/components/shared";
+import { Cta } from "app/containers/shared";
 import { StyledLoading } from "app/styled-components";
 
 const LoadingPage: React.SFC<{}> = () => (

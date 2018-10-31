@@ -4,7 +4,7 @@ import React, { Component } from "react";
 
 import Routes from "app/Routes";
 
-import { Footer, Header } from "app/components/shared";
+import { Footer, Header } from "app/containers/shared";
 import { PageLayout } from "app/styled-components";
 
 import OwnerContext, { ownerContextValue } from "app/context/OwnerContext";

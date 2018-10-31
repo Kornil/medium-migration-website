@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { match } from "react-router-dom";
 
-import { ErrorPage, LoadingPage, NotFound } from "app/components";
+import { ErrorPage, LoadingPage, NotFound } from "app/containers";
 import StoriesContext, { StoryInterface } from "app/context/StoriesContext";
 
 import Story from "./Story";

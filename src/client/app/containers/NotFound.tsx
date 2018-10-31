@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Cta, RouteWithStatus } from "app/components/shared";
+import { Cta, RouteWithStatus } from "app/containers/shared";
 
 const NotFound: React.SFC<{}> = () => (
   <RouteWithStatus code={404}>

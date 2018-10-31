@@ -4,7 +4,7 @@ import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
 import { MemoryRouter } from "react-router-dom";
 
-import { ErrorPage, NotFound } from "app/components";
+import { ErrorPage, NotFound } from "app/containers";
 
 import { StoryPageMatcher } from "./";
 import Story from "./Story";

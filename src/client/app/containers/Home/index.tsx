@@ -4,7 +4,7 @@ import OwnerContext, {
   OwnerContextValueInterface
 } from "app/context/OwnerContext";
 
-import { Cta } from "app/components/shared";
+import { Cta } from "app/containers/shared";
 
 const Home: React.SFC<{ OwnerContext: OwnerContextValueInterface }> = props => (
   <Cta title={props.OwnerContext.name}>
