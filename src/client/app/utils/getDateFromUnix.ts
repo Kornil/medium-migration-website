@@ -1,13 +1,31 @@
+const Months: string[] = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec"
+];
+
 type getDateFromUnixType = (unix: number) => string;
 
 const getDateFromUnix: getDateFromUnixType = unix => {
   const date = new Date(unix);
 
-  const year = date.getFullYear();
-  const month = ("0" + (date.getMonth() + 1)).slice(-2);
-  const day = ("0" + date.getDate()).slice(-2);
+  const year = date
+    .getFullYear()
+    .toString()
+    .substr(-2);
+  const month = date.getMonth();
+  const day = date.getDate();
 
-  return `${day}/${month}/${year}`;
+  return `${day} ${Months[month]} ${year}`;
 };
 
 export default getDateFromUnix;

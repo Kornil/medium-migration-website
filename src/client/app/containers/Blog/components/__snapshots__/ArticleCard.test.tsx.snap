@@ -11,7 +11,7 @@ exports[`it renders 1`] = `
     </h3>
     <p>
       <em>
-        04/07/2018
+        4 Jul 18
       </em>
     </p>
   </StyledLink>
