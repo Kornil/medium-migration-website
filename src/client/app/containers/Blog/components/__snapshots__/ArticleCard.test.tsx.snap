@@ -10,9 +10,9 @@ exports[`it renders 1`] = `
       hello
     </h3>
     <p>
-      <StyledEm>
+      <em>
         04/07/2018
-      </StyledEm>
+      </em>
     </p>
   </StyledLink>
 </StyledArticleCard>
