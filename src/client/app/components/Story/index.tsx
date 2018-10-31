@@ -1,7 +1,7 @@
 import React, { PureComponent } from "react";
 import { match } from "react-router-dom";
 
-import { LoadingPage, NotFound } from "app/components";
+import { ErrorPage, LoadingPage, NotFound } from "app/components";
 import StoriesContext, { StoryInterface } from "app/context/StoriesContext";
 
 import Story from "./Story";
@@ -12,9 +12,10 @@ interface StoryPageMatcherProps {
 }
 
 interface StoryPageMatcherState {
+  error: null | string;
+  isContextReady: boolean;
   status: "loading" | "notFound" | "success" | "error";
   story: object | null;
-  isContextReady: boolean;
 }
 
 export class StoryPageMatcher extends PureComponent<
@@ -22,6 +23,7 @@ export class StoryPageMatcher extends PureComponent<
   StoryPageMatcherState
 > {
   state: StoryPageMatcherState = {
+    error: null,
     isContextReady: false,
     status: "loading",
     story: null
@@ -45,6 +47,7 @@ export class StoryPageMatcher extends PureComponent<
         });
       } catch (error) {
         this.setState({
+          error,
           status: "error"
         });
       }
@@ -75,7 +78,7 @@ export class StoryPageMatcher extends PureComponent<
   }
 
   render() {
-    const { status, story } = this.state;
+    const { error, status, story } = this.state;
     switch (status) {
       case "loading":
         return <LoadingPage />;
@@ -84,7 +87,7 @@ export class StoryPageMatcher extends PureComponent<
       case "notFound":
         return <NotFound />;
       case "error":
-        return <p>something went wrong, try refreshing the page.</p>;
+        return <ErrorPage error={error} />;
     }
   }
 }
