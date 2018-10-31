@@ -30,10 +30,18 @@ const PageLayout = styled.div`
     }
   }
 
-  /* default h1 style*/
+  /* default h styles*/
   h1 {
     margin-bottom: 16px;
     font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.8em;
+  }
+
+  h3 {
+    font-size: 1.5em;
   }
 `;
 
