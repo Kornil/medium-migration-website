@@ -32,7 +32,8 @@ const PageLayout = styled.div`
 
   /* default h1 style*/
   h1 {
-    margin: 0 0 16px;
+    margin-bottom: 16px;
+    font-size: 2em;
   }
 `;
 
