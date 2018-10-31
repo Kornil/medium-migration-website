@@ -1,6 +1,6 @@
 import React from "react";
 
-import { StyledBody, StyledEm, StyledTitle } from "app/styled-components";
+import { StyledBody, StyledTitle } from "app/styled-components";
 
 import StoriesContext, { StoryInterface } from "app/context/StoriesContext";
 
@@ -13,9 +13,7 @@ export const Blog: React.SFC<{
     <StyledBody>
       <StyledTitle>
         <h1>My Articles</h1>
-        <StyledEm>
-          Thoughts on Web Development, my projects and my career.
-        </StyledEm>
+        <em>Thoughts on Web Development, my projects and my career.</em>
       </StyledTitle>
       {props.StoriesContext.stories && props.StoriesContext.stories.length
         ? props.StoriesContext.stories.map((story: StoryInterface) => (
