@@ -82,7 +82,7 @@ describe("<StoryPageMatcher />", () => {
       />
     );
     const instance = wrapper.instance() as StoryPageMatcher;
-    const spy = jest.spyOn(instance, "fetchStory");
+    const spy = spyOn(instance, "fetchStory");
 
     wrapper.setProps({
       StoriesContext: { stories: [fakeStory] }
