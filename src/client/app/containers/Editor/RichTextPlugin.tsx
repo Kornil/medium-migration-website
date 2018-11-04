@@ -20,7 +20,18 @@ const RichTextPlugin: RichTextPluginInterface = () => {
           return <h2 {...attributes}>{children}</h2>;
         case BLOCKS.HEADING_THREE:
           return <h3 {...attributes}>{children}</h3>;
-        case "list-item":
+        case BLOCKS.IMAGE:
+          const { data } = node;
+          return (
+            <figure {...attributes}>
+              <img
+                src={data.get("src")}
+                alt={data.get("name")}
+                style={{ maxWidth: "100%", display: "block", margin: "0 auto" }}
+              />
+              <figcaption>{data.get("text")}</figcaption>
+            </figure>
+          );
         case BLOCKS.LIST_ITEM:
           return <li {...attributes}>{children}</li>;
         case BLOCKS.NUMBERED_LIST:
