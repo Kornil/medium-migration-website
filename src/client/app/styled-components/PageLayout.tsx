@@ -1,12 +1,15 @@
 import styled from "react-emotion";
 
+const textColor = "#333";
+const lightTextColor = "#7D7D7D";
+
 const PageLayout = styled.div`
   min-height: 100%;
   padding: 0;
   margin: 0;
   background-color: #dfdfdf;
   font-family: "Helvetica Neue", "Calibri Light", Roboto, sans-serif;
-  color: #333;
+  color: ${textColor};
   text-align: center;
   display: grid;
   grid-template-rows: 50px 1fr 50px;
@@ -17,7 +20,7 @@ const PageLayout = styled.div`
   /* default em style */
   em {
     margin: 0;
-    color: #595959;
+    color: ${lightTextColor};
   }
 
   /* default link style */
@@ -32,16 +35,49 @@ const PageLayout = styled.div`
 
   /* default h styles*/
   h1 {
-    margin-bottom: 16px;
+    margin: 0 0 16px;
     font-size: 2em;
   }
 
   h2 {
-    font-size: 1.8em;
+    color: ${lightTextColor};
+    font-size: 1.5em;
+    margin: 0 0 32px;
+    font-weight: normal;
   }
 
   h3 {
-    font-size: 1.5em;
+    font-size: 1.3em;
+  }
+
+  p {
+    font-size: 1.1em;
+  }
+
+  /* default blockquote styles*/
+  blockquote {
+    font-family: "Lucida Console", Monaco, monospace;
+    background: repeating-linear-gradient(
+      45deg,
+      #d2d2d2,
+      #d2d2d2 8px,
+      #dfdfdf 8px,
+      #dfdfdf 16px
+    );
+    padding: 8px;
+    border-radius: 4px;
+  }
+
+  figure {
+    margin: 0;
+  }
+
+  figcaption {
+    padding-top: 4px;
+    font-style: italic;
+    text-align: center;
+    color: ${lightTextColor};
+    font-size: 0.85em;
   }
 `;
 
