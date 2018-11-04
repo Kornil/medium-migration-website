@@ -43,7 +43,7 @@ class EditorWrapper extends Component<EditorWrapperProps, EditorWrapperState> {
   }
 
   componentDidMount() {
-    this.MediumToSlateCOnverter();
+    this.MediumToSlateConverter();
   }
 
   setEditorRef = (element: React.ReactNode) => {
@@ -54,7 +54,7 @@ class EditorWrapper extends Component<EditorWrapperProps, EditorWrapperState> {
     this.setState({ value });
   };
 
-  MediumToSlateCOnverter = () => {
+  MediumToSlateConverter = () => {
     const { paragraphs } = this.props.mediumValue.bodyModel;
     const { editor } = this;
     paragraphs.forEach((block: any, i: number) => {
