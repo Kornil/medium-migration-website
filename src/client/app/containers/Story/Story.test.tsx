@@ -2,15 +2,21 @@ import React from "react";
 import { render, unmountComponentAtNode } from "react-dom";
 
 import Story from "./Story";
+import storyTest from "./test-story.json";
 
-const story = {
-  value: {
-    title: "hello"
-  }
-};
+describe("<Story />", () => {
+  beforeEach(() => {
+    // @ts-ignore
+    window.getSelection = () => {
+      return {
+        removeAllRanges: () => null
+      };
+    };
+  });
 
-it("renders without crashing", () => {
-  const div = document.createElement("div");
-  render(<Story story={story} />, div);
-  unmountComponentAtNode(div);
+  it("renders without crashing", () => {
+    const div = document.createElement("div");
+    render(<Story story={storyTest.payload.value} />, div);
+    unmountComponentAtNode(div);
+  });
 });
