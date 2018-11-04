@@ -5,7 +5,7 @@ import { Editor } from "slate-react";
 import { BLOCKS } from "./constants";
 import initialValue from "./initialValue";
 
-import RichTextPlugin from "./RichTextPlugin";
+import RichTextPlugin from "./plugins/RichTextPlugin";
 
 const plugins = [RichTextPlugin()];
 

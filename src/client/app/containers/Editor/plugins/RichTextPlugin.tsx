@@ -1,13 +1,13 @@
 import React from "react";
 import { Plugin } from "slate-react";
 
-import { BLOCKS } from "./constants";
+import { BLOCKS } from "../constants";
 
 type RichTextPluginInterface = () => Plugin;
 
 const RichTextPlugin: RichTextPluginInterface = () => {
   return {
-    renderNode: (props, editor, next) => {
+    renderNode: (props, {}, next) => {
       const { attributes, children, node } = props;
       switch (node.type) {
         case BLOCKS.BLOCK_QUOTE:
@@ -43,7 +43,7 @@ const RichTextPlugin: RichTextPluginInterface = () => {
       }
     },
 
-    renderMark: (props, editor, next) => {
+    renderMark: (props, {}, next) => {
       const { children, mark, attributes } = props;
 
       switch (mark.type) {
