@@ -1,7 +1,6 @@
 import styled from "react-emotion";
 
-const textColor = "#333";
-const lightTextColor = "#7D7D7D";
+import { lightTextColor, textColor } from "./styled-constants";
 
 const PageLayout = styled.div`
   min-height: 100%;
