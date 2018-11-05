@@ -9,7 +9,7 @@ const Story: React.SFC<{ story: any }> = props => {
   const { story } = props;
   return (
     <StyledBody>
-      <p>me</p>
+      <div />
       <Editor mediumValue={story.content} />
       <RightSidebar date={story.firstPublishedAt} />
     </StyledBody>
