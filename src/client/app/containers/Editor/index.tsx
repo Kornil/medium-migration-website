@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Block, BlockJSON, Value } from "slate";
+import { Block, BlockJSON, MarkJSON, Range, Value } from "slate";
 import { Editor } from "slate-react";
 
-import { BLOCKS } from "./constants";
+import { BLOCKS, MARKS } from "./constants";
 import initialValue from "./initialValue";
 
 import RichTextPlugin from "./plugins/RichTextPlugin";
@@ -32,6 +32,20 @@ const createBlock = (type: string, text: string): BlockJSON => ({
   type
 });
 
+const findMarkType = (mark: any): MarkJSON | undefined => {
+  switch (mark.type) {
+    case 10:
+      return { type: MARKS.CODE, data: {} };
+    case 3:
+      return { type: MARKS.LINK, data: { href: mark.href } };
+    case 2:
+      return { type: MARKS.ITALIC, data: {} };
+    case 1:
+      return { type: MARKS.BOLD, data: {} };
+  }
+  return undefined;
+};
+
 class EditorWrapper extends Component<EditorWrapperProps, EditorWrapperState> {
   editor: null | React.ReactNode = null;
 
@@ -60,11 +74,30 @@ class EditorWrapper extends Component<EditorWrapperProps, EditorWrapperState> {
     paragraphs.forEach((block: any, i: number) => {
       switch (block.type) {
         case 1:
-          if (block.text) {
-            const paragraph = Block.fromJSON(
-              createBlock(BLOCKS.PARAGRAPH, block.text)
-            );
-            editor.insertBlock(paragraph);
+          const paragraph = Block.fromJSON(
+            createBlock(BLOCKS.PARAGRAPH, block.text)
+          );
+          editor.insertBlock(paragraph);
+
+          // Add markup logic
+          if (block.markups.length) {
+            const firstNode = paragraph.nodes.first();
+            block.markups.forEach((mark: any) => {
+              const range = Range.fromJSON({
+                anchor: {
+                  key: firstNode.key,
+                  object: "point",
+                  offset: mark.start
+                },
+                focus: {
+                  key: firstNode.key,
+                  object: "point",
+                  offset: mark.end
+                }
+              });
+              const type = findMarkType(mark);
+              editor.addMarkAtRange(range, type);
+            });
           }
           break;
         case 3:
