@@ -48,7 +48,7 @@ const findMarkType = (mark: any): MarkJSON | undefined => {
 };
 
 class EditorWrapper extends Component<EditorWrapperProps, EditorWrapperState> {
-  editor: null | React.ReactNode = null;
+  private editor = createRef<Editor>();
 
   constructor(props: EditorWrapperProps) {
     super(props);
@@ -60,10 +60,6 @@ class EditorWrapper extends Component<EditorWrapperProps, EditorWrapperState> {
   componentDidMount() {
     this.MediumToSlateConverter();
   }
-
-  setEditorRef = (element: React.ReactNode) => {
-    this.editor = element;
-  };
 
   onChange = ({ value }: { value: Value }) => {
     this.setState({ value });
@@ -159,7 +155,7 @@ class EditorWrapper extends Component<EditorWrapperProps, EditorWrapperState> {
           value={this.state.value}
           onChange={this.onChange}
           plugins={plugins}
-          ref={this.setEditorRef}
+          ref={this.editor}
           readOnly
         />
       </StyledEditor>
