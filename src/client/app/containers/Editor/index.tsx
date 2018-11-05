@@ -4,6 +4,7 @@ import { Editor } from "slate-react";
 
 import { BLOCKS, MARKS } from "./constants";
 import initialValue from "./initialValue";
+import StyledEditor from "./StyledEditor";
 
 import RichTextPlugin from "./plugins/RichTextPlugin";
 
@@ -104,6 +105,7 @@ class EditorWrapper extends Component<EditorWrapperProps, EditorWrapperState> {
           const headingOne = Block.fromJSON(
             createBlock(BLOCKS.HEADING_ONE, block.text)
           );
+          // logic for removing first editor block (empty paragraph) for title
           if (i === 0) {
             editor.setBlocks(BLOCKS.HEADING_ONE);
             editor.insertText(block.text);
@@ -149,7 +151,7 @@ class EditorWrapper extends Component<EditorWrapperProps, EditorWrapperState> {
 
   render() {
     return (
-      <div>
+      <StyledEditor>
         <Editor
           value={this.state.value}
           onChange={this.onChange}
@@ -157,7 +159,7 @@ class EditorWrapper extends Component<EditorWrapperProps, EditorWrapperState> {
           ref={this.setEditorRef}
           readOnly
         />
-      </div>
+      </StyledEditor>
     );
   }
 }
