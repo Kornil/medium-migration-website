@@ -15,14 +15,18 @@ const h = createHyperscript({
     "heading-two": "heading-two",
     "heading-three": "heading-three",
     // image
-    image: "image"
+    image: "image",
+
+    "invalid-block": "invalid-block"
   },
   marks: {
     bold: "bold",
     code: "code",
     italic: "italic",
     link: "link",
-    underlined: "underlined"
+    underlined: "underlined",
+
+    "invalid-mark": "invalid-mark"
   }
 });
 

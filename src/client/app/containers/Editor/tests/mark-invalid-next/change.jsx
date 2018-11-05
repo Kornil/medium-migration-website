@@ -4,7 +4,9 @@ import h from '../h';
 export const input = (
     <value>
         <document>
-            <paragraph>Some text</paragraph>
+            <paragraph>
+                <invalid-mark>Some text</invalid-mark>
+            </paragraph>
         </document>
     </value>
 );
