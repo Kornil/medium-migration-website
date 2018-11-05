@@ -116,7 +116,7 @@
     "react-dom": "^16.4.1",
     "react-emotion": "^9.2.10",
     "react-router-dom": "^4.3.1",
-    "slate": "^0.43.2",
-    "slate-react": "^0.20.4"
+    "slate": "^0.43.6",
+    "slate-react": "^0.21.1"
   }
 }
