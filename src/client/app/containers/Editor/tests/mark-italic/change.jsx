@@ -15,7 +15,9 @@ export const output = `
 <div data-slate-editor="true" contenteditable="true" role="textbox">
     <p>
         <span>
-            <span><em>Some text</em></span>
+            <span>
+                <em><span>Some text</span></em>
+            </span>
         </span>
     </p>
 </div>

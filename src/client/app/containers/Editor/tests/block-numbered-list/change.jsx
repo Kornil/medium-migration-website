@@ -15,9 +15,11 @@ export const output = `
 <div data-slate-editor="true" contenteditable="true" role="textbox">
     <ol>
         <li>
+        <span>
             <span>
                 <span>Some text</span>
             </span>
+        </span>
         </li>
     </ol>
 </div>

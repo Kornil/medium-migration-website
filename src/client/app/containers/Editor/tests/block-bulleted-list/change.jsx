@@ -1,14 +1,14 @@
 /** @jsx h */
-import h from '../h';
+import h from "../h";
 
 export const input = (
-    <value>
-        <document>
-            <bulleted-list>
-                <list-item>Some text</list-item>
-            </bulleted-list>
-        </document>
-    </value>
+  <value>
+    <document>
+      <bulleted-list>
+        <list-item>Some text</list-item>
+      </bulleted-list>
+    </document>
+  </value>
 );
 
 export const output = `
@@ -16,7 +16,9 @@ export const output = `
     <ul>
         <li>
             <span>
-                <span>Some text</span>
+                <span>
+                    <span>Some text</span>
+                </span>
             </span>
         </li>
     </ul>

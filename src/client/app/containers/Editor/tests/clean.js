@@ -4,6 +4,8 @@ const UNWANTED_ATTRS = [
   "data-key",
   "data-offset-key",
   "data-slate-leaf",
+  "data-slate-content",
+  "data-slate-mark",
   "style"
 ];
 

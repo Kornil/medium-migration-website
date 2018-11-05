@@ -21,6 +21,7 @@ const h = createHyperscript({
     bold: "bold",
     code: "code",
     italic: "italic",
+    link: "link",
     underlined: "underlined"
   }
 });
