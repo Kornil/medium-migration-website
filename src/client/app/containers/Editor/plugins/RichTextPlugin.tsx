@@ -1,7 +1,7 @@
 import React from "react";
 import { Plugin } from "slate-react";
 
-import { BLOCKS } from "../constants";
+import { BLOCKS, MARKS } from "../constants";
 
 type RichTextPluginInterface = () => Plugin;
 
@@ -45,15 +45,21 @@ const RichTextPlugin: RichTextPluginInterface = () => {
 
     renderMark: (props, {}, next) => {
       const { children, mark, attributes } = props;
-
+      const { data } = mark;
       switch (mark.type) {
-        case "bold":
+        case MARKS.BOLD:
           return <strong {...attributes}>{children}</strong>;
-        case "code":
+        case MARKS.CODE:
           return <code {...attributes}>{children}</code>;
-        case "italic":
+        case MARKS.ITALIC:
           return <em {...attributes}>{children}</em>;
-        case "underlined":
+        case MARKS.LINK:
+          return (
+            <a href={data.get("href")} {...attributes}>
+              {children}
+            </a>
+          );
+        case MARKS.UNDERLINED:
           return <u {...attributes}>{children}</u>;
         default:
           return next();

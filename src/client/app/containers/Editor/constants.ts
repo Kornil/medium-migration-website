@@ -9,3 +9,11 @@ export enum BLOCKS {
   NUMBERED_LIST = "numbered-list",
   PARAGRAPH = "paragraph"
 }
+
+export enum MARKS {
+  BOLD = "bold",
+  CODE = "code",
+  ITALIC = "italic",
+  LINK = "link",
+  UNDERLINED = "underlined"
+}
