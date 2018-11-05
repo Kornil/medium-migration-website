@@ -50,6 +50,8 @@ class EditorWrapper extends Component<EditorWrapperProps, EditorWrapperState> {
         editor.insertBlock(slateBlock);
       }
 
+      // if markup is present on the node
+      // apply it to the specified range
       if (block.markups.length) {
         const firstNode = slateBlock.nodes.first();
         block.markups.forEach((mark: any) => {

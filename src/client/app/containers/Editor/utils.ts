@@ -17,6 +17,7 @@ const createTextBlock = (type: string, text: string): BlockJSON => ({
   type
 });
 
+// take a Medium block and convert it into a Slate block
 export const createBlockFromType = (block: any, i: number): Block => {
   switch (block.type) {
     case 1:
@@ -44,6 +45,7 @@ export const createBlockFromType = (block: any, i: number): Block => {
   }
 };
 
+// Map the type of Medium's marks to slate marks
 export const findMarkType = (mark: any): MarkJSON | undefined => {
   switch (mark.type) {
     case 10:
