@@ -5,12 +5,19 @@ import { StyledBody } from "app/styled-components";
 
 import { RightSidebar } from "./components";
 
-const Story: React.SFC<{ story: any }> = props => {
-  const { story } = props;
+const Story: React.SFC<{ cached: boolean; story: any }> = props => {
+  const { cached, story } = props;
   return (
     <StyledBody>
       <div />
-      <Editor mediumValue={story.content} />
+      <Editor
+        mediumValue={{
+          content: story.content,
+          firstPublishedAt: story.firstPublishedAt,
+          mediumUrl: story.mediumUrl
+        }}
+        cached={cached}
+      />
       <RightSidebar date={story.firstPublishedAt} />
     </StyledBody>
   );

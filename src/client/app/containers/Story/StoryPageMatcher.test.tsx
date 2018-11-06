@@ -59,6 +59,22 @@ describe("<StoryPageMatcher />", () => {
     expect(wrapper.find(Story)).toHaveLength(1);
   });
 
+  it("renders story from cache if valid :id on /blog/:id", async () => {
+    localStorage.setItem(fakeStory.link, JSON.stringify(fakeStory));
+
+    const wrapper = shallow(
+      <StoryPageMatcher
+        StoriesContext={{ stories: [fakeStory] }}
+        match={{ params: { id: "hello" }, isExact: true, path: "", url: "" }}
+      />
+    );
+    const instance = wrapper.instance() as StoryPageMatcher;
+
+    await instance.fetchStory();
+
+    expect(wrapper.find(Story)).toHaveLength(1);
+  });
+
   it("renders error if url is invalid on /blog/:id", async () => {
     const wrapper = shallow(
       <StoryPageMatcher

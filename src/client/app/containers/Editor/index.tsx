@@ -12,6 +12,7 @@ import RichTextPlugin from "./plugins/RichTextPlugin";
 const plugins = [RichTextPlugin()];
 
 interface EditorWrapperProps {
+  cached: boolean;
   mediumValue: any;
 }
 
@@ -25,12 +26,16 @@ class EditorWrapper extends Component<EditorWrapperProps, EditorWrapperState> {
   constructor(props: EditorWrapperProps) {
     super(props);
     this.state = {
-      value: Value.fromJSON(initialValue)
+      value: props.cached
+        ? Value.fromJSON(props.mediumValue.content)
+        : Value.fromJSON(initialValue)
     };
   }
 
   componentDidMount() {
-    this.MediumToSlateConverter();
+    if (!this.props.cached) {
+      this.MediumToSlateConverter();
+    }
   }
 
   onChange = ({ value }: { value: Value }) => {
@@ -38,7 +43,8 @@ class EditorWrapper extends Component<EditorWrapperProps, EditorWrapperState> {
   };
 
   MediumToSlateConverter = () => {
-    const { paragraphs } = this.props.mediumValue.bodyModel;
+    const { mediumValue } = this.props;
+    const { paragraphs } = mediumValue.content.bodyModel;
     const editor = this.editor.current;
     paragraphs.forEach((block: any, i: number) => {
       const slateBlock = createBlockFromType(block, i);
@@ -73,6 +79,15 @@ class EditorWrapper extends Component<EditorWrapperProps, EditorWrapperState> {
         });
       }
     });
+    localStorage.setItem(
+      mediumValue.mediumUrl,
+      JSON.stringify({
+        // @ts-ignore
+        content: editor.value,
+        firstPublishedAt: mediumValue.firstPublishedAt,
+        mediumUrl: mediumValue.mediumUrl
+      })
+    );
   };
 
   render() {

@@ -12,6 +12,7 @@ interface StoryPageMatcherProps {
 }
 
 interface StoryPageMatcherState {
+  cached: boolean;
   error: null | string;
   isContextReady: boolean;
   status: "loading" | "notFound" | "success" | "error";
@@ -23,6 +24,7 @@ export class StoryPageMatcher extends PureComponent<
   StoryPageMatcherState
 > {
   state: StoryPageMatcherState = {
+    cached: false,
     error: null,
     isContextReady: false,
     status: "loading",
@@ -37,6 +39,15 @@ export class StoryPageMatcher extends PureComponent<
     );
 
     if (filteredStory) {
+      const cachedStory = localStorage.getItem(filteredStory.link);
+      if (cachedStory) {
+        this.setState({
+          cached: true,
+          status: "success",
+          story: JSON.parse(cachedStory)
+        });
+        return;
+      }
       try {
         const response = await fetch(`/medium-api?url=${filteredStory.link}`);
         const { payload } = await response.json();
@@ -78,12 +89,12 @@ export class StoryPageMatcher extends PureComponent<
   }
 
   render() {
-    const { error, status, story } = this.state;
+    const { cached, error, status, story } = this.state;
     switch (status) {
       case "loading":
         return <LoadingPage />;
       case "success":
-        return <Story story={story} />;
+        return <Story story={story} cached={cached} />;
       case "notFound":
         return <NotFound />;
       case "error":
