@@ -16,10 +16,10 @@ const defaultParagraph = {
 
 it("createBlockFromType return a paragraph if type is unknown", () => {
   const unknownType: MediumBlock = {
-    type: 99,
-    text: "hello",
+    markups: [],
     name: "world",
-    markups: []
+    text: "hello",
+    type: 99
   };
   const unknownBlock = createBlockFromType(unknownType, 1);
   expect(unknownBlock.toJSON()).toEqual(defaultParagraph);
