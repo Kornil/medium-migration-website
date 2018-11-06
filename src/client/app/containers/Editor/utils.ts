@@ -17,8 +17,31 @@ const createTextBlock = (type: string, text: string): BlockJSON => ({
   type
 });
 
+interface MediumTextBlock {
+  name: string;
+  // 0 only exists for the default case
+  type: 1 | 3 | 13 | 8 | 99;
+  text: string;
+  markups: MediumMark[];
+}
+
+interface MediumImageBlock {
+  name: string;
+  type: 4;
+  layout: number;
+  text: string;
+  markups: MediumMark[];
+  metadata: {
+    id: string;
+    originalWidth: number;
+    originalHeight: number;
+  };
+}
+
+export type MediumBlock = MediumTextBlock | MediumImageBlock;
+
 // take a Medium block and convert it into a Slate block
-export const createBlockFromType = (block: any, i: number): Block => {
+export const createBlockFromType = (block: MediumBlock, i: number): Block => {
   switch (block.type) {
     case 1:
       return Block.fromJSON(createTextBlock(BLOCKS.PARAGRAPH, block.text));
@@ -45,8 +68,26 @@ export const createBlockFromType = (block: any, i: number): Block => {
   }
 };
 
+interface MediumDefaultMark {
+  type: 10 | 2 | 1 | 99;
+  start: number;
+  end: number;
+}
+
+interface MediumLinkMark {
+  type: 3;
+  start: number;
+  end: number;
+  href: string;
+  title: string;
+  rel: string;
+  anchorType: number;
+}
+
+export type MediumMark = MediumDefaultMark | MediumLinkMark;
+
 // Map the type of Medium's marks to slate marks
-export const findMarkType = (mark: any): MarkJSON | undefined => {
+export const findMarkType = (mark: MediumMark): MarkJSON | undefined => {
   switch (mark.type) {
     case 10:
       return { type: MARKS.CODE, data: {} };
@@ -56,6 +97,7 @@ export const findMarkType = (mark: any): MarkJSON | undefined => {
       return { type: MARKS.ITALIC, data: {} };
     case 1:
       return { type: MARKS.BOLD, data: {} };
+    default:
+      return undefined;
   }
-  return undefined;
 };

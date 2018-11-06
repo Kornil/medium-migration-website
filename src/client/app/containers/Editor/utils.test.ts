@@ -1,4 +1,9 @@
-import { createBlockFromType, findMarkType } from "./utils";
+import {
+  createBlockFromType,
+  findMarkType,
+  MediumBlock,
+  MediumMark
+} from "./utils";
 
 const defaultParagraph = {
   data: {},
@@ -10,14 +15,19 @@ const defaultParagraph = {
 };
 
 it("createBlockFromType return a paragraph if type is unknown", () => {
-  const unknownType = { type: 99, text: "hello" };
+  const unknownType: MediumBlock = {
+    type: 99,
+    text: "hello",
+    name: "world",
+    markups: []
+  };
   const unknownBlock = createBlockFromType(unknownType, 1);
   expect(unknownBlock.toJSON()).toEqual(defaultParagraph);
 });
 
 describe("findMarkType()", () => {
   it("returns <code> for { type: 10 }", () => {
-    const codeMark = {
+    const codeMark: MediumMark = {
       end: 10,
       start: 0,
       type: 10
@@ -28,7 +38,7 @@ describe("findMarkType()", () => {
   });
 
   it("returns undefined if invalid", () => {
-    const unknownMark = {
+    const unknownMark: MediumMark = {
       end: 10,
       start: 0,
       type: 99
