@@ -19,7 +19,7 @@ const createTextBlock = (type: string, text: string): BlockJSON => ({
 
 interface MediumTextBlock {
   name: string;
-  // 0 only exists for the default case
+  // 99 only exists for the default case
   type: 1 | 3 | 13 | 8 | 99;
   text: string;
   markups: MediumMark[];
