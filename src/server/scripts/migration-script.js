@@ -35,11 +35,14 @@ const migrationScript = () => {
         data += chunk;
       });
       resp.on("end", () => {
-        // create a blog post
-        var post = new BlogPost(
-          JSON.parse(data.replace("])}while(1);</x>", ""))
-        );
-        post.save(function(err) {
+        const parsedData = JSON.parse(data.replace("])}while(1);</x>", ""));
+        const result = {
+          mediumUrl: parsedData.payload.value.mediumUrl,
+          paragraphs: parsedData.payload.value.content.bodyModel.paragraphs,
+          firstPublishedAt: parsedData.payload.value.firstPublishedAt
+        };
+        var story = new Story(result);
+        story.save(function(err) {
           if (!err) console.log("Success!");
         });
       });
