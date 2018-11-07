@@ -50,11 +50,7 @@ app.get("/medium-api", async (req, res) => {
   const url = req.query.url;
   if (url) {
     Story.findOne({ mediumUrl: url }, (err: Error, data: any) => {
-      if (!err) {
-        res.json(data);
-      } else {
-        res.send(err);
-      }
+      res.json(data);
     });
   } else {
     res.json(storiesUrls);
