@@ -69,13 +69,17 @@ export class StoryPageMatcher extends PureComponent<
     }
   };
 
-  async componentDidMount() {
+  componentDidMount() {
     if (
       this.props.StoriesContext.stories &&
       this.props.StoriesContext.stories.length > 0
     ) {
-      await this.fetchStory();
+      this.fetchStory();
     }
+  }
+
+  componentWillUnmount() {
+    this.setState = () => undefined;
   }
 
   componentDidUpdate(prevProps: StoryPageMatcherProps) {

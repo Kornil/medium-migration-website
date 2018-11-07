@@ -38,6 +38,10 @@ class EditorWrapper extends Component<EditorWrapperProps, EditorWrapperState> {
     }
   }
 
+  componentWillUnmount() {
+    this.setState = () => undefined;
+  }
+
   onChange = ({ value }: { value: Value }) => {
     this.setState({ value });
   };
