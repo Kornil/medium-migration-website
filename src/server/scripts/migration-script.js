@@ -22,7 +22,7 @@ const migrationScript = () => {
         const parsedData = JSON.parse(data.replace("])}while(1);</x>", ""));
         const result = {
           mediumUrl: parsedData.payload.value.mediumUrl,
-          paragraphs: parsedData.payload.value.content.bodyModel.paragraphs,
+          content: parsedData.payload.value.content.bodyModel.paragraphs,
           firstPublishedAt: parsedData.payload.value.firstPublishedAt
         };
         var story = new Story(result);
