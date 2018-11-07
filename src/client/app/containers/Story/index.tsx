@@ -50,11 +50,11 @@ export class StoryPageMatcher extends PureComponent<
       }
       try {
         const response = await fetch(`/medium-api?url=${filteredStory.link}`);
-        const { payload } = await response.json();
+        const data = await response.json();
 
         this.setState({
           status: "success",
-          story: payload.value
+          story: data
         });
       } catch (error) {
         this.setState({

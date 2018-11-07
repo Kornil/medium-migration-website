@@ -44,7 +44,7 @@ class EditorWrapper extends Component<EditorWrapperProps, EditorWrapperState> {
 
   MediumToSlateConverter = () => {
     const { mediumValue } = this.props;
-    const { paragraphs } = mediumValue.content.bodyModel;
+    const { content: paragraphs } = mediumValue;
     const editor = this.editor.current;
     paragraphs.forEach((block: any, i: number) => {
       const slateBlock = createBlockFromType(block, i);
