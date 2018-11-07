@@ -20,6 +20,10 @@ fetchMock.get(
   JSON.stringify({ payload: [{ hello: `world!` }] })
 );
 
+fetchMock.get(`/medium-api?url=hello`, {
+  throws: new Error("this is an error")
+});
+
 describe("<StoryPageMatcher />", () => {
   it("renders without crashing", () => {
     const div = document.createElement("div");
