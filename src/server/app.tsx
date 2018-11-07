@@ -1,6 +1,5 @@
 import dotenv from "dotenv";
 import express from "express";
-import https from "https";
 import mongoose from "mongoose";
 
 import "es6-promise/auto";
@@ -49,7 +48,7 @@ app.use(express.static("public"));
 app.get("/medium-api", async (req, res) => {
   const url = req.query.url;
   if (url) {
-    Story.findOne({ mediumUrl: url }, (err: Error, data: any) => {
+    Story.findOne({ mediumUrl: url }, ({}, data: any) => {
       res.json(data);
     });
   } else {
