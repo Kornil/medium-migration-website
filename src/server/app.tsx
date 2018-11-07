@@ -48,8 +48,8 @@ app.use(express.static("public"));
 app.get("/medium-api", async (req, res) => {
   const url = req.query.url;
   if (url) {
-    Story.findOne({ mediumUrl: url }, ({}, data: any) => {
-      res.json(data);
+    Story.findOne({ mediumUrl: url }).then((story: any) => {
+      res.json(story);
     });
   } else {
     res.json(storiesUrls);
