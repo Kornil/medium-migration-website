@@ -29,7 +29,10 @@ dotenv.config();
 const app = express();
 
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.DB_USER);
+mongoose.connect(
+  process.env.DB_USER,
+  { useNewUrlParser: true }
+);
 
 /* istanbul ignore next */
 if (process.env.NODE_ENV === "development") {
