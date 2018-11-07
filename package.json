@@ -11,7 +11,7 @@
     "start--dev": "cross-env NODE_ENV=development webpack -w & node server.js",
     "build": "cross-env NODE_ENV=production webpack -p",
     "test": "jest --coverage --verbose",
-    "test--ci": "jest --coverage --runInBand",
+    "test--ci": "jest --coverage --runInBand --forceExit",
     "test--watch": "jest --watch --verbose",
     "test--snapshots": "jest --updateSnapshot",
     "type-check": "tsc --noEmit",

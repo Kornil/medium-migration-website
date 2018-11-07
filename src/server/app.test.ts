@@ -1,12 +1,8 @@
-import mongoose from "mongoose";
 import request from "supertest";
 
 import app from "./app";
 
 describe("Test server paths", () => {
-  afterAll = () => {
-    mongoose.disconnect();
-  };
   test("GET on / path", async () => {
     const response = await request(app).get("/");
     expect(response.status).toBe(200);
