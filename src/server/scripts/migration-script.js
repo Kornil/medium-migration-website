@@ -8,23 +8,7 @@ const storiesUrls = require("../storiesUrls.json");
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.DB_USER);
 
-const Schema = mongoose.Schema;
-
-var StorySchema = new Schema({
-  payload: {
-    value: {
-      firstPublishedAt: Number,
-      mediumUrl: String,
-      content: {
-        bodyModel: {
-          paragraphs: [Schema.Types.Mixed]
-        }
-      }
-    }
-  }
-});
-
-var BlogPost = mongoose.model("Stories", StorySchema);
+var Story = require("../StorySchema");
 
 const migrationScript = () => {
   const stories = storiesUrls.payload;
