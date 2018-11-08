@@ -6,7 +6,10 @@ require("dotenv").config();
 const storiesUrls = require("../storiesUrls.json");
 
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.DB_USER);
+mongoose.connect(
+  process.env.DB_USER,
+  { useNewUrlParser: true }
+);
 
 var Story = require("../StorySchema");
 
@@ -26,9 +29,18 @@ const migrationScript = () => {
           firstPublishedAt: parsedData.payload.value.firstPublishedAt
         };
         var story = new Story(result);
-        story.save(function(err) {
-          if (!err) console.log("Success!");
-        });
+        Story.findOne({ mediumUrl: result.mediumUrl })
+          .then(existingStory => {
+            if (existingStory) {
+              Story.findOneAndUpdate({ mediumUrl: result.mediumUrl }, story);
+              console.log("Story updated!");
+            } else {
+              story.save(function(err) {
+                if (!err) console.log("Story added!");
+              });
+            }
+          })
+          .catch(err => console.log(err));
       });
     });
   });
