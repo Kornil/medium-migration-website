@@ -16,7 +16,7 @@ describe("<Story />", () => {
 
   it("renders without crashing", () => {
     const div = document.createElement("div");
-    render(<Story story={storyTest} cached={false} />, div);
+    render(<Story story={storyTest} />, div);
     unmountComponentAtNode(div);
   });
 });
