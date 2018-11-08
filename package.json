@@ -11,13 +11,14 @@
     "start--dev": "cross-env NODE_ENV=development webpack -w & node server.js",
     "build": "cross-env NODE_ENV=production webpack -p",
     "test": "jest --coverage --verbose",
-    "test--ci": "jest --coverage --runInBand",
+    "test--ci": "jest --coverage --runInBand --forceExit",
     "test--watch": "jest --watch --verbose",
     "test--snapshots": "jest --updateSnapshot",
     "type-check": "tsc --noEmit",
     "tslint": "tslint --fix --project ./",
     "lint": "stylelint 'src/client/**/*.ts' 'src/client/**/*.tsx'",
-    "prettier": "prettier --parser typescript --write 'src/client/**/*.ts' 'src/client/**/*.tsx'"
+    "prettier": "prettier --parser typescript --write 'src/client/**/*.ts' 'src/client/**/*.tsx'",
+    "migrate-stories": "babel-node --presets @babel/env src/server/scripts/migration-script.js"
   },
   "husky": {
     "hooks": {
@@ -35,6 +36,7 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.1.2",
+    "@babel/node": "^7.0.0",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
     "@babel/plugin-transform-async-to-generator": "^7.1.0",
@@ -43,11 +45,13 @@
     "@babel/preset-react": "^7.0.0",
     "@babel/preset-typescript": "^7.1.0",
     "@babel/runtime": "^7.1.2",
+    "@types/dotenv": "^4.0.3",
     "@types/enzyme": "^3.1.11",
     "@types/enzyme-adapter-react-16": "^1.0.2",
     "@types/express": "^4.16.0",
     "@types/fetch-mock": "^6.0.3",
     "@types/jest": "^23.3.1",
+    "@types/mongoose": "^5.3.1",
     "@types/react": "^16.4.6",
     "@types/react-dom": "^16.0.6",
     "@types/react-router-dom": "^4.2.7",
@@ -105,6 +109,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
+    "dotenv": "^6.1.0",
     "emotion": "^9.2.6",
     "emotion-normalize": "^8.0.0",
     "emotion-server": "^9.2.12",
@@ -112,6 +117,7 @@
     "express": "^4.16.3",
     "immutable": "^3.8.2",
     "isomorphic-fetch": "^2.2.1",
+    "mongoose": "^5.3.10",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-emotion": "^9.2.10",

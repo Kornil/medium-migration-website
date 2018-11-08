@@ -1,5 +1,6 @@
+import dotenv from "dotenv";
 import express from "express";
-import https from "https";
+import mongoose from "mongoose";
 
 import "es6-promise/auto";
 import "isomorphic-fetch";
@@ -20,19 +21,27 @@ import webpackHotMiddleware from "webpack-hot-middleware";
 // @ts-ignore
 import webpackConfig from "../../webpack.config";
 
+// @ts-ignore
+import Story from "./StorySchema";
+
+dotenv.config();
+
 const app = express();
+
+mongoose.connect(
+  process.env.DB_USER,
+  { useNewUrlParser: true }
+);
 
 /* istanbul ignore next */
 if (process.env.NODE_ENV === "development") {
   const compiler = webpack(webpackConfig[0]);
-
   app.use(
     webpackDevMiddleware(compiler, {
       // noInfo: true,
       publicPath: webpackConfig[0].output.publicPath
     })
   );
-
   app.use(webpackHotMiddleware(compiler));
 }
 
@@ -41,14 +50,8 @@ app.use(express.static("public"));
 app.get("/medium-api", async (req, res) => {
   const url = req.query.url;
   if (url) {
-    https.get(`${url}?format=json`, resp => {
-      let data = "";
-      resp.on("data", chunk => {
-        data += chunk;
-      });
-      resp.on("end", () => {
-        res.send(JSON.parse(data.replace("])}while(1);</x>", "")));
-      });
+    Story.findOne({ mediumUrl: url }).then((story: any) => {
+      res.json(story);
     });
   } else {
     res.json(storiesUrls);

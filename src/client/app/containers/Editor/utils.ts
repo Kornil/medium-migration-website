@@ -1,5 +1,10 @@
 import { Block, BlockJSON, MarkJSON } from "slate";
 
+import {
+  MediumBlock,
+  MediumMark
+} from "app/containers/Story/MediumStoryInterface";
+
 import { BLOCKS, MARKS } from "./constants";
 
 const createTextBlock = (type: string, text: string): BlockJSON => ({
@@ -16,29 +21,6 @@ const createTextBlock = (type: string, text: string): BlockJSON => ({
   object: "block",
   type
 });
-
-interface MediumTextBlock {
-  name: string;
-  // 99 only exists for the default case
-  type: 1 | 3 | 13 | 8 | 99;
-  text: string;
-  markups: MediumMark[];
-}
-
-interface MediumImageBlock {
-  name: string;
-  type: 4;
-  layout: number;
-  text: string;
-  markups: MediumMark[];
-  metadata: {
-    id: string;
-    originalWidth: number;
-    originalHeight: number;
-  };
-}
-
-export type MediumBlock = MediumTextBlock | MediumImageBlock;
 
 // take a Medium block and convert it into a Slate block
 export const createBlockFromType = (block: MediumBlock, i: number): Block => {
@@ -67,24 +49,6 @@ export const createBlockFromType = (block: MediumBlock, i: number): Block => {
       return Block.fromJSON(createTextBlock(BLOCKS.PARAGRAPH, block.text));
   }
 };
-
-interface MediumDefaultMark {
-  type: 10 | 2 | 1 | 99;
-  start: number;
-  end: number;
-}
-
-interface MediumLinkMark {
-  type: 3;
-  start: number;
-  end: number;
-  href: string;
-  title: string;
-  rel: string;
-  anchorType: number;
-}
-
-export type MediumMark = MediumDefaultMark | MediumLinkMark;
 
 // Map the type of Medium's marks to slate marks
 export const findMarkType = (mark: MediumMark): MarkJSON | undefined => {

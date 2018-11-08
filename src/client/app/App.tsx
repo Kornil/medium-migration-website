@@ -24,6 +24,10 @@ class App extends Component {
     });
   }
 
+  componentWillUnmount() {
+    this.setState = () => undefined;
+  }
+
   render() {
     const { articlesData } = this.state;
     return (

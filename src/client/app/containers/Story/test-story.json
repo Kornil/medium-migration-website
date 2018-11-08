@@ -1,1108 +1,755 @@
 {
-  "success": true,
-  "payload": {
-    "value": {
-      "id": "e0756c88fd3c",
-      "versionId": "f16b9568fff1",
-      "creatorId": "a197f91c90b6",
-      "homeCollectionId": "",
-      "title": "How to not f- up your local files with Git part 1",
-      "detectedLanguage": "en",
-      "latestVersion": "f16b9568fff1",
-      "latestPublishedVersion": "f16b9568fff1",
-      "hasUnpublishedEdits": false,
-      "latestRev": 832,
-      "createdAt": 1495986356743,
-      "updatedAt": 1528919479727,
-      "acceptedAt": 0,
-      "firstPublishedAt": 1496010670125,
-      "latestPublishedAt": 1504282777854,
-      "vote": false,
-      "experimentalCss": "",
-      "displayAuthor": "",
-      "content": {
-        "subtitle": "Branches and workflow",
-        "bodyModel": {
-          "paragraphs": [
-            {
-              "name": "e9db",
-              "type": 3,
-              "text": "How to not f- up your local files with Git part 1",
-              "markups": []
-            },
-            {
-              "name": "6fe0",
-              "type": 13,
-              "text": "Branches and workflow",
-              "markups": []
-            },
-            {
-              "name": "b39b",
-              "type": 1,
-              "text": "Git is an essential tool for every developer, it keeps your code history in check and helps understanding what was done yesterday without freaking out.",
-              "markups": []
-            },
-            {
-              "name": "78b2",
-              "type": 1,
-              "text": "Working with a team requires a bit more than “git add” and “git commit” so let’s start exploring the beautiful world of Git.",
-              "markups": [
-                {
-                  "type": 2,
-                  "start": 45,
-                  "end": 54
-                },
-                {
-                  "type": 2,
-                  "start": 59,
-                  "end": 71
-                }
-              ]
-            },
-            {
-              "name": "dc7c",
-              "type": 1,
-              "text": "Getting the basics is not that hard, and once you get into it, it becomes even easier.",
-              "markups": []
-            },
-            {
-              "name": "6f6d",
-              "type": 13,
-              "text": "Scope of this article",
-              "markups": []
-            },
-            {
-              "name": "5598",
-              "type": 1,
-              "text": "When working with a team, using Git should not take half your coding time so let’s get down some basic rules of Git and Github etiquette so you can spend your time coding instead of cloning the repo yet another time.",
-              "markups": []
-            },
-            {
-              "name": "98d8",
-              "type": 1,
-              "text": "Part 1 will focus on how you should manage your workflow with Git to avoid the most common problems.",
-              "markups": []
-            },
-            {
-              "name": "0a46",
-              "type": 13,
-              "text": "Tools",
-              "markups": []
-            },
-            {
-              "name": "aa55",
-              "type": 1,
-              "text": "You don’t require fancy tools or commands to use Git effectively, for this article and the ones to follow I’m just going to use Git itself and my code editor of choice (with Git integration).",
-              "markups": []
-            },
-            {
-              "name": "07df",
-              "type": 1,
-              "text": "Git client this is all the Git we need, just the default client.",
-              "markups": [
-                {
-                  "type": 3,
-                  "start": 0,
-                  "end": 10,
-                  "href": "https://git-scm.com/downloads",
-                  "title": "",
-                  "rel": "",
-                  "anchorType": 0
-                }
-              ]
-            },
-            {
-              "name": "0f90",
-              "type": 1,
-              "text": "Visual Studio Code or any other editor with Git integration, it will make your life so much easier.",
-              "markups": [
-                {
-                  "type": 3,
-                  "start": 0,
-                  "end": 18,
-                  "href": "https://code.visualstudio.com/?wt.mc_id=vscom_downloads",
-                  "title": "",
-                  "rel": "",
-                  "anchorType": 0
-                }
-              ]
-            },
-            {
-              "name": "daac",
-              "type": 13,
-              "text": "Basics",
-              "markups": []
-            },
-            {
-              "name": "9f69",
-              "type": 1,
-              "text": "First of all let’s start with the basics of Github etiquette (we can adapt and build on these, they are not set in stone but a good starting point).",
-              "markups": []
-            },
-            {
-              "name": "1e54",
-              "type": 1,
-              "text": "master branch you will never touch it, this is production and should be updated rarely when everything is tested and works.",
-              "markups": [
-                {
-                  "type": 1,
-                  "start": 0,
-                  "end": 13
-                },
-                {
-                  "type": 2,
-                  "start": 0,
-                  "end": 13
-                },
-                {
-                  "type": 2,
-                  "start": 80,
-                  "end": 86
-                }
-              ]
-            },
-            {
-              "name": "e2c3",
-              "type": 1,
-              "text": "development branch this is our development branch, you do not code here, you send pull requests here to be checked by other members of your team and merged. If you pair a lot and the dev team is ok with it you can skip the checked part and merge the pull request yourself but still, don’t push you code here.",
-              "markups": [
-                {
-                  "type": 1,
-                  "start": 0,
-                  "end": 18
-                },
-                {
-                  "type": 1,
-                  "start": 55,
-                  "end": 61
-                },
-                {
-                  "type": 2,
-                  "start": 0,
-                  "end": 18
-                }
-              ]
-            },
-            {
-              "name": "8520",
-              "type": 1,
-              "text": "So where should I code if I can’t do anything! Hold your guns cowboy, let’s get into that next.",
-              "markups": [
-                {
-                  "type": 2,
-                  "start": 0,
-                  "end": 46
-                }
-              ]
-            },
-            {
-              "name": "2cee",
-              "type": 4,
-              "text": "Chew that cigar, Clint.",
-              "markups": [],
-              "layout": 1,
-              "metadata": {
-                "id": "1*_WmL9LscLL-wMvIgGYFd-w.gif",
-                "originalWidth": 420,
-                "originalHeight": 200
-              }
-            },
-            {
-              "name": "86a7",
-              "type": 13,
-              "text": "What you should do when you want to work on something",
-              "markups": []
-            },
-            {
-              "name": "d1c2",
-              "type": 8,
-              "text": "$ git clone git@github.com:Kornil/simple-react-app.git ",
-              "markups": [
-                {
-                  "type": 3,
-                  "start": 12,
-                  "end": 26,
-                  "href": "mailto:git@github.com",
-                  "title": "",
-                  "rel": "nofollow",
-                  "anchorType": 0
-                }
-              ]
-            },
-            {
-              "name": "a62d",
-              "type": 1,
-              "text": "This is the beginning, you do it once and never again.",
-              "markups": []
-            },
-            {
-              "name": "0389",
-              "type": 1,
-              "text": "From here on we will work on branches. By default you will be on the master branch. GET OUT OF THERE.",
-              "markups": [
-                {
-                  "type": 1,
-                  "start": 84,
-                  "end": 101
-                }
-              ]
-            },
-            {
-              "name": "7ee0",
-              "type": 8,
-              "text": "$ git checkout development",
-              "markups": []
-            },
-            {
-              "name": "f9f2",
-              "type": 1,
-              "text": "This is better isn’t it? You are now in the development branch, this is the branch you should always refer to, she’s the love of your life and you will treat her with the respect she deserves.",
-              "markups": []
-            },
-            {
-              "name": "3609",
-              "type": 1,
-              "text": "How?",
-              "markups": [
-                {
-                  "type": 2,
-                  "start": 0,
-                  "end": 4
-                }
-              ]
-            },
-            {
-              "name": "a89b",
-              "type": 8,
-              "text": "$ git checkout -b myNewBranch",
-              "markups": []
-            },
-            {
-              "name": "017e",
-              "type": 1,
-              "text": "This will create a new local branch called myNewBranch and switch to it, it is based on the development branch in this case since we were there.",
-              "markups": [
-                {
-                  "type": 2,
-                  "start": 43,
-                  "end": 54
-                }
-              ]
-            },
-            {
-              "name": "393f",
-              "type": 1,
-              "text": "Running “git branch” you will see that you are actually inside this new branch. This is only on your machine, say “Hi!” to your new working branch.",
-              "markups": [
-                {
-                  "type": 2,
-                  "start": 9,
-                  "end": 20
-                }
-              ]
-            },
-            {
-              "name": "0632",
-              "type": 4,
-              "text": "For the visual learners.",
-              "markups": [],
-              "layout": 1,
-              "metadata": {
-                "id": "1*Jq_6o2oBPe3fRYhFllk2Sg.png",
-                "originalWidth": 1384,
-                "originalHeight": 256
-              }
-            },
-            {
-              "name": "aff3",
-              "type": 13,
-              "text": "Naming branches",
-              "markups": []
-            },
-            {
-              "name": "631f",
-              "type": 1,
-              "text": "Naming branches is an important aspect of coding with other devs and even for your future self, let’s look at how we can approach this.",
-              "markups": []
-            },
-            {
-              "name": "76fa",
-              "type": 1,
-              "text": "myNewBranch doesn’t explain anything and it doesn’t solve our problems, we need a naming convention:",
-              "markups": [
-                {
-                  "type": 2,
-                  "start": 0,
-                  "end": 11
-                }
-              ]
-            },
-            {
-              "name": "cf1f",
-              "type": 8,
-              "text": "\"bug/fixed-all-caps\"",
-              "markups": []
-            },
-            {
-              "name": "3690",
-              "type": 8,
-              "text": "\"feature/giant-duck-modal\"",
-              "markups": []
-            },
-            {
-              "name": "46a8",
-              "type": 8,
-              "text": "\"refactor/add-prop-types\"",
-              "markups": []
-            },
-            {
-              "name": "02a1",
-              "type": 8,
-              "text": "\"style/everything-is-black\"",
-              "markups": []
-            },
-            {
-              "name": "b67f",
-              "type": 1,
-              "text": "Type/short-description",
-              "markups": []
-            },
-            {
-              "name": "e6a0",
-              "type": 13,
-              "text": "Types",
-              "markups": []
-            },
-            {
-              "name": "5799",
-              "type": 1,
-              "text": "We’ll define 4 basic types of branches: bug, feature, refactor and style: respectively for bugfixes, new features, code refactoring and design/css stuff, after the type comes the name, it should specify on top of the branch type.",
-              "markups": [
-                {
-                  "type": 1,
-                  "start": 40,
-                  "end": 43
-                },
-                {
-                  "type": 1,
-                  "start": 45,
-                  "end": 52
-                },
-                {
-                  "type": 1,
-                  "start": 54,
-                  "end": 62
-                },
-                {
-                  "type": 1,
-                  "start": 67,
-                  "end": 72
-                },
-                {
-                  "type": 1,
-                  "start": 73,
-                  "end": 74
-                },
-                {
-                  "type": 2,
-                  "start": 15,
-                  "end": 26
-                }
-              ]
-            },
-            {
-              "name": "1042",
-              "type": 8,
-              "text": "$ git checkout -b style/pink-buttons",
-              "markups": []
-            },
-            {
-              "name": "91f1",
-              "type": 1,
-              "text": "This tells you and your friends everything you are going to code in this new branch.",
-              "markups": []
-            },
-            {
-              "name": "ba8a",
-              "type": 1,
-              "text": "F-! I forgot to create a new branch before starting to mess around and I’m still in development!",
-              "markups": [
-                {
-                  "type": 2,
-                  "start": 0,
-                  "end": 96
-                }
-              ]
-            },
-            {
-              "name": "8f79",
-              "type": 4,
-              "text": "",
-              "markups": [],
-              "layout": 1,
-              "metadata": {
-                "id": "1*y1Eyf-nhUXyKFvq79os2rA.gif",
-                "originalWidth": 259,
-                "originalHeight": 200
-              }
-            },
-            {
-              "name": "ba23",
-              "type": 1,
-              "text": "Don’t worry Leo, we can solve this. There are 2 ways we can use to recover from this disaster:",
-              "markups": []
-            },
-            {
-              "name": "2aee",
-              "type": 13,
-              "text": "First, if you have not committed anything:",
-              "markups": []
-            },
-            {
-              "name": "0a96",
-              "type": 8,
-              "text": "$ git stash",
-              "markups": []
-            },
-            {
-              "name": "846a",
-              "type": 1,
-              "text": "Saves all your changes (not commited nor staged) somewhere and removes them from your branch.",
-              "markups": [
-                {
-                  "type": 2,
-                  "start": 49,
-                  "end": 58
-                }
-              ]
-            },
-            {
-              "name": "0757",
-              "type": 1,
-              "text": "Now your development branch is clean so just run",
-              "markups": []
-            },
-            {
-              "name": "1ef3",
-              "type": 8,
-              "text": "$ git checkout -b feature/rubber-duck-cta\n$ git stash pop",
-              "markups": []
-            },
-            {
-              "name": "7c73",
-              "type": 1,
-              "text": "You will create a new local branch and paste here all your changes. Remember the stash is like copy pasting, tremendously useful yet at the same time definitive if you “git stash” once more you can say goodbye to your first stash. RIP.",
-              "markups": [
-                {
-                  "type": 2,
-                  "start": 150,
-                  "end": 160
-                },
-                {
-                  "type": 2,
-                  "start": 169,
-                  "end": 179
-                }
-              ]
-            },
-            {
-              "name": "8b82",
-              "type": 13,
-              "text": "Second way, If you have already committed your changes:",
-              "markups": []
-            },
-            {
-              "name": "baf6",
-              "type": 8,
-              "text": "$ git push origin development:fix/your-smart-fix",
-              "markups": []
-            },
-            {
-              "name": "84e7",
-              "type": 1,
-              "text": "Save your code into the newly materialized fix/your-smart-fix branch of your Github project (assuming you were working on the development branch).",
-              "markups": [
-                {
-                  "type": 2,
-                  "start": 43,
-                  "end": 61
-                }
-              ]
-            },
-            {
-              "name": "88e3",
-              "type": 1,
-              "text": "Now delete the development branch and get it back again as pure as it should be.",
-              "markups": []
-            },
-            {
-              "name": "2886",
-              "type": 8,
-              "text": "$ git checkout master\n$ git branch -D development\n$ git fetch\n$ git checkout development // optional, just to see that it's clean\n$ git checkout fix/your-smart-fix",
-              "markups": []
-            },
-            {
-              "name": "96bc",
-              "type": 1,
-              "text": "Let’s go over this quickly:",
-              "markups": []
-            },
-            {
-              "name": "ffef",
-              "type": 1,
-              "text": "First, switch to master branch (your safe branch), after that we delete the development branch, fetch every branch from Github (don’t worry you will not see them with “git branch”) and switch to development again. Now you can run “git status” to check that development is clean and from that you can go back to your working branch, easy enough right?",
-              "markups": [
-                {
-                  "type": 2,
-                  "start": 168,
-                  "end": 185
-                },
-                {
-                  "type": 2,
-                  "start": 231,
-                  "end": 242
-                }
-              ]
-            },
-            {
-              "name": "21b4",
-              "type": 3,
-              "text": "Using Visual Studio to look smart~ish",
-              "markups": []
-            },
-            {
-              "name": "4fe1",
-              "type": 1,
-              "text": "Visual Studio is more than an editor, it’s like a banana for a monkey, you should not live without it. Let’s see what it can do for us.",
-              "markups": []
-            },
-            {
-              "name": "89e4",
-              "type": 1,
-              "text": "Are you bored of using “git add .”? Do you want to commit only 3 files cause all the rest is a mess and you know you’ll get punched if you try to poison the Github repository with that filth? Here comes VSCode!",
-              "markups": [
-                {
-                  "type": 2,
-                  "start": 23,
-                  "end": 39
-                }
-              ]
-            },
-            {
-              "name": "df37",
-              "type": 4,
-              "text": "Look at this mess!",
-              "markups": [],
-              "layout": 4,
-              "metadata": {
-                "id": "1*Toc-6Pta5SM6TUKPmx2TnQ.png",
-                "originalWidth": 598,
-                "originalHeight": 820
-              }
-            },
-            {
-              "name": "4cf1",
-              "type": 1,
-              "text": "I went into a coding rage and modified too many files without committing even once, but I don’t want my fellow devs to suffer with me, I just want to split my code into multiple commits so it will be easier to read.",
-              "markups": []
-            },
-            {
-              "name": "4bff",
-              "type": 1,
-              "text": "But first of all, what are those letters on the right?",
-              "markups": []
-            },
-            {
-              "name": "d43b",
-              "type": 1,
-              "text": "(M) ← the file was modified after the last commit.",
-              "markups": []
-            },
-            {
-              "name": "72de",
-              "type": 1,
-              "text": "(D) ← the file was deleted after the last commit.",
-              "markups": []
-            },
-            {
-              "name": "6531",
-              "type": 1,
-              "text": "(U) ← this is a brand new file.",
-              "markups": []
-            },
-            {
-              "name": "d85c",
-              "type": 1,
-              "text": "Does this help? A bit, but still, let’s get to work! Hovering on the file I want to add shows 2 more icons, let’s see what they do.",
-              "markups": []
-            },
-            {
-              "name": "073b",
-              "type": 4,
-              "text": "",
-              "markups": [],
-              "layout": 4,
-              "metadata": {
-                "id": "1*l6HtT2L6SQ0OvEsjYl15bQ.png",
-                "originalWidth": 510,
-                "originalHeight": 100
-              }
-            },
-            {
-              "name": "a20f",
-              "type": 1,
-              "text": "First one is an arrow, it reverts all your changes to the last commit(my favourite button!).",
-              "markups": [
-                {
-                  "type": 1,
-                  "start": 16,
-                  "end": 21
-                }
-              ]
-            },
-            {
-              "name": "50d7",
-              "type": 1,
-              "text": "Second one is a plus symbol, clicking it is like running “git add .gitignore” it adds our files for the next commit, we can use this handy function to add only the files we want for this commit and keep the rest there.",
-              "markups": [
-                {
-                  "type": 1,
-                  "start": 16,
-                  "end": 28
-                },
-                {
-                  "type": 2,
-                  "start": 57,
-                  "end": 77
-                }
-              ]
-            },
-            {
-              "name": "b427",
-              "type": 1,
-              "text": "After clicking on the plus icon we see this.",
-              "markups": []
-            },
-            {
-              "name": "5653",
-              "type": 4,
-              "text": "",
-              "markups": [],
-              "layout": 4,
-              "metadata": {
-                "id": "1*XN3dBKlCJbO9Wg8m68lAIw.png",
-                "originalWidth": 528,
-                "originalHeight": 154
-              }
-            },
-            {
-              "name": "b0d3",
-              "type": 1,
-              "text": "Now there are 2 distinct rows, the usual one called changes and a new one for the file we added called staged changes. Staged means file that will be committed with the next “git commit” but as you can see we have a new icon, a minus sign! This can be really handy too as it unstage our changes putting the file back to changes where we can decide if we’re just playing stage/unstage or if we want to restore the previous commit.",
-              "markups": [
-                {
-                  "type": 1,
-                  "start": 52,
-                  "end": 59
-                },
-                {
-                  "type": 1,
-                  "start": 103,
-                  "end": 117
-                },
-                {
-                  "type": 1,
-                  "start": 228,
-                  "end": 238
-                },
-                {
-                  "type": 1,
-                  "start": 320,
-                  "end": 327
-                },
-                {
-                  "type": 2,
-                  "start": 174,
-                  "end": 186
-                },
-                {
-                  "type": 2,
-                  "start": 275,
-                  "end": 282
-                }
-              ]
-            },
-            {
-              "name": "3919",
-              "type": 13,
-              "text": "Conclusion or TLDR",
-              "markups": []
-            },
-            {
-              "name": "aeb3",
-              "type": 1,
-              "text": "Make new branches, refer to development as the base of your branches, commit frequently, use clear messages, make pull requests against development, ask you team to check your code and then merge to development.",
-              "markups": []
-            },
-            {
-              "name": "8828",
-              "type": 1,
-              "text": "You can find part 2 of this series here and part 3 here.",
-              "markups": [
-                {
-                  "type": 3,
-                  "start": 35,
-                  "end": 39,
-                  "href": "https://medium.com/@francesco.agnoletto/how-to-not-f-up-your-local-files-with-git-part-2-fc4e243be02a",
-                  "title": "",
-                  "rel": "",
-                  "anchorType": 0
-                },
-                {
-                  "type": 3,
-                  "start": 51,
-                  "end": 55,
-                  "href": "https://medium.com/chingu/how-to-not-f-up-your-local-files-with-git-part-3-bf03b27b6e64",
-                  "title": "",
-                  "rel": "",
-                  "anchorType": 0
-                }
-              ]
-            }
-          ],
-          "sections": [
-            {
-              "name": "8bd7",
-              "startIndex": 0
-            }
-          ]
-        },
-        "postDisplay": {
-          "coverless": true
-        }
-      },
-      "virtuals": {
-        "allowNotes": true,
-        "previewImage": {
-          "imageId": "1*_WmL9LscLL-wMvIgGYFd-w.gif",
-          "filter": "",
-          "backgroundSize": "",
-          "originalWidth": 420,
-          "originalHeight": 200,
-          "strategy": "resample",
-          "height": 0,
-          "width": 0
-        },
-        "wordCount": 1272,
-        "imageCount": 6,
-        "readingTime": 5.75,
-        "subtitle": "Branches and workflow",
-        "usersBySocialRecommends": [],
-        "noIndex": false,
-        "recommends": 186,
-        "isBookmarked": false,
-        "tags": [
-          {
-            "slug": "git",
-            "name": "Git",
-            "postCount": 7000,
-            "metadata": {
-              "postCount": 7000,
-              "coverImage": {
-                "id": "0*tJq8RS_Uv3R9s56E",
-                "originalWidth": 4912,
-                "originalHeight": 3264,
-                "isFeatured": true
-              }
-            },
-            "type": "Tag"
-          },
-          {
-            "slug": "chingu",
-            "name": "Chingu",
-            "postCount": 394,
-            "metadata": {
-              "postCount": 394,
-              "coverImage": {
-                "id": "1*FH6OWmz1zYfd89B46BxHIg.jpeg",
-                "originalWidth": 3818,
-                "originalHeight": 2546
-              }
-            },
-            "type": "Tag"
-          },
-          {
-            "slug": "github",
-            "name": "Github",
-            "postCount": 7830,
-            "metadata": {
-              "postCount": 7830,
-              "coverImage": {
-                "id": "1*BAla49yVUaYudiCfov0C7g.png",
-                "originalWidth": 801,
-                "originalHeight": 400,
-                "isFeatured": true
-              }
-            },
-            "type": "Tag"
-          },
-          {
-            "slug": "visual-studio",
-            "name": "Visual Studio",
-            "postCount": 1477,
-            "metadata": {
-              "postCount": 1477,
-              "coverImage": {
-                "id": "1*0a31RbBbw8746bODSIQ_tw.png",
-                "originalWidth": 686,
-                "originalHeight": 266
-              }
-            },
-            "type": "Tag"
-          },
-          {
-            "slug": "web-development",
-            "name": "Web Development",
-            "postCount": 84895,
-            "metadata": {
-              "postCount": 84895,
-              "coverImage": {
-                "id": "1*2YiRWfZk40lOe81wcyEVjA.png",
-                "originalWidth": 2504,
-                "originalHeight": 844,
-                "isFeatured": true
-              }
-            },
-            "type": "Tag"
-          }
-        ],
-        "socialRecommendsCount": 0,
-        "responsesCreatedCount": 9,
-        "links": {
-          "entries": [
-            {
-              "url": "mailto:git@github.com",
-              "alts": [],
-              "httpStatus": 0
-            },
-            {
-              "url": "https://git-scm.com/downloads",
-              "alts": [],
-              "httpStatus": 200
-            },
-            {
-              "url": "https://medium.com/@francesco.agnoletto/how-to-not-f-up-your-local-files-with-git-part-2-fc4e243be02a",
-              "alts": [
-                {
-                  "type": 2,
-                  "url": "medium://p/fc4e243be02a"
-                },
-                {
-                  "type": 3,
-                  "url": "medium://p/fc4e243be02a"
-                }
-              ],
-              "httpStatus": 200
-            },
-            {
-              "url": "https://medium.com/chingu/how-to-not-f-up-your-local-files-with-git-part-3-bf03b27b6e64",
-              "alts": [
-                {
-                  "type": 2,
-                  "url": "medium://p/bf03b27b6e64"
-                },
-                {
-                  "type": 3,
-                  "url": "medium://p/bf03b27b6e64"
-                }
-              ],
-              "httpStatus": 200
-            },
-            {
-              "url": "https://code.visualstudio.com/?wt.mc_id=vscom_downloads",
-              "alts": [],
-              "httpStatus": 200
-            }
-          ],
-          "version": "0.3",
-          "generatedAt": 1504282778644
-        },
-        "isLockedPreviewOnly": false,
-        "takeoverId": "",
-        "metaDescription": "",
-        "totalClapCount": 1792,
-        "sectionCount": 1,
-        "readingList": 0,
-        "topics": []
-      },
-      "coverless": true,
-      "slug": "how-to-not-f-up-your-local-files-with-git-part-1",
-      "translationSourcePostId": "",
-      "translationSourceCreatorId": "",
-      "isApprovedTranslation": false,
-      "inResponseToPostId": "",
-      "inResponseToRemovedAt": 0,
-      "isTitleSynthesized": true,
-      "allowResponses": true,
-      "importedUrl": "",
-      "importedPublishedAt": 0,
-      "visibility": 0,
-      "uniqueSlug": "how-to-not-f-up-your-local-files-with-git-part-1-e0756c88fd3c",
-      "previewContent": {
-        "bodyModel": {
-          "paragraphs": [
-            {
-              "name": "e9db",
-              "type": 3,
-              "text": "How to not f- up your local files with Git part 1",
-              "markups": [],
-              "alignment": 1
-            },
-            {
-              "name": "6fe0",
-              "type": 13,
-              "text": "Branches and workflow",
-              "markups": [],
-              "alignment": 1
-            },
-            {
-              "name": "b39b",
-              "type": 1,
-              "text": "Git is an essential tool for every developer, it keeps your code history in check and helps understanding what was done yesterday without freaking out.",
-              "markups": [],
-              "alignment": 1
-            }
-          ],
-          "sections": [
-            {
-              "startIndex": 0
-            }
-          ]
-        },
-        "isFullContent": false,
-        "subtitle": "Branches and workflow"
-      },
-      "license": 0,
-      "inResponseToMediaResourceId": "",
-      "canonicalUrl": "https://medium.com/@francesco.agnoletto/how-to-not-f-up-your-local-files-with-git-part-1-e0756c88fd3c",
-      "approvedHomeCollectionId": "",
-      "newsletterId": "",
-      "webCanonicalUrl": "https://medium.com/@francesco.agnoletto/how-to-not-f-up-your-local-files-with-git-part-1-e0756c88fd3c",
-      "mediumUrl": "https://medium.com/@francesco.agnoletto/how-to-not-f-up-your-local-files-with-git-part-1-e0756c88fd3c",
-      "migrationId": "",
-      "notifyFollowers": true,
-      "notifyTwitter": true,
-      "notifyFacebook": false,
-      "responseHiddenOnParentPostAt": 0,
-      "isSeries": false,
-      "isSubscriptionLocked": false,
-      "seriesLastAppendedAt": 0,
-      "audioVersionDurationSec": 0,
-      "sequenceId": "",
-      "isNsfw": false,
-      "isEligibleForRevenue": false,
-      "isBlockedFromHightower": false,
-      "deletedAt": 0,
-      "lockedPostSource": 0,
-      "hightowerMinimumGuaranteeStartsAt": 0,
-      "hightowerMinimumGuaranteeEndsAt": 0,
-      "featureLockRequestAcceptedAt": 0,
-      "mongerRequestType": 1,
-      "layerCake": 0,
-      "socialTitle": "",
-      "socialDek": "",
-      "editorialPreviewTitle": "",
-      "editorialPreviewDek": "",
-      "curationEligibleAt": 0,
-      "type": "Post"
-    },
-    "mentionedUsers": [],
-    "collaborators": [
-      {
-        "user": {
-          "userId": "ccde6aa9ae4f",
-          "name": "Jim Medlock",
-          "username": "jdmedlock",
-          "createdAt": 1448728722610,
-          "imageId": "0*nzaLeKBcyfUG8iXn.jpg",
-          "backgroundImageId": "",
-          "bio": "",
-          "twitterScreenName": "",
-          "facebookAccountId": "10155164614449862",
-          "allowNotes": 1,
-          "mediumMemberAt": 0,
-          "isNsfw": false,
-          "type": "User"
-        },
-        "state": "visible"
-      },
-      {
-        "user": {
-          "userId": "b0f009f22115",
-          "name": "Chance Taken",
-          "username": "tropicalchancer",
-          "createdAt": 1432564666609,
-          "imageId": "0*DwhOmBZjaCHeZpiE.jpg",
-          "backgroundImageId": "",
-          "bio": "Facilitator @ Chingu. Apply here: chingu.io",
-          "twitterScreenName": "",
-          "facebookAccountId": "10103404645674852",
-          "allowNotes": 1,
-          "mediumMemberAt": 1525969073000,
-          "isNsfw": false,
-          "type": "User"
-        },
-        "state": "visible"
-      }
-    ],
-    "collectionUserRelations": [],
-    "mode": null,
-    "references": {
-      "User": {
-        "a197f91c90b6": {
-          "userId": "a197f91c90b6",
-          "name": "Francesco Agnoletto",
-          "username": "francesco.agnoletto",
-          "createdAt": 1488987086773,
-          "imageId": "0*_w2nYdoczve2zx_B.",
-          "backgroundImageId": "",
-          "bio": "Javascript developer @prezly",
-          "twitterScreenName": "Fragno92",
-          "socialStats": {
-            "userId": "a197f91c90b6",
-            "usersFollowedCount": 177,
-            "usersFollowedByCount": 825,
-            "type": "SocialStats"
-          },
-          "social": {
-            "userId": "lo_3cxGD1rMxV2e",
-            "targetUserId": "a197f91c90b6",
-            "type": "Social"
-          },
-          "facebookAccountId": "",
-          "allowNotes": 1,
-          "mediumMemberAt": 0,
-          "isNsfw": false,
-          "type": "User"
-        }
-      },
-      "Social": {
-        "a197f91c90b6": {
-          "userId": "lo_3cxGD1rMxV2e",
-          "targetUserId": "a197f91c90b6",
-          "type": "Social"
-        }
-      },
-      "SocialStats": {
-        "a197f91c90b6": {
-          "userId": "a197f91c90b6",
-          "usersFollowedCount": 177,
-          "usersFollowedByCount": 825,
-          "type": "SocialStats"
-        }
-      }
-    }
+  "_id": {
+    "$oid": "5be3283e90fcb06b4797f777"
   },
-  "v": 3,
-  "b": "35528-4f97f88"
+  "content": [
+    {
+      "name": "e9db",
+      "type": 3,
+      "text": "How to not f- up your local files with Git part 1",
+      "markups": []
+    },
+    {
+      "name": "6fe0",
+      "type": 13,
+      "text": "Branches and workflow",
+      "markups": []
+    },
+    {
+      "name": "b39b",
+      "type": 1,
+      "text": "Git is an essential tool for every developer, it keeps your code history in check and helps understanding what was done yesterday without freaking out.",
+      "markups": []
+    },
+    {
+      "name": "78b2",
+      "type": 1,
+      "text": "Working with a team requires a bit more than \u201cgit add\u201d and \u201cgit commit\u201d so let\u2019s start exploring the beautiful world of Git.",
+      "markups": [
+        {
+          "type": 2,
+          "start": 45,
+          "end": 54
+        },
+        {
+          "type": 2,
+          "start": 59,
+          "end": 71
+        }
+      ]
+    },
+    {
+      "name": "dc7c",
+      "type": 1,
+      "text": "Getting the basics is not that hard, and once you get into it, it becomes even easier.",
+      "markups": []
+    },
+    {
+      "name": "6f6d",
+      "type": 13,
+      "text": "Scope of this article",
+      "markups": []
+    },
+    {
+      "name": "5598",
+      "type": 1,
+      "text": "When working with a team, using Git should not take half your coding time so let\u2019s get down some basic rules of Git and Github etiquette so you can spend your time coding instead of cloning the repo yet another time.",
+      "markups": []
+    },
+    {
+      "name": "98d8",
+      "type": 1,
+      "text": "Part 1 will focus on how you should manage your workflow with Git to avoid the most common problems.",
+      "markups": []
+    },
+    {
+      "name": "0a46",
+      "type": 13,
+      "text": "Tools",
+      "markups": []
+    },
+    {
+      "name": "aa55",
+      "type": 1,
+      "text": "You don\u2019t require fancy tools or commands to use Git effectively, for this article and the ones to follow I\u2019m just going to use Git itself and my code editor of choice (with Git integration).",
+      "markups": []
+    },
+    {
+      "name": "07df",
+      "type": 1,
+      "text": "Git client this is all the Git we need, just the default client.",
+      "markups": [
+        {
+          "type": 3,
+          "start": 0,
+          "end": 10,
+          "href": "https://git-scm.com/downloads",
+          "title": "",
+          "rel": "",
+          "anchorType": 0
+        }
+      ]
+    },
+    {
+      "name": "0f90",
+      "type": 1,
+      "text": "Visual Studio Code or any other editor with Git integration, it will make your life so much easier.",
+      "markups": [
+        {
+          "type": 3,
+          "start": 0,
+          "end": 18,
+          "href": "https://code.visualstudio.com/?wt.mc_id=vscom_downloads",
+          "title": "",
+          "rel": "",
+          "anchorType": 0
+        }
+      ]
+    },
+    {
+      "name": "daac",
+      "type": 13,
+      "text": "Basics",
+      "markups": []
+    },
+    {
+      "name": "9f69",
+      "type": 1,
+      "text": "First of all let\u2019s start with the basics of Github etiquette (we can adapt and build on these, they are not set in stone but a good starting point).",
+      "markups": []
+    },
+    {
+      "name": "1e54",
+      "type": 1,
+      "text": "master branch you will never touch it, this is production and should be updated rarely when everything is tested and works.",
+      "markups": [
+        {
+          "type": 1,
+          "start": 0,
+          "end": 13
+        },
+        {
+          "type": 2,
+          "start": 0,
+          "end": 13
+        },
+        {
+          "type": 2,
+          "start": 80,
+          "end": 86
+        }
+      ]
+    },
+    {
+      "name": "e2c3",
+      "type": 1,
+      "text": "development branch this is our development branch, you do not code here, you send pull requests here to be checked by other members of your team and merged. If you pair a lot and the dev team is ok with it you can skip the checked part and merge the pull request yourself but still, don\u2019t push you code here.",
+      "markups": [
+        {
+          "type": 1,
+          "start": 0,
+          "end": 18
+        },
+        {
+          "type": 1,
+          "start": 55,
+          "end": 61
+        },
+        {
+          "type": 2,
+          "start": 0,
+          "end": 18
+        }
+      ]
+    },
+    {
+      "name": "8520",
+      "type": 1,
+      "text": "So where should I code if I can\u2019t do anything! Hold your guns cowboy, let\u2019s get into that next.",
+      "markups": [
+        {
+          "type": 2,
+          "start": 0,
+          "end": 46
+        }
+      ]
+    },
+    {
+      "name": "2cee",
+      "type": 4,
+      "text": "Chew that cigar, Clint.",
+      "markups": [],
+      "layout": 1,
+      "metadata": {
+        "id": "1*_WmL9LscLL-wMvIgGYFd-w.gif",
+        "originalWidth": 420,
+        "originalHeight": 200
+      }
+    },
+    {
+      "name": "86a7",
+      "type": 13,
+      "text": "What you should do when you want to work on something",
+      "markups": []
+    },
+    {
+      "name": "d1c2",
+      "type": 8,
+      "text": "$ git clone git@github.com:Kornil/simple-react-app.git ",
+      "markups": [
+        {
+          "type": 3,
+          "start": 12,
+          "end": 26,
+          "href": "mailto:git@github.com",
+          "title": "",
+          "rel": "nofollow",
+          "anchorType": 0
+        }
+      ]
+    },
+    {
+      "name": "a62d",
+      "type": 1,
+      "text": "This is the beginning, you do it once and never again.",
+      "markups": []
+    },
+    {
+      "name": "0389",
+      "type": 1,
+      "text": "From here on we will work on branches. By default you will be on the master branch. GET OUT OF THERE.",
+      "markups": [
+        {
+          "type": 1,
+          "start": 84,
+          "end": 101
+        }
+      ]
+    },
+    {
+      "name": "7ee0",
+      "type": 8,
+      "text": "$ git checkout development",
+      "markups": []
+    },
+    {
+      "name": "f9f2",
+      "type": 1,
+      "text": "This is better isn\u2019t it? You are now in the development branch, this is the branch you should always refer to, she\u2019s the love of your life and you will treat her with the respect she deserves.",
+      "markups": []
+    },
+    {
+      "name": "3609",
+      "type": 1,
+      "text": "How?",
+      "markups": [
+        {
+          "type": 2,
+          "start": 0,
+          "end": 4
+        }
+      ]
+    },
+    {
+      "name": "a89b",
+      "type": 8,
+      "text": "$ git checkout -b myNewBranch",
+      "markups": []
+    },
+    {
+      "name": "017e",
+      "type": 1,
+      "text": "This will create a new local branch called myNewBranch and switch to it, it is based on the development branch in this case since we were there.",
+      "markups": [
+        {
+          "type": 2,
+          "start": 43,
+          "end": 54
+        }
+      ]
+    },
+    {
+      "name": "393f",
+      "type": 1,
+      "text": "Running \u201cgit branch\u201d you will see that you are actually inside this new branch. This is only on your machine, say \u201cHi!\u201d to your new working branch.",
+      "markups": [
+        {
+          "type": 2,
+          "start": 9,
+          "end": 20
+        }
+      ]
+    },
+    {
+      "name": "0632",
+      "type": 4,
+      "text": "For the visual learners.",
+      "markups": [],
+      "layout": 1,
+      "metadata": {
+        "id": "1*Jq_6o2oBPe3fRYhFllk2Sg.png",
+        "originalWidth": 1384,
+        "originalHeight": 256
+      }
+    },
+    {
+      "name": "aff3",
+      "type": 13,
+      "text": "Naming branches",
+      "markups": []
+    },
+    {
+      "name": "631f",
+      "type": 1,
+      "text": "Naming branches is an important aspect of coding with other devs and even for your future self, let\u2019s look at how we can approach this.",
+      "markups": []
+    },
+    {
+      "name": "76fa",
+      "type": 1,
+      "text": "myNewBranch doesn\u2019t explain anything and it doesn\u2019t solve our problems, we need a naming convention:",
+      "markups": [
+        {
+          "type": 2,
+          "start": 0,
+          "end": 11
+        }
+      ]
+    },
+    {
+      "name": "cf1f",
+      "type": 8,
+      "text": "\"bug/fixed-all-caps\"",
+      "markups": []
+    },
+    {
+      "name": "3690",
+      "type": 8,
+      "text": "\"feature/giant-duck-modal\"",
+      "markups": []
+    },
+    {
+      "name": "46a8",
+      "type": 8,
+      "text": "\"refactor/add-prop-types\"",
+      "markups": []
+    },
+    {
+      "name": "02a1",
+      "type": 8,
+      "text": "\"style/everything-is-black\"",
+      "markups": []
+    },
+    {
+      "name": "b67f",
+      "type": 1,
+      "text": "Type/short-description",
+      "markups": []
+    },
+    {
+      "name": "e6a0",
+      "type": 13,
+      "text": "Types",
+      "markups": []
+    },
+    {
+      "name": "5799",
+      "type": 1,
+      "text": "We\u2019ll define 4 basic types of branches: bug, feature, refactor and style: respectively for bugfixes, new features, code refactoring and design/css stuff, after the type comes the name, it should specify on top of the branch type.",
+      "markups": [
+        {
+          "type": 1,
+          "start": 40,
+          "end": 43
+        },
+        {
+          "type": 1,
+          "start": 45,
+          "end": 52
+        },
+        {
+          "type": 1,
+          "start": 54,
+          "end": 62
+        },
+        {
+          "type": 1,
+          "start": 67,
+          "end": 72
+        },
+        {
+          "type": 1,
+          "start": 73,
+          "end": 74
+        },
+        {
+          "type": 2,
+          "start": 15,
+          "end": 26
+        }
+      ]
+    },
+    {
+      "name": "1042",
+      "type": 8,
+      "text": "$ git checkout -b style/pink-buttons",
+      "markups": []
+    },
+    {
+      "name": "91f1",
+      "type": 1,
+      "text": "This tells you and your friends everything you are going to code in this new branch.",
+      "markups": []
+    },
+    {
+      "name": "ba8a",
+      "type": 1,
+      "text": "F-! I forgot to create a new branch before starting to mess around and I\u2019m still in development!",
+      "markups": [
+        {
+          "type": 2,
+          "start": 0,
+          "end": 96
+        }
+      ]
+    },
+    {
+      "name": "8f79",
+      "type": 4,
+      "text": "",
+      "markups": [],
+      "layout": 1,
+      "metadata": {
+        "id": "1*y1Eyf-nhUXyKFvq79os2rA.gif",
+        "originalWidth": 259,
+        "originalHeight": 200
+      }
+    },
+    {
+      "name": "ba23",
+      "type": 1,
+      "text": "Don\u2019t worry Leo, we can solve this. There are 2 ways we can use to recover from this disaster:",
+      "markups": []
+    },
+    {
+      "name": "2aee",
+      "type": 13,
+      "text": "First, if you have not committed anything:",
+      "markups": []
+    },
+    {
+      "name": "0a96",
+      "type": 8,
+      "text": "$ git stash",
+      "markups": []
+    },
+    {
+      "name": "846a",
+      "type": 1,
+      "text": "Saves all your changes (not commited nor staged) somewhere and removes them from your branch.",
+      "markups": [
+        {
+          "type": 2,
+          "start": 49,
+          "end": 58
+        }
+      ]
+    },
+    {
+      "name": "0757",
+      "type": 1,
+      "text": "Now your development branch is clean so just run",
+      "markups": []
+    },
+    {
+      "name": "1ef3",
+      "type": 8,
+      "text": "$ git checkout -b feature/rubber-duck-cta\n$ git stash pop",
+      "markups": []
+    },
+    {
+      "name": "7c73",
+      "type": 1,
+      "text": "You will create a new local branch and paste here all your changes. Remember the stash is like copy pasting, tremendously useful yet at the same time definitive if you \u201cgit stash\u201d once more you can say goodbye to your first stash. RIP.",
+      "markups": [
+        {
+          "type": 2,
+          "start": 150,
+          "end": 160
+        },
+        {
+          "type": 2,
+          "start": 169,
+          "end": 179
+        }
+      ]
+    },
+    {
+      "name": "8b82",
+      "type": 13,
+      "text": "Second way, If you have already committed your changes:",
+      "markups": []
+    },
+    {
+      "name": "baf6",
+      "type": 8,
+      "text": "$ git push origin development:fix/your-smart-fix",
+      "markups": []
+    },
+    {
+      "name": "84e7",
+      "type": 1,
+      "text": "Save your code into the newly materialized fix/your-smart-fix branch of your Github project (assuming you were working on the development branch).",
+      "markups": [
+        {
+          "type": 2,
+          "start": 43,
+          "end": 61
+        }
+      ]
+    },
+    {
+      "name": "88e3",
+      "type": 1,
+      "text": "Now delete the development branch and get it back again as pure as it should be.",
+      "markups": []
+    },
+    {
+      "name": "2886",
+      "type": 8,
+      "text": "$ git checkout master\n$ git branch -D development\n$ git fetch\n$ git checkout development // optional, just to see that it's clean\n$ git checkout fix/your-smart-fix",
+      "markups": []
+    },
+    {
+      "name": "96bc",
+      "type": 1,
+      "text": "Let\u2019s go over this quickly:",
+      "markups": []
+    },
+    {
+      "name": "ffef",
+      "type": 1,
+      "text": "First, switch to master branch (your safe branch), after that we delete the development branch, fetch every branch from Github (don\u2019t worry you will not see them with \u201cgit branch\u201d) and switch to development again. Now you can run \u201cgit status\u201d to check that development is clean and from that you can go back to your working branch, easy enough right?",
+      "markups": [
+        {
+          "type": 2,
+          "start": 168,
+          "end": 185
+        },
+        {
+          "type": 2,
+          "start": 231,
+          "end": 242
+        }
+      ]
+    },
+    {
+      "name": "21b4",
+      "type": 3,
+      "text": "Using Visual Studio to look smart~ish",
+      "markups": []
+    },
+    {
+      "name": "4fe1",
+      "type": 1,
+      "text": "Visual Studio is more than an editor, it\u2019s like a banana for a monkey, you should not live without it. Let\u2019s see what it can do for us.",
+      "markups": []
+    },
+    {
+      "name": "89e4",
+      "type": 1,
+      "text": "Are you bored of using \u201cgit add .\u201d? Do you want to commit only 3 files cause all the rest is a mess and you know you\u2019ll get punched if you try to poison the Github repository with that filth? Here comes VSCode!",
+      "markups": [
+        {
+          "type": 2,
+          "start": 23,
+          "end": 39
+        }
+      ]
+    },
+    {
+      "name": "df37",
+      "type": 4,
+      "text": "Look at this mess!",
+      "markups": [],
+      "layout": 4,
+      "metadata": {
+        "id": "1*Toc-6Pta5SM6TUKPmx2TnQ.png",
+        "originalWidth": 598,
+        "originalHeight": 820
+      }
+    },
+    {
+      "name": "4cf1",
+      "type": 1,
+      "text": "I went into a coding rage and modified too many files without committing even once, but I don\u2019t want my fellow devs to suffer with me, I just want to split my code into multiple commits so it will be easier to read.",
+      "markups": []
+    },
+    {
+      "name": "4bff",
+      "type": 1,
+      "text": "But first of all, what are those letters on the right?",
+      "markups": []
+    },
+    {
+      "name": "d43b",
+      "type": 1,
+      "text": "(M) ← the file was modified after the last commit.",
+      "markups": []
+    },
+    {
+      "name": "72de",
+      "type": 1,
+      "text": "(D) ← the file was deleted after the last commit.",
+      "markups": []
+    },
+    {
+      "name": "6531",
+      "type": 1,
+      "text": "(U) ← this is a brand new file.",
+      "markups": []
+    },
+    {
+      "name": "d85c",
+      "type": 1,
+      "text": "Does this help? A bit, but still, let\u2019s get to work! Hovering on the file I want to add shows 2 more icons, let\u2019s see what they do.",
+      "markups": []
+    },
+    {
+      "name": "073b",
+      "type": 4,
+      "text": "",
+      "markups": [],
+      "layout": 4,
+      "metadata": {
+        "id": "1*l6HtT2L6SQ0OvEsjYl15bQ.png",
+        "originalWidth": 510,
+        "originalHeight": 100
+      }
+    },
+    {
+      "name": "a20f",
+      "type": 1,
+      "text": "First one is an arrow, it reverts all your changes to the last commit(my favourite button!).",
+      "markups": [
+        {
+          "type": 1,
+          "start": 16,
+          "end": 21
+        }
+      ]
+    },
+    {
+      "name": "50d7",
+      "type": 1,
+      "text": "Second one is a plus symbol, clicking it is like running \u201cgit add .gitignore\u201d it adds our files for the next commit, we can use this handy function to add only the files we want for this commit and keep the rest there.",
+      "markups": [
+        {
+          "type": 1,
+          "start": 16,
+          "end": 28
+        },
+        {
+          "type": 2,
+          "start": 57,
+          "end": 77
+        }
+      ]
+    },
+    {
+      "name": "b427",
+      "type": 1,
+      "text": "After clicking on the plus icon we see this.",
+      "markups": []
+    },
+    {
+      "name": "5653",
+      "type": 4,
+      "text": "",
+      "markups": [],
+      "layout": 4,
+      "metadata": {
+        "id": "1*XN3dBKlCJbO9Wg8m68lAIw.png",
+        "originalWidth": 528,
+        "originalHeight": 154
+      }
+    },
+    {
+      "name": "b0d3",
+      "type": 1,
+      "text": "Now there are 2 distinct rows, the usual one called changes and a new one for the file we added called staged changes. Staged means file that will be committed with the next \u201cgit commit\u201d but as you can see we have a new icon, a minus sign! This can be really handy too as it unstage our changes putting the file back to changes where we can decide if we\u2019re just playing stage/unstage or if we want to restore the previous commit.",
+      "markups": [
+        {
+          "type": 1,
+          "start": 52,
+          "end": 59
+        },
+        {
+          "type": 1,
+          "start": 103,
+          "end": 117
+        },
+        {
+          "type": 1,
+          "start": 228,
+          "end": 238
+        },
+        {
+          "type": 1,
+          "start": 320,
+          "end": 327
+        },
+        {
+          "type": 2,
+          "start": 174,
+          "end": 186
+        },
+        {
+          "type": 2,
+          "start": 275,
+          "end": 282
+        }
+      ]
+    },
+    {
+      "name": "3919",
+      "type": 13,
+      "text": "Conclusion or TLDR",
+      "markups": []
+    },
+    {
+      "name": "aeb3",
+      "type": 1,
+      "text": "Make new branches, refer to development as the base of your branches, commit frequently, use clear messages, make pull requests against development, ask you team to check your code and then merge to development.",
+      "markups": []
+    },
+    {
+      "name": "8828",
+      "type": 1,
+      "text": "You can find part 2 of this series here and part 3 here.",
+      "markups": [
+        {
+          "type": 3,
+          "start": 35,
+          "end": 39,
+          "href": "https://medium.com/@francesco.agnoletto/how-to-not-f-up-your-local-files-with-git-part-2-fc4e243be02a",
+          "title": "",
+          "rel": "",
+          "anchorType": 0
+        },
+        {
+          "type": 3,
+          "start": 51,
+          "end": 55,
+          "href": "https://medium.com/chingu/how-to-not-f-up-your-local-files-with-git-part-3-bf03b27b6e64",
+          "title": "",
+          "rel": "",
+          "anchorType": 0
+        }
+      ]
+    }
+  ],
+  "mediumUrl": "https://medium.com/@francesco.agnoletto/how-to-not-f-up-your-local-files-with-git-part-1-e0756c88fd3c",
+  "firstPublishedAt": 1496010670125,
+  "__v": 0
 }

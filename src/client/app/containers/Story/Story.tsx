@@ -4,20 +4,14 @@ import { Editor } from "app/containers";
 import { StyledBody } from "app/styled-components";
 
 import { RightSidebar } from "./components";
+import { MediumStoryInterface } from "./MediumStoryInterface";
 
-const Story: React.SFC<{ cached: boolean; story: any }> = props => {
-  const { cached, story } = props;
+const Story: React.SFC<{ story: MediumStoryInterface }> = props => {
+  const { story } = props;
   return (
     <StyledBody>
       <div />
-      <Editor
-        mediumValue={{
-          content: story.content,
-          firstPublishedAt: story.firstPublishedAt,
-          mediumUrl: story.mediumUrl
-        }}
-        cached={cached}
-      />
+      <Editor story={story} />
       <RightSidebar date={story.firstPublishedAt} />
     </StyledBody>
   );
