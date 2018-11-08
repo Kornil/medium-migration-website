@@ -1,9 +1,9 @@
 import {
-  createBlockFromType,
-  findMarkType,
   MediumBlock,
   MediumMark
-} from "./utils";
+} from "app/containers/Story/MediumStoryInterface";
+
+import { createBlockFromType, findMarkType } from "./utils";
 
 const defaultParagraph = {
   data: {},

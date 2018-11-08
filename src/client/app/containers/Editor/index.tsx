@@ -2,6 +2,8 @@ import React, { Component, createRef } from "react";
 import { Range, Value } from "slate";
 import { Editor } from "slate-react";
 
+import { MediumStoryInterface } from "app/containers/Story/MediumStoryInterface";
+
 import { createBlockFromType, findMarkType } from "./utils";
 
 import initialValue from "./initialValue";
@@ -12,8 +14,7 @@ import RichTextPlugin from "./plugins/RichTextPlugin";
 const plugins = [RichTextPlugin()];
 
 interface EditorWrapperProps {
-  cached: boolean;
-  mediumValue: any;
+  story: MediumStoryInterface;
 }
 
 interface EditorWrapperState {
@@ -26,14 +27,14 @@ class EditorWrapper extends Component<EditorWrapperProps, EditorWrapperState> {
   constructor(props: EditorWrapperProps) {
     super(props);
     this.state = {
-      value: props.cached
-        ? Value.fromJSON(props.mediumValue.content)
+      value: props.story.cached
+        ? Value.fromJSON(props.story.cached)
         : Value.fromJSON(initialValue)
     };
   }
 
   componentDidMount() {
-    if (!this.props.cached) {
+    if (!this.props.story.cached) {
       this.MediumToSlateConverter();
     }
   }
@@ -47,8 +48,8 @@ class EditorWrapper extends Component<EditorWrapperProps, EditorWrapperState> {
   };
 
   MediumToSlateConverter = () => {
-    const { mediumValue } = this.props;
-    const { content: paragraphs } = mediumValue;
+    const { story } = this.props;
+    const { content: paragraphs } = story;
     const editor = this.editor.current;
     paragraphs.forEach((block: any, i: number) => {
       const slateBlock = createBlockFromType(block, i);
@@ -84,12 +85,11 @@ class EditorWrapper extends Component<EditorWrapperProps, EditorWrapperState> {
       }
     });
     localStorage.setItem(
-      mediumValue.mediumUrl,
+      story.mediumUrl,
       JSON.stringify({
+        ...story,
         // @ts-ignore
-        content: editor.value,
-        firstPublishedAt: mediumValue.firstPublishedAt,
-        mediumUrl: mediumValue.mediumUrl
+        cached: editor.value
       })
     );
   };

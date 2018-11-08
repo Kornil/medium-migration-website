@@ -4,6 +4,7 @@ import { match } from "react-router-dom";
 import { ErrorPage, LoadingPage, NotFound } from "app/containers";
 import StoriesContext, { StoryInterface } from "app/context/StoriesContext";
 
+import { MediumStoryInterface } from "./MediumStoryInterface";
 import Story from "./Story";
 
 interface StoryPageMatcherProps {
@@ -12,11 +13,10 @@ interface StoryPageMatcherProps {
 }
 
 interface StoryPageMatcherState {
-  cached: boolean;
   error: null | string;
   isContextReady: boolean;
   status: "loading" | "notFound" | "success" | "error";
-  story: object | null;
+  story: MediumStoryInterface | null;
 }
 
 export class StoryPageMatcher extends PureComponent<
@@ -24,7 +24,6 @@ export class StoryPageMatcher extends PureComponent<
   StoryPageMatcherState
 > {
   state: StoryPageMatcherState = {
-    cached: false,
     error: null,
     isContextReady: false,
     status: "loading",
@@ -42,7 +41,6 @@ export class StoryPageMatcher extends PureComponent<
       const cachedStory = localStorage.getItem(filteredStory.link);
       if (cachedStory) {
         this.setState({
-          cached: true,
           status: "success",
           story: JSON.parse(cachedStory)
         });
@@ -93,12 +91,12 @@ export class StoryPageMatcher extends PureComponent<
   }
 
   render() {
-    const { cached, error, status, story } = this.state;
+    const { error, status, story } = this.state;
     switch (status) {
       case "loading":
         return <LoadingPage />;
       case "success":
-        return <Story story={story} cached={cached} />;
+        return story && <Story story={story} />;
       case "notFound":
         return <NotFound />;
       case "error":
