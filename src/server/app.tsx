@@ -28,7 +28,6 @@ dotenv.config();
 
 const app = express();
 
-mongoose.Promise = global.Promise;
 mongoose.connect(
   process.env.DB_USER,
   { useNewUrlParser: true }

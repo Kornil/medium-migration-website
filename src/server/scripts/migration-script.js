@@ -5,7 +5,6 @@ require("dotenv").config();
 
 const storiesUrls = require("../storiesUrls.json");
 
-mongoose.Promise = global.Promise;
 mongoose.connect(
   process.env.DB_USER,
   { useNewUrlParser: true }
