@@ -4,7 +4,11 @@
   "description": "",
   "main": "server.js",
   "now": {
-    "alias": "francesco-agnoletto.com"
+    "alias": "francesco-agnoletto.com",
+    "version": 1,
+    "env": {
+      "DB_USER": "@db_user"
+    }
   },
   "scripts": {
     "start": "node server.js",
