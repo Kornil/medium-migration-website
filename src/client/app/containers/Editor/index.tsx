@@ -3,6 +3,10 @@ import { Range, Value } from "slate";
 import { Editor } from "slate-react";
 
 import { MediumStoryInterface } from "app/containers/Story/MediumStoryInterface";
+import {
+  MediumBlock,
+  MediumMark
+} from "app/containers/Story/MediumStoryInterface";
 
 import { createBlockFromType, findMarkType } from "./utils";
 
@@ -51,8 +55,10 @@ class EditorWrapper extends Component<EditorWrapperProps, EditorWrapperState> {
     const { story } = this.props;
     const { content: paragraphs } = story;
     const editor = this.editor.current;
-    paragraphs.forEach((block: any, i: number) => {
+    paragraphs.forEach((block: MediumBlock, i: number) => {
       const slateBlock = createBlockFromType(block, i);
+      // first block is added by removing the default block
+      // at the beginning of document
       if (i === 0) {
         // @ts-ignore
         editor.setBlocks(slateBlock.type).insertText(block.text);
@@ -65,7 +71,7 @@ class EditorWrapper extends Component<EditorWrapperProps, EditorWrapperState> {
       // apply it to the specified range
       if (block.markups.length) {
         const firstNode = slateBlock.nodes.first();
-        block.markups.forEach((mark: any) => {
+        block.markups.forEach((mark: MediumMark) => {
           const range = Range.fromJSON({
             anchor: {
               key: firstNode.key,
