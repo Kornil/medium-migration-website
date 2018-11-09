@@ -1,6 +1,7 @@
 import styled from "react-emotion";
+import { Link } from "react-router-dom";
 
-const StyledLink = styled.a`
+const StyledLink = styled(Link)`
   color: #3d3d3d;
   text-decoration: none;
 

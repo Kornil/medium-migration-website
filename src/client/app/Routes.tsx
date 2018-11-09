@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 
-import { Blog, Home, NotFound } from "app/components";
+import { Blog, Home, NotFound, Story } from "app/containers";
 
 interface RoutesInterface {
   Component: React.SFC<any> | typeof React.Component;
@@ -20,6 +20,11 @@ export const routes: RoutesInterface[] = [
     Component: Blog,
     exact: true,
     path: "/blog"
+  },
+  {
+    Component: Story,
+    exact: true,
+    path: "/blog/:id"
   },
   {
     Component: NotFound

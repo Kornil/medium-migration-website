@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it renders 1`] = `
+<StyledArticleCard>
+  <StyledLink
+    replace={false}
+    to="/blog/www.google.com"
+  >
+    <h3>
+      hello
+    </h3>
+    <p>
+      <em>
+        4 Jul 18
+      </em>
+    </p>
+  </StyledLink>
+</StyledArticleCard>
+`;

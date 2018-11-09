@@ -6,10 +6,10 @@ module.exports = {
       "<rootDir>/src/client/tests/fileTransformer.js",
     "^app/(.*)$": "<rootDir>/src/client/app/$1"
   },
-  testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.tsx?$",
+  testRegex: "(/__tests__/.*|(\\.|/)(test|spec))\\.(ts|tsx|js|jsx)$",
   transform: {
     "^.+\\.svg$": "jest-svg-transformer",
-    "^.+\\.tsx?$": "babel-jest"
+    "^.+\\.(tsx?|jsx?)$": "babel-jest"
   },
   snapshotSerializers: ["enzyme-to-json/serializer"],
   setupTestFrameworkScriptFile: "<rootDir>/src/client/tests/setup.ts",

@@ -2,7 +2,7 @@ import { mount } from "enzyme";
 import React from "react";
 import { MemoryRouter, StaticRouter } from "react-router-dom";
 
-import { RouteWithStatus } from "./components/shared";
+import { RouteWithStatus } from "app/containers/shared";
 import Routes, { routes } from "./Routes";
 
 describe("Routes", () => {
