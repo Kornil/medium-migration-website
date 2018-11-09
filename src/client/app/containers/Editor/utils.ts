@@ -1,4 +1,4 @@
-import { Block, BlockJSON, MarkJSON } from "slate";
+import { Block, BlockJSON, Editor, MarkJSON } from "slate";
 
 import {
   MediumBlock,
@@ -35,6 +35,8 @@ export const createBlockFromType = (block: MediumBlock, i: number): Block => {
         : Block.fromJSON(createTextBlock(BLOCKS.HEADING_THREE, block.text));
     case 8:
       return Block.fromJSON(createTextBlock(BLOCKS.BLOCK_QUOTE, block.text));
+    case 9:
+      return Block.fromJSON(createTextBlock(BLOCKS.LIST_ITEM, block.text));
     case 4:
       return Block.create({
         data: {
@@ -63,5 +65,17 @@ export const findMarkType = (mark: MediumMark): MarkJSON | undefined => {
       return { type: MARKS.BOLD, data: {} };
     default:
       return undefined;
+  }
+};
+
+export const wrappingLogic = (editor: Editor, block: Block, type: number) => {
+  if (type === 9) {
+    if (editor.value.document.getClosest(block.key, () => true) === null) {
+      editor.wrapBlockByKey(block.key, Block.create(BLOCKS.BULLETED_LIST));
+    }
+  } else {
+    if (editor.value.document.getClosest(block.key, () => true)) {
+      editor.unwrapBlockByKey(block.key, BLOCKS.BULLETED_LIST);
+    }
   }
 };

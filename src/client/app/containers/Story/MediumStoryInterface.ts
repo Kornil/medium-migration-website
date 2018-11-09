@@ -4,7 +4,7 @@ import { ValueJSON } from "slate";
 interface MediumTextBlock {
   name: string;
   // 99 only exists for the default case
-  type: 1 | 3 | 13 | 8 | 99;
+  type: 1 | 3 | 13 | 8 | 9 | 99;
   text: string;
   markups: MediumMark[];
 }

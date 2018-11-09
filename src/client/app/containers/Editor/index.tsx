@@ -8,7 +8,7 @@ import {
   MediumMark
 } from "app/containers/Story/MediumStoryInterface";
 
-import { createBlockFromType, findMarkType } from "./utils";
+import { createBlockFromType, findMarkType, wrappingLogic } from "./utils";
 
 import initialValue from "./initialValue";
 import StyledEditor from "./StyledEditor";
@@ -66,6 +66,9 @@ class EditorWrapper extends Component<EditorWrapperProps, EditorWrapperState> {
         // @ts-ignore
         editor.insertBlock(slateBlock);
       }
+
+      // @ts-ignore
+      wrappingLogic(editor, slateBlock, block.type);
 
       // if markup is present on the node
       // apply it to the specified range
