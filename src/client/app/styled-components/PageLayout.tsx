@@ -49,9 +49,14 @@ const PageLayout = styled.div`
     font-size: 1.3em;
   }
 
-  p {
+  p,
+  li {
     font-size: 1.1em;
     line-height: 1.58;
+  }
+
+  li {
+    margin: 8px 0;
   }
 `;
 
