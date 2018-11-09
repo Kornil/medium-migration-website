@@ -73,7 +73,7 @@ class EditorWrapper extends Component<EditorWrapperProps, EditorWrapperState> {
       // if markup is present on the node
       // apply it to the specified range
       if (block.markups.length) {
-        const firstNode = slateBlock.nodes.first();
+        const firstNode = slateBlock.nodes.first() || slateBlock;
         block.markups.forEach((mark: MediumMark) => {
           const range = Range.fromJSON({
             anchor: {
