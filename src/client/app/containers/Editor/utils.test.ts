@@ -84,9 +84,7 @@ describe("wrappingLogic()", () => {
     // this is a type error with @types not being up to date
     // TODO send a PR to fix it
     // @ts-ignore
-    editor.change(change => {
-      change.insertBlock(listBlock);
-    });
+    editor.insertBlock(listBlock);
 
     wrappingLogic(editor, listBlock, 9);
 
