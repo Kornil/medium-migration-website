@@ -98,17 +98,12 @@ describe("wrappingLogic()", () => {
     const firstListItem = Block.create(BLOCKS.LIST_ITEM);
     const secondListItem = Block.create(BLOCKS.LIST_ITEM);
 
-    // this is a type error with @types not being up to date
-    // TODO send a PR to fix it
-    // @ts-ignore
-    editor.change(change => {
-      change.insertBlock(firstListItem);
-      change.wrapBlockByKey(
-        firstListItem.key,
-        Block.create(BLOCKS.BULLETED_LIST)
-      );
-      change.insertBlock(secondListItem);
-    });
+    editor.insertBlock(firstListItem);
+    editor.wrapBlockByKey(
+      firstListItem.key,
+      Block.create(BLOCKS.BULLETED_LIST)
+    );
+    editor.insertBlock(secondListItem);
 
     wrappingLogic(editor, secondListItem, 9);
 
@@ -129,14 +124,9 @@ describe("wrappingLogic()", () => {
     const paragraphBlock = Block.create(BLOCKS.PARAGRAPH);
     const spy = spyOn(editor, "unwrapBlockByKey");
 
-    // this is a type error with @types not being up to date
-    // TODO send a PR to fix it
-    // @ts-ignore
-    editor.change(change => {
-      change.insertBlock(listBlock);
-      change.wrapBlockByKey(listBlock.key, Block.create(BLOCKS.BULLETED_LIST));
-      change.insertBlock(paragraphBlock);
-    });
+    editor.insertBlock(listBlock);
+    editor.wrapBlockByKey(listBlock.key, Block.create(BLOCKS.BULLETED_LIST));
+    editor.insertBlock(paragraphBlock);
 
     wrappingLogic(editor, paragraphBlock, 1);
 
