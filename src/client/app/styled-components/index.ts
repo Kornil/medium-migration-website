@@ -5,3 +5,4 @@ export { default as StyledTitle } from "./StyledTitle";
 export { default as StyledLink } from "./StyledLink";
 export { default as StyledLoading } from "./StyledLoading";
 export { default as StyledSidebar } from "./StyledSidebar";
+export { default as MainSection } from "./MainSection";

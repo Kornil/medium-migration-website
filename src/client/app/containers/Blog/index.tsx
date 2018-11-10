@@ -1,15 +1,10 @@
 import React from "react";
-import styled from "react-emotion";
 
-import { StyledBody, StyledTitle } from "app/styled-components";
+import { MainSection, StyledBody, StyledTitle } from "app/styled-components";
 
 import StoriesContext, { StoryInterface } from "app/context/StoriesContext";
 
 import { ArticleCard } from "./components";
-
-const MainSection = styled.section`
-  grid-column: 2;
-`;
 
 export const Blog: React.SFC<{
   StoriesContext: { stories: StoryInterface[] };
