@@ -10,10 +10,10 @@ const StyledHeader = styled.header`
   height: 40px;
   align-items: center;
 
-  a:nth-of-type(1) {
+  ${NavLink}:nth-of-type(1) {
     text-align: end;
   }
-  a:nth-of-type(3) {
+  ${NavLink}:nth-of-type(3) {
     text-align: start;
   }
 `;
