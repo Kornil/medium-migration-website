@@ -14,8 +14,15 @@ const StyledEditor = styled.div`
       #dfdfdf 8px,
       #dfdfdf 16px
     );
-    padding: 8px;
+
+    padding: 1em 0;
     border-radius: 4px;
+    margin: 1em 0;
+    display: grid;
+    grid-template-columns: 0.05fr 1fr;
+    > * {
+      grid-column: 2;
+    }
   }
 
   figure {
