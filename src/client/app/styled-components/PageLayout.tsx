@@ -12,6 +12,15 @@ const PageLayout = styled.div`
   text-align: center;
   display: grid;
   grid-template-rows: 50px 1fr 50px;
+  grid-template-columns: 0.3fr 1fr 0.3fr;
+
+  @media (max-width: 425px) {
+    grid-template-columns: 1fr;
+  }
+
+  > * {
+    grid-column: 2;
+  }
 
   /* fix scrollbar issue */
   padding-left: calc(100vw - 100%);

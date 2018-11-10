@@ -4,11 +4,18 @@ import styled from "react-emotion";
 import { NavLink } from "app/styled-components";
 
 const StyledHeader = styled.header`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   padding: 8px 0;
   height: 40px;
-  display: flex;
   align-items: center;
-  justify-content: center;
+
+  a:nth-of-type(1) {
+    text-align: end;
+  }
+  a:nth-of-type(3) {
+    text-align: start;
+  }
 `;
 
 const Header: React.SFC<{}> = () => (

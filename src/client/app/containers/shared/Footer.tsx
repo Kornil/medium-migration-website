@@ -10,12 +10,15 @@ import LinkedinLogo from "assets/linkedin-in-brands.svg";
 import TwitterLogo from "assets/twitter-brands.svg";
 
 const StyledFooter = styled.footer`
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
-  justify-content: center;
 
-  a {
-    padding: 0 48px;
+  a:nth-of-type(1) {
+    text-align: end;
+  }
+  a:nth-of-type(3) {
+    text-align: start;
   }
 `;
 
