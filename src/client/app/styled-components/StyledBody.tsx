@@ -6,6 +6,11 @@ const StyledBody = styled.section`
   padding: 16px 0;
   margin: 80px 0 0 0;
   text-align: start;
+
+  @media (max-width: 425px) {
+    grid-template-columns: 1fr;
+    padding: 1em;
+  }
 `;
 
 export default StyledBody;

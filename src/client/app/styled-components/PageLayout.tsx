@@ -14,6 +14,10 @@ const PageLayout = styled.div`
   grid-template-rows: 50px 1fr 50px;
   grid-template-columns: 0.3fr 1fr 0.3fr;
 
+  @media (max-width: 769px) {
+    grid-template-columns: 0.2fr 1fr 0.2fr;
+  }
+
   @media (max-width: 425px) {
     grid-template-columns: 1fr;
   }
