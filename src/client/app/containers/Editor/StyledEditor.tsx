@@ -7,16 +7,11 @@ const StyledEditor = styled.div`
 
   blockquote {
     font-family: "Lucida Console", Monaco, monospace;
-    background: repeating-linear-gradient(
-      45deg,
-      #d2d2d2,
-      #d2d2d2 8px,
-      #dfdfdf 8px,
-      #dfdfdf 16px
-    );
+    background: #565656;
+    color: #dfdfdf;
 
     padding: 1em 0;
-    border-radius: 4px;
+    border-radius: 2px;
     margin: 1em 0;
     display: grid;
     grid-template-columns: 0.05fr 1fr;
