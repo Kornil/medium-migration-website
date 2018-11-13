@@ -10,7 +10,7 @@ import { PageLayout } from "app/styled-components";
 import OwnerContext, { ownerContextValue } from "app/context/OwnerContext";
 import StoriesContext, { storiesContext } from "app/context/StoriesContext";
 
-// import reactLogo from "assets/images/React-icon.png";
+const mediumKey = "medium_data";
 
 class App extends Component {
   state = {
@@ -18,6 +18,12 @@ class App extends Component {
   };
 
   async componentDidMount() {
+    const mediumData = localStorage.getItem(mediumKey);
+    if (mediumData) {
+      this.setState({
+        articlesData: JSON.parse(mediumData)
+      });
+    }
     const articlesData = await storiesContext();
     this.setState({
       articlesData

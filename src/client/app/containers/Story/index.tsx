@@ -82,9 +82,8 @@ export class StoryPageMatcher extends PureComponent<
 
   componentDidUpdate(prevProps: StoryPageMatcherProps) {
     if (
-      !this.state.isContextReady &&
-      prevProps.StoriesContext.stories.length === 0 &&
-      this.props.StoriesContext.stories.length > 0
+      prevProps.StoriesContext.stories.length !==
+      this.props.StoriesContext.stories.length
     ) {
       this.fetchStory();
     }
