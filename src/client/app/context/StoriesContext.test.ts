@@ -14,11 +14,4 @@ describe("ArticleContext ", () => {
 
     expect(data).toEqual(successData);
   });
-
-  it("gets data from localStorage", async () => {
-    localStorage.setItem("medium_data", JSON.stringify(successData.stories));
-    const data = await storiesContext();
-
-    expect(data).toEqual(successData);
-  });
 });

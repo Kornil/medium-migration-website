@@ -1,5 +1,7 @@
 import createContextFactory from "./createContext";
 
+const mediumKey = "medium_data";
+
 export interface StoryInterface {
   link: string;
   title: string;
@@ -7,22 +9,15 @@ export interface StoryInterface {
 }
 
 export const storiesContext = async () => {
-  const mediumKey = "medium_data";
   let stories: [] | StoryInterface[] = [];
+  try {
+    const response: Response = await fetch("/medium-api");
 
-  const mediumData = localStorage.getItem(mediumKey);
-  if (mediumData) {
-    stories = JSON.parse(mediumData);
-  } else {
-    try {
-      const response: Response = await fetch("/medium-api");
-
-      const { payload }: { payload: StoryInterface[] } = await response.json();
-      stories = payload;
-      localStorage.setItem(mediumKey, JSON.stringify(payload));
-    } catch (error) {
-      // TODO add notifications component
-    }
+    const { payload }: { payload: StoryInterface[] } = await response.json();
+    stories = payload;
+    localStorage.setItem(mediumKey, JSON.stringify(payload));
+  } catch (error) {
+    // TODO add notifications component
   }
   return {
     stories
