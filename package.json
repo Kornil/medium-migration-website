@@ -116,7 +116,7 @@
     "dotenv": "^6.1.0",
     "emotion": "^9.2.6",
     "emotion-normalize": "^8.0.0",
-    "emotion-server": "^9.2.12",
+    "emotion-server": "^10.0.0",
     "es6-promise": "^4.2.5",
     "express": "^4.16.3",
     "immutable": "^3.8.2",
