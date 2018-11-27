@@ -124,7 +124,7 @@
     "mongoose": "^5.3.10",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
-    "react-emotion": "^9.2.10",
+    "react-emotion": "^10.0.0",
     "react-router-dom": "^4.3.1",
     "slate": "^0.44.6",
     "slate-react": "^0.21.1"
