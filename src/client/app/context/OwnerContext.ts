@@ -1,4 +1,4 @@
-import createContextFactory from "./createContext";
+import createContextFactory from "react-better-context";
 
 export interface OwnerContextValueInterface {
   name: string;
