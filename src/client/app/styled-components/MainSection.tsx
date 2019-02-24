@@ -1,4 +1,4 @@
-import styled from "react-emotion";
+import styled from "@emotion/styled";
 
 const MainSection = styled.section`
   @media (min-width: 426px) {

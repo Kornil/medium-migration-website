@@ -1,5 +1,6 @@
 import React from "react";
-import styled from "react-emotion";
+
+import styled from "@emotion/styled";
 
 import { NavLink } from "app/styled-components";
 
@@ -18,7 +19,8 @@ const StyledHeader = styled.header`
   }
 `;
 
-const Header: React.SFC<{}> = () => (
+const Header: React.FC<{}> = () => (
+  // @ts-ignore issue with library waiting for fix on emotion side
   <StyledHeader>
     <NavLink activeClassName="active" exact to="/">
       home

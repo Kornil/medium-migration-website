@@ -1,4 +1,4 @@
-import styled from "react-emotion";
+import styled from "@emotion/styled";
 import { NavLink as Link } from "react-router-dom";
 
 const NavLink = styled(Link)`

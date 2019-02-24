@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "react-emotion";
+import styled from "@emotion/styled";
 
 import { StyledLink } from "app/styled-components";
 import { getDateFromUnix } from "app/utils";

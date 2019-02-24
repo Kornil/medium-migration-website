@@ -1,12 +1,3 @@
-import { injectGlobal } from "emotion";
-// @ts-ignore
-import emotionNormalize from "emotion-normalize";
-
-/* tslint:disable-next-line */
-injectGlobal`
-  ${emotionNormalize}
-`;
-
 import * as offlinePluginRuntime from "offline-plugin/runtime";
 import React from "react";
 import ReactDOM from "react-dom";

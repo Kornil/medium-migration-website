@@ -2,6 +2,10 @@
 
 import React, { Component } from "react";
 
+import { css, Global } from "@emotion/core";
+// @ts-ignore doesn't have types available
+import emotionNormalize from "emotion-normalize";
+
 import Routes from "app/Routes";
 
 import { Footer, Header } from "app/containers/shared";
@@ -38,6 +42,17 @@ class App extends Component {
     const { articlesData } = this.state;
     return (
       <OwnerContext.Provider value={ownerContextValue}>
+        <Global
+          styles={css`
+            ${emotionNormalize}
+          html,
+          body,
+          #root {
+              margin: 0;
+              height: 100%;
+            }
+          `}
+        />
         <PageLayout>
           <Header />
           <StoriesContext.Provider value={articlesData}>
