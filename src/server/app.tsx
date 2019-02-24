@@ -5,7 +5,6 @@ import mongoose from "mongoose";
 import "es6-promise/auto";
 import "isomorphic-fetch";
 
-import { renderStylesToString } from "emotion-server";
 import React from "react";
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router-dom";
@@ -65,12 +64,10 @@ interface ContextInterface {
 
 app.get("*", (req, res) => {
   const context: ContextInterface = {};
-  const markup = renderStylesToString(
-    renderToString(
-      <StaticRouter location={req.url} context={context}>
-        <App />
-      </StaticRouter>
-    )
+  const markup = renderToString(
+    <StaticRouter location={req.url} context={context}>
+      <App />
+    </StaticRouter>
   );
 
   /* istanbul ignore next */

@@ -1,4 +1,4 @@
-import styled from "react-emotion";
+import styled from "@emotion/styled";
 
 const StyledTitle = styled.header`
   margin-bottom: 48px;

@@ -12,7 +12,7 @@ module.exports = {
     "^.+\\.(tsx?|jsx?)$": "babel-jest"
   },
   snapshotSerializers: ["enzyme-to-json/serializer"],
-  setupTestFrameworkScriptFile: "<rootDir>/src/client/tests/setup.ts",
+  setupFilesAfterEnv: ["<rootDir>/src/client/tests/setup.ts"],
   collectCoverage: true,
   coverageDirectory: "./coverage/",
   collectCoverageFrom: ["src/**/*.{ts,tsx}"],

@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { StyledComponent } from "react-emotion";
+import styled, { StyledComponent } from "@emotion/styled";
 
 interface StyledCtaInterface {
   [key: string]: StyledComponent<{}, any, any>;

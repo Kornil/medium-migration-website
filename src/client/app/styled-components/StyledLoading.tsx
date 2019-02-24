@@ -1,4 +1,5 @@
-import styled, { keyframes } from "react-emotion";
+import { keyframes } from "@emotion/core";
+import styled from "@emotion/styled";
 
 import Spinner from "assets/spinner-third-light.svg";
 
