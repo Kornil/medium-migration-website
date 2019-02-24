@@ -6,5 +6,6 @@
     "jsx-no-multiline-js": ["error", "never"],
     "forin": false,
     "member-access": [true, "no-public"]
-  }
+  },
+  "exclude": ["node_modules"]
 }
