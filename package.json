@@ -68,7 +68,7 @@
     "@types/webpack-hot-middleware": "^2.16.5",
     "babel-jest": "^24.1.0",
     "babel-loader": "^8.0.5",
-    "babel-plugin-emotion": "^9.2.6",
+    "babel-plugin-emotion": "^10.0.9",
     "babel-plugin-module-resolver": "^3.2.0",
     "copy-webpack-plugin": "^4.5.4",
     "create-file-webpack": "^1.0.2",
