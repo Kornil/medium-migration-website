@@ -113,7 +113,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.2.5",
     "@emotion/core": "^10.0.9",
-    "@emotion/styled": "^10.0.7",
+    "@emotion/styled": "^10.0.9",
     "dotenv": "^6.2.0",
     "emotion-normalize": "^10.0.0",
     "es6-promise": "^4.2.6",
