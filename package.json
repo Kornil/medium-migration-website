@@ -99,7 +99,7 @@
     "supertest": "^3.4.2",
     "tslint": "^5.13.0",
     "tslint-config-prettier": "^1.18.0",
-    "tslint-react": "^3.6.0",
+    "tslint-react": "^4.0.0",
     "typescript": "^3.3.3333",
     "url-loader": "^1.0.1",
     "webpack": "^4.29.5",
