@@ -125,7 +125,7 @@
     "react-better-context": "^1.0.5",
     "react-dom": "^16.8.3",
     "react-router-dom": "^4.3.1",
-    "slate": "^0.44.6",
+    "slate": "^0.45.0",
     "slate-react": "^0.21.1"
   }
 }
