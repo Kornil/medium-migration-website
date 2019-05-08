@@ -59,8 +59,8 @@
     "@types/react": "^16.8.17",
     "@types/react-dom": "^16.8.4",
     "@types/react-router-dom": "^4.3.3",
-    "@types/slate": "^0.43.9",
-    "@types/slate-react": "^0.20.4",
+    "@types/slate": "0.43.1",
+    "@types/slate-react": "0.20.1",
     "@types/supertest": "^2.0.7",
     "@types/webpack": "^4.4.31",
     "@types/webpack-dev-middleware": "^2.0.2",
@@ -125,7 +125,7 @@
     "react-better-context": "^1.0.5",
     "react-dom": "^16.8.6",
     "react-router-dom": "^4.3.1",
-    "slate": "^0.44.13",
-    "slate-react": "^0.21.24"
+    "slate": "0.44.6",
+    "slate-react": "0.21.1"
   }
 }
