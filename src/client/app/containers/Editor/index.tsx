@@ -47,10 +47,6 @@ class EditorWrapper extends Component<EditorWrapperProps, EditorWrapperState> {
     this.setState = () => undefined;
   }
 
-  onChange = ({ value }: { value: Value }) => {
-    this.setState({ value });
-  };
-
   MediumToSlateConverter = () => {
     const { story } = this.props;
     const { content: paragraphs } = story;
@@ -108,7 +104,6 @@ class EditorWrapper extends Component<EditorWrapperProps, EditorWrapperState> {
       <StyledEditor>
         <Editor
           value={this.state.value}
-          onChange={this.onChange}
           plugins={plugins}
           ref={this.editor}
           readOnly
